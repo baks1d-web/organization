@@ -5,7 +5,8 @@ import os
 import aiohttp
 from aiogram import Bot, Dispatcher
 from aiogram.filters import Command
-from aiogram.types import InlineKeyboardButton, InlineKeyboardMarkup, Message, WebAppInfo
+from aiogram.types import InlineKeyboardButton, InlineKeyboardMarkup, Message, WebAppInfo, CallbackQuery
+import json
 from dotenv import load_dotenv
 
 from backend.app.utils.decorators import log_async_call
@@ -46,14 +47,70 @@ async def backend_start_session(tg_user) -> dict:
             url,
             json=payload,
             headers={"X-Bot-Api-Key": BOT_API_KEY, "Content-Type": "application/json"},
-            timeout=aiohttp.ClientTimeout(total=10),
+            timeout=aiohttp.ClientTimeout(total=15),
             ssl=False,
         ) as resp:
-            data = await resp.json(content_type=None)
+            body_text = await resp.text()
+
+            # Логируем, что реально вернул сервер
+            logger.info("backend_start_session: status=%s body=%s", resp.status, body_text[:1000])
+
+            try:
+                data = json.loads(body_text) if body_text else {}
+            except Exception:
+                raise RuntimeError(f"Backend returned non-JSON response: status={resp.status}, body={body_text[:300]}")
+
             if resp.status != 200 or not data.get("ok"):
                 raise RuntimeError(f"Backend error: status={resp.status}, body={data}")
+
             return data
 
+
+async def backend_get_pending_invites(user) -> list[dict]:
+    url = f"{BACKEND_URL.rstrip('/')}/api/bot/invites/pending"
+    payload = {"tg_id": user.id, "username": getattr(user, "username", None)}
+    async with aiohttp.ClientSession() as session:
+        async with session.post(
+                url,
+                json=payload,
+                headers={"X-Bot-Api-Key": BOT_API_KEY},
+                timeout=aiohttp.ClientTimeout(total=10),
+                ssl=False,
+        ) as resp:
+            data = await resp.json()
+            if resp.status != 200 or not data.get("ok"):
+                return []
+            return data.get("items") or []
+
+
+async def backend_accept_invite(user, invite_id: int) -> bool:
+    url = f"{BACKEND_URL.rstrip('/')}/api/bot/invites/{invite_id}/accept"
+    payload = {"tg_id": user.id}
+    async with aiohttp.ClientSession() as session:
+        async with session.post(
+                url,
+                json=payload,
+                headers={"X-Bot-Api-Key": BOT_API_KEY},
+                timeout=aiohttp.ClientTimeout(total=10),
+                ssl=False,
+        ) as resp:
+            data = await resp.json()
+            return resp.status == 200 and data.get("ok") is True
+
+
+async def backend_decline_invite(user, invite_id: int) -> bool:
+    url = f"{BACKEND_URL.rstrip('/')}/api/bot/invites/{invite_id}/decline"
+    payload = {"tg_id": user.id}
+    async with aiohttp.ClientSession() as session:
+        async with session.post(
+                url,
+                json=payload,
+                headers={"X-Bot-Api-Key": BOT_API_KEY},
+                timeout=aiohttp.ClientTimeout(total=10),
+                ssl=False,
+        ) as resp:
+            data = await resp.json()
+            return resp.status == 200 and data.get("ok") is True
 
 @dp.message(Command("start"))
 @log_async_call
@@ -64,6 +121,26 @@ async def cmd_start(message: Message):
     # 1) DB write + JWT creation on backend
     try:
         data = await backend_start_session(user)
+        # показать pending приглашения
+        if getattr(user, "username", None):
+            invites = await backend_get_pending_invites(user)
+            for inv in invites:
+                kb = InlineKeyboardMarkup(inline_keyboard=[
+                    [
+                        InlineKeyboardButton(text="✅ Принять", callback_data=f"inv_accept:{inv['id']}"),
+                        InlineKeyboardButton(text="❌ Отклонить", callback_data=f"inv_decline:{inv['id']}"),
+                    ]
+                ])
+                by = inv.get("created_by") or {}
+                by_name = by.get("first_name") or by.get("username") or "пользователь"
+                await message.answer(
+                    f"Вас пригласили в группу: <b>{inv.get('group_name')}</b>\n"
+                    f"Пригласил: {by_name}\n\nПринять приглашение?",
+                    reply_markup=kb
+                )
+        else:
+            await message.answer("⚠️ У вас не установлен username (@ник). Вас нельзя пригласить по нику.")
+
         token = data["access_token"]
     except Exception as e:
         logger.exception("Failed to create backend session")
@@ -101,10 +178,31 @@ async def cmd_ping(message: Message):
 async def cmd_id(message: Message):
     await message.answer(f"Ваш Telegram ID: <code>{message.from_user.id}</code>")
 
+@dp.callback_query(lambda c: c.data and c.data.startswith("inv_accept:"))
+async def cb_inv_accept(call: CallbackQuery):
+    invite_id = int(call.data.split(":")[1])
+    ok = await backend_accept_invite(call.from_user, invite_id)
+    if ok:
+        await call.message.edit_text("✅ Приглашение принято. Группа теперь доступна в WebApp → Общие.")
+    else:
+        await call.message.edit_text("⚠️ Не удалось принять приглашение (возможно уже неактуально).")
+    await call.answer()
+
+
+@dp.callback_query(lambda c: c.data and c.data.startswith("inv_decline:"))
+async def cb_inv_decline(call: CallbackQuery):
+    invite_id = int(call.data.split(":")[1])
+    ok = await backend_decline_invite(call.from_user, invite_id)
+    if ok:
+        await call.message.edit_text("❌ Приглашение отклонено.")
+    else:
+        await call.message.edit_text("⚠️ Не удалось отклонить приглашение (возможно уже неактуально).")
+    await call.answer()
+
 
 async def main():
     logger.info("Bot starting… WEBAPP_URL=%s BACKEND_URL=%s", WEBAPP_URL, BACKEND_URL)
-    await dp.start_polling(bot, allowed_updates=["message"], drop_pending_updates=True)
+    await dp.start_polling(bot, allowed_updates=["message", "callback_query"], drop_pending_updates=True)
 
 
 if __name__ == "__main__":

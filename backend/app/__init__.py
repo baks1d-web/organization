@@ -43,5 +43,13 @@ def create_app() -> Flask:
     with app.app_context():
         from . import models  # noqa: F401
         db.create_all()
+        try:
+            from .utils.migrations import ensure_sqlite_schema
+            ensure_sqlite_schema()
+        except Exception:
+            # Never break app startup because of non-critical SQLite migrations
+            import logging
+
+            logging.getLogger(__name__).exception("SQLite schema migration failed")
 
     return app

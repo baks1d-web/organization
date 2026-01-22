@@ -1,48 +1,175 @@
 from __future__ import annotations
 
+import secrets
 from datetime import datetime
 
 from .extensions import db
 
 
-class TimestampMixin:
-    created_at = db.Column(db.DateTime, default=datetime.utcnow, nullable=False)
-    updated_at = db.Column(db.DateTime, default=datetime.utcnow, onupdate=datetime.utcnow, nullable=False)
+class User(db.Model):
+    __tablename__ = "users"
 
-
-class User(db.Model, TimestampMixin):
     id = db.Column(db.Integer, primary_key=True)
-    tg_id = db.Column(db.BigInteger, unique=True, index=True, nullable=True)
-    username = db.Column(db.String(64), nullable=True)
+    tg_id = db.Column(db.BigInteger, unique=True, nullable=True, index=True)
+    username = db.Column(db.String(128), nullable=True)
     first_name = db.Column(db.String(128), nullable=True)
 
+    created_at = db.Column(db.DateTime, default=datetime.utcnow, nullable=False)
 
-class Group(db.Model, TimestampMixin):
+
+class Group(db.Model):
+    __tablename__ = "groups"
+
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(128), nullable=False)
-    owner_id = db.Column(db.Integer, db.ForeignKey("user.id"), nullable=False)
+    owner_id = db.Column(db.Integer, db.ForeignKey("users.id"), nullable=False)
+
+    created_at = db.Column(db.DateTime, default=datetime.utcnow, nullable=False)
 
 
-class GroupMember(db.Model, TimestampMixin):
+class GroupMember(db.Model):
+    __tablename__ = "group_members"
+
     id = db.Column(db.Integer, primary_key=True)
-    user_id = db.Column(db.Integer, db.ForeignKey("user.id"), nullable=False)
-    group_id = db.Column(db.Integer, db.ForeignKey("group.id"), nullable=False)
-    can_tasks = db.Column(db.Boolean, default=True)
-    can_finance = db.Column(db.Boolean, default=False)
+    user_id = db.Column(db.Integer, db.ForeignKey("users.id"), nullable=False, index=True)
+    group_id = db.Column(db.Integer, db.ForeignKey("groups.id"), nullable=False, index=True)
+
+    can_tasks = db.Column(db.Boolean, default=True, nullable=False)
+    can_finance = db.Column(db.Boolean, default=True, nullable=False)
+
+    created_at = db.Column(db.DateTime, default=datetime.utcnow, nullable=False)
 
 
-class Task(db.Model, TimestampMixin):
+class GroupInvite(db.Model):
+    __tablename__ = "group_invites"
+
     id = db.Column(db.Integer, primary_key=True)
+    token = db.Column(db.String(64), unique=True, nullable=False, index=True)
+
+    group_id = db.Column(db.Integer, db.ForeignKey("groups.id"), nullable=False, index=True)
+    created_by_id = db.Column(db.Integer, db.ForeignKey("users.id"), nullable=False)
+
+    used_by_id = db.Column(db.Integer, db.ForeignKey("users.id"), nullable=True)
+    used_at = db.Column(db.DateTime, nullable=True)
+
+    created_at = db.Column(db.DateTime, default=datetime.utcnow, nullable=False)
+
+    @staticmethod
+    def new_token() -> str:
+        return secrets.token_urlsafe(24)
+
+
+class Task(db.Model):
+    __tablename__ = "tasks"
+
+    id = db.Column(db.Integer, primary_key=True)
+
+    group_id = db.Column(db.Integer, db.ForeignKey("groups.id"), nullable=False, index=True)
+
     title = db.Column(db.String(256), nullable=False)
-    group_id = db.Column(db.Integer, db.ForeignKey("group.id"), nullable=False)
-    responsible_id = db.Column(db.Integer, db.ForeignKey("user.id"), nullable=False)
+    description = db.Column(db.Text, nullable=True)
+
+    status = db.Column(db.String(32), default="new", nullable=False)
+    done = db.Column(db.Boolean, default=False, nullable=False)
+    urgent = db.Column(db.Boolean, default=False, nullable=False)
+
     deadline = db.Column(db.Date, nullable=True)
-    urgent = db.Column(db.Boolean, default=False)
-    done = db.Column(db.Boolean, default=False)
+
+    responsible_id = db.Column(db.Integer, db.ForeignKey("users.id"), nullable=False)
+    assigned_by_id = db.Column(db.Integer, db.ForeignKey("users.id"), nullable=True)
+
+    created_at = db.Column(db.DateTime, default=datetime.utcnow, nullable=False)
 
 
-class FinanceItem(db.Model, TimestampMixin):
+class TaskAssignee(db.Model):
+    __tablename__ = "task_assignees"
+
     id = db.Column(db.Integer, primary_key=True)
-    user_id = db.Column(db.Integer, db.ForeignKey("user.id"), nullable=False)
+    task_id = db.Column(db.Integer, db.ForeignKey("tasks.id"), nullable=False, index=True)
+    user_id = db.Column(db.Integer, db.ForeignKey("users.id"), nullable=False, index=True)
+
+    created_at = db.Column(db.DateTime, default=datetime.utcnow, nullable=False)
+
+
+class FinanceItem(db.Model):
+    __tablename__ = "finance_items"
+
+    id = db.Column(db.Integer, primary_key=True)
+    user_id = db.Column(db.Integer, db.ForeignKey("users.id"), nullable=False, index=True)
+
     title = db.Column(db.String(256), nullable=False)
-    amount = db.Column(db.Integer, nullable=False)  # store in smallest currency unit if needed
+    amount = db.Column(db.Integer, nullable=False)
+
+    created_at = db.Column(db.DateTime, default=datetime.utcnow, nullable=False)
+
+
+class GroupFinanceCategory(db.Model):
+    __tablename__ = "group_finance_categories"
+
+    id = db.Column(db.Integer, primary_key=True)
+    group_id = db.Column(db.Integer, db.ForeignKey("groups.id"), nullable=False, index=True)
+    name = db.Column(db.String(128), nullable=False)
+
+
+class GroupPaymentMethod(db.Model):
+    __tablename__ = "group_payment_methods"
+
+    id = db.Column(db.Integer, primary_key=True)
+    group_id = db.Column(db.Integer, db.ForeignKey("groups.id"), nullable=False, index=True)
+    name = db.Column(db.String(128), nullable=False)
+
+
+class GroupFinanceItem(db.Model):
+    __tablename__ = "group_finance_items"
+
+    id = db.Column(db.Integer, primary_key=True)
+    group_id = db.Column(db.Integer, db.ForeignKey("groups.id"), nullable=False, index=True)
+    created_by_id = db.Column(db.Integer, db.ForeignKey("users.id"), nullable=False)
+
+    kind = db.Column(db.String(16), nullable=False)  # income | expense
+    amount = db.Column(db.Integer, nullable=False)
+    description = db.Column(db.Text, nullable=True)
+
+    category_id = db.Column(db.Integer, db.ForeignKey("group_finance_categories.id"), nullable=True)
+    method_id = db.Column(db.Integer, db.ForeignKey("group_payment_methods.id"), nullable=True)
+
+    created_at = db.Column(db.DateTime, default=datetime.utcnow, nullable=False)
+
+
+class NotificationSettings(db.Model):
+    __tablename__ = "notification_settings"
+
+    id = db.Column(db.Integer, primary_key=True)
+    user_id = db.Column(db.Integer, db.ForeignKey("users.id"), unique=True, nullable=False, index=True)
+
+    notify_new_task = db.Column(db.Boolean, default=True, nullable=False)
+    notify_task_updates = db.Column(db.Boolean, default=True, nullable=False)
+
+    updated_at = db.Column(db.DateTime, default=datetime.utcnow, nullable=False)
+
+    @staticmethod
+    def get_or_create(user_id: int) -> "NotificationSettings":
+        row = NotificationSettings.query.filter_by(user_id=user_id).first()
+        if row:
+            return row
+        row = NotificationSettings(user_id=user_id, notify_new_task=True, notify_task_updates=True)
+        db.session.add(row)
+        db.session.commit()
+        return row
+
+class GroupUsernameInvite(db.Model):
+    __tablename__ = "group_username_invites"
+
+    id = db.Column(db.Integer, primary_key=True)
+
+    group_id = db.Column(db.Integer, db.ForeignKey("groups.id"), nullable=False, index=True)
+    created_by_id = db.Column(db.Integer, db.ForeignKey("users.id"), nullable=False)
+
+    target_username = db.Column(db.String(128), nullable=False, index=True)  # lower, without "@"
+
+    status = db.Column(db.String(16), default="pending", nullable=False)  # pending|accepted|declined
+
+    decided_by_id = db.Column(db.Integer, db.ForeignKey("users.id"), nullable=True)
+    decided_at = db.Column(db.DateTime, nullable=True)
+
+    created_at = db.Column(db.DateTime, default=datetime.utcnow, nullable=False)

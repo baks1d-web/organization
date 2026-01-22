@@ -1,11 +1,11 @@
-2026-01-22 00:30:36,092 | INFO    | bot | Bot starting… WEBAPP_URL=https://cfaa0be4e823.ngrok-free.app BACKEND_URL=https://cfaa0be4e823.ngrok-free.app
-2026-01-22 00:30:36,092 | INFO    | aiogram.dispatcher | Start polling
-2026-01-22 00:30:36,524 | INFO    | aiogram.dispatcher | Run polling for bot @techreds_bot id=7320198123 - 'DB'
-2026-01-22 00:30:41,161 | INFO    | __main__ | → cmd_start()
-2026-01-22 00:30:41,165 | INFO    | bot | /start from tg_id=747937058 username=baks1d
-2026-01-22 00:30:41,421 | ERROR   | bot | Failed to create backend session
+2026-01-22 00:56:39,325 | INFO    | bot | Bot starting… WEBAPP_URL=https://cfaa0be4e823.ngrok-free.app BACKEND_URL=https://cfaa0be4e823.ngrok-free.app
+2026-01-22 00:56:39,325 | INFO    | aiogram.dispatcher | Start polling
+2026-01-22 00:56:39,747 | INFO    | aiogram.dispatcher | Run polling for bot @techreds_bot id=7320198123 - 'DB'
+2026-01-22 00:56:44,919 | INFO    | __main__ | → cmd_start()
+2026-01-22 00:56:44,920 | INFO    | bot | /start from tg_id=747937058 username=baks1d
+2026-01-22 00:56:45,273 | ERROR   | bot | Failed to create backend session
 Traceback (most recent call last):
-  File "/Users/macintosh/PycharmProjects/.venv/lib/python3.10/site-packages/aiohttp/connector.py", line 1080, in _wrap_create_connection
+  File "/Users/macintosh/Desktop/fixed_project_fixed_v3 3/.venv/lib/python3.10/site-packages/aiohttp/connector.py", line 1080, in _wrap_create_connection
     return await self._loop.create_connection(*args, **kwargs, sock=sock)
   File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/asyncio/base_events.py", line 1103, in create_connection
     transport, protocol = await self._create_connection_transport(
@@ -22,54 +22,409 @@ ssl.SSLCertVerificationError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verif
 The above exception was the direct cause of the following exception:
 
 Traceback (most recent call last):
-  File "/Users/macintosh/Desktop/fixed_project_fixed_v3/bot/bot.py", line 65, in cmd_start
+  File "/Users/macintosh/Desktop/fixed_project_fixed_v3 3/bot/bot.py", line 65, in cmd_start
     data = await backend_start_session(user)
-  File "/Users/macintosh/Desktop/fixed_project_fixed_v3/bot/bot.py", line 45, in backend_start_session
+  File "/Users/macintosh/Desktop/fixed_project_fixed_v3 3/bot/bot.py", line 45, in backend_start_session
     async with session.post(
-  File "/Users/macintosh/PycharmProjects/.venv/lib/python3.10/site-packages/aiohttp/client.py", line 1353, in __aenter__
+  File "/Users/macintosh/Desktop/fixed_project_fixed_v3 3/.venv/lib/python3.10/site-packages/aiohttp/client.py", line 1353, in __aenter__
     self._resp = await self._coro
-  File "/Users/macintosh/PycharmProjects/.venv/lib/python3.10/site-packages/aiohttp/client.py", line 657, in _request
+  File "/Users/macintosh/Desktop/fixed_project_fixed_v3 3/.venv/lib/python3.10/site-packages/aiohttp/client.py", line 657, in _request
     conn = await self._connector.connect(
-  File "/Users/macintosh/PycharmProjects/.venv/lib/python3.10/site-packages/aiohttp/connector.py", line 564, in connect
+  File "/Users/macintosh/Desktop/fixed_project_fixed_v3 3/.venv/lib/python3.10/site-packages/aiohttp/connector.py", line 564, in connect
     proto = await self._create_connection(req, traces, timeout)
-  File "/Users/macintosh/PycharmProjects/.venv/lib/python3.10/site-packages/aiohttp/connector.py", line 975, in _create_connection
+  File "/Users/macintosh/Desktop/fixed_project_fixed_v3 3/.venv/lib/python3.10/site-packages/aiohttp/connector.py", line 975, in _create_connection
     _, proto = await self._create_direct_connection(req, traces, timeout)
-  File "/Users/macintosh/PycharmProjects/.venv/lib/python3.10/site-packages/aiohttp/connector.py", line 1350, in _create_direct_connection
+  File "/Users/macintosh/Desktop/fixed_project_fixed_v3 3/.venv/lib/python3.10/site-packages/aiohttp/connector.py", line 1350, in _create_direct_connection
     raise last_exc
-  File "/Users/macintosh/PycharmProjects/.venv/lib/python3.10/site-packages/aiohttp/connector.py", line 1319, in _create_direct_connection
+  File "/Users/macintosh/Desktop/fixed_project_fixed_v3 3/.venv/lib/python3.10/site-packages/aiohttp/connector.py", line 1319, in _create_direct_connection
     transp, proto = await self._wrap_create_connection(
-  File "/Users/macintosh/PycharmProjects/.venv/lib/python3.10/site-packages/aiohttp/connector.py", line 1082, in _wrap_create_connection
+  File "/Users/macintosh/Desktop/fixed_project_fixed_v3 3/.venv/lib/python3.10/site-packages/aiohttp/connector.py", line 1082, in _wrap_create_connection
     raise ClientConnectorCertificateError(req.connection_key, exc) from exc
 aiohttp.client_exceptions.ClientConnectorCertificateError: Cannot connect to host cfaa0be4e823.ngrok-free.app:443 ssl:True [SSLCertVerificationError: (1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1007)')]
-2026-01-22 00:30:41,864 | INFO    | __main__ | ← cmd_start() 702.4ms
-2026-01-22 00:30:41,868 | INFO    | aiogram.event | Update id=211697834 is handled. Duration 708 ms by bot id=7320198123
-2026-01-22 00:33:19,146 | WARNING | aiogram.dispatcher | Received SIGINT signal
-2026-01-22 00:33:19,149 | INFO    | aiogram.dispatcher | Polling stopped for bot @techreds_bot id=7320198123 - 'DB'
-2026-01-22 00:33:19,149 | INFO    | aiogram.dispatcher | Polling stopped
-2026-01-22 00:33:24,982 | INFO    | bot | Bot starting… WEBAPP_URL=https://cfaa0be4e823.ngrok-free.app BACKEND_URL=https://cfaa0be4e823.ngrok-free.app
-2026-01-22 00:33:24,983 | INFO    | aiogram.dispatcher | Start polling
-2026-01-22 00:33:25,223 | INFO    | aiogram.dispatcher | Run polling for bot @techreds_bot id=7320198123 - 'DB'
-2026-01-22 00:33:29,747 | INFO    | __main__ | → cmd_start()
-2026-01-22 00:33:29,748 | INFO    | bot | /start from tg_id=747937058 username=baks1d
-2026-01-22 00:33:29,749 | ERROR   | bot | Failed to create backend session
+2026-01-22 00:56:45,633 | INFO    | __main__ | ← cmd_start() 714.6ms
+2026-01-22 00:56:45,633 | INFO    | aiogram.event | Update id=211697837 is handled. Duration 715 ms by bot id=7320198123
+2026-01-22 00:58:08,874 | WARNING | aiogram.dispatcher | Received SIGINT signal
+2026-01-22 00:58:08,876 | INFO    | aiogram.dispatcher | Polling stopped for bot @techreds_bot id=7320198123 - 'DB'
+2026-01-22 00:58:08,876 | INFO    | aiogram.dispatcher | Polling stopped
+2026-01-22 00:58:13,348 | INFO    | bot | Bot starting… WEBAPP_URL=https://cfaa0be4e823.ngrok-free.app BACKEND_URL=https://cfaa0be4e823.ngrok-free.app
+2026-01-22 00:58:13,349 | INFO    | aiogram.dispatcher | Start polling
+2026-01-22 00:58:13,827 | INFO    | aiogram.dispatcher | Run polling for bot @techreds_bot id=7320198123 - 'DB'
+2026-01-22 00:58:15,964 | INFO    | __main__ | → cmd_start()
+2026-01-22 00:58:15,965 | INFO    | bot | /start from tg_id=747937058 username=baks1d
+2026-01-22 00:58:16,887 | INFO    | __main__ | ← cmd_start() 923.0ms
+2026-01-22 00:58:16,888 | INFO    | aiogram.event | Update id=211697838 is handled. Duration 924 ms by bot id=7320198123
+2026-01-22 01:45:03,105 | WARNING | aiogram.dispatcher | Received SIGINT signal
+2026-01-22 01:45:03,131 | INFO    | aiogram.dispatcher | Polling stopped for bot @techreds_bot id=7320198123 - 'DB'
+2026-01-22 01:45:03,138 | INFO    | aiogram.dispatcher | Polling stopped
+2026-01-22 02:09:27,065 | INFO    | bot | Bot starting… WEBAPP_URL=https://cfaa0be4e823.ngrok-free.app BACKEND_URL=https://cfaa0be4e823.ngrok-free.app
+2026-01-22 02:09:27,067 | INFO    | aiogram.dispatcher | Start polling
+2026-01-22 02:09:27,494 | INFO    | aiogram.dispatcher | Run polling for bot @techreds_bot id=7320198123 - 'DB'
+2026-01-22 02:09:35,359 | INFO    | __main__ | → cmd_start()
+2026-01-22 02:09:35,360 | INFO    | bot | /start from tg_id=747937058 username=baks1d
+2026-01-22 02:09:36,230 | INFO    | __main__ | ← cmd_start() 871.1ms
+2026-01-22 02:09:36,231 | INFO    | aiogram.event | Update id=211697839 is handled. Duration 872 ms by bot id=7320198123
+2026-01-22 02:10:38,228 | ERROR   | aiogram.dispatcher | Failed to fetch updates - TelegramNetworkError: HTTP Client says - ServerDisconnectedError: Server disconnected
+2026-01-22 02:10:38,230 | WARNING | aiogram.dispatcher | Sleep for 1.000000 seconds and try again... (tryings = 0, bot id = 7320198123)
+2026-01-22 02:10:41,486 | ERROR   | aiogram.dispatcher | Failed to fetch updates - TelegramNetworkError: HTTP Client says - ClientConnectorError: Cannot connect to host api.telegram.org:443 ssl:default [None]
+2026-01-22 02:10:41,486 | WARNING | aiogram.dispatcher | Sleep for 1.235521 seconds and try again... (tryings = 1, bot id = 7320198123)
+2026-01-22 02:10:44,984 | ERROR   | aiogram.dispatcher | Failed to fetch updates - TelegramNetworkError: HTTP Client says - ClientConnectorError: Cannot connect to host api.telegram.org:443 ssl:default [None]
+2026-01-22 02:10:44,985 | WARNING | aiogram.dispatcher | Sleep for 1.618529 seconds and try again... (tryings = 2, bot id = 7320198123)
+2026-01-22 02:11:04,810 | ERROR   | aiogram.dispatcher | Failed to fetch updates - TelegramNetworkError: HTTP Client says - ClientConnectorError: Cannot connect to host api.telegram.org:443 ssl:default [None]
+2026-01-22 02:11:04,811 | WARNING | aiogram.dispatcher | Sleep for 2.041054 seconds and try again... (tryings = 3, bot id = 7320198123)
+2026-01-22 02:12:06,865 | ERROR   | aiogram.dispatcher | Failed to fetch updates - TelegramNetworkError: HTTP Client says - ClientConnectorError: Cannot connect to host api.telegram.org:443 ssl:default [None]
+2026-01-22 02:12:06,868 | WARNING | aiogram.dispatcher | Sleep for 2.731575 seconds and try again... (tryings = 4, bot id = 7320198123)
+2026-01-22 02:13:09,620 | ERROR   | aiogram.dispatcher | Failed to fetch updates - TelegramNetworkError: HTTP Client says - ClientConnectorError: Cannot connect to host api.telegram.org:443 ssl:default [None]
+2026-01-22 02:13:09,625 | WARNING | aiogram.dispatcher | Sleep for 3.549515 seconds and try again... (tryings = 5, bot id = 7320198123)
+2026-01-22 02:14:11,249 | ERROR   | aiogram.dispatcher | Failed to fetch updates - TelegramNetworkError: HTTP Client says - ClientConnectorError: Cannot connect to host api.telegram.org:443 ssl:default [None]
+2026-01-22 02:14:11,250 | WARNING | aiogram.dispatcher | Sleep for 4.770410 seconds and try again... (tryings = 6, bot id = 7320198123)
+2026-01-22 02:14:26,745 | INFO    | aiogram.dispatcher | Connection established (tryings = 7, bot id = 7320198123)
+2026-01-22 02:15:14,711 | ERROR   | aiogram.dispatcher | Failed to fetch updates - TelegramNetworkError: HTTP Client says - ClientOSError: [Errno 65] No route to host
+2026-01-22 02:15:14,712 | WARNING | aiogram.dispatcher | Sleep for 1.000000 seconds and try again... (tryings = 0, bot id = 7320198123)
+2026-01-22 02:15:53,367 | WARNING | aiogram.dispatcher | Received SIGINT signal
+2026-01-22 02:15:53,376 | INFO    | aiogram.dispatcher | Polling stopped for bot @techreds_bot id=7320198123 - 'DB'
+2026-01-22 02:15:53,378 | INFO    | aiogram.dispatcher | Polling stopped
+2026-01-22 02:47:56,516 | INFO    | bot | Bot starting… WEBAPP_URL=https://cfaa0be4e823.ngrok-free.app BACKEND_URL=https://cfaa0be4e823.ngrok-free.app
+2026-01-22 02:47:56,518 | INFO    | aiogram.dispatcher | Start polling
+2026-01-22 02:47:56,930 | INFO    | aiogram.dispatcher | Run polling for bot @techreds_bot id=7320198123 - 'DB'
+2026-01-22 02:47:57,017 | INFO    | __main__ | → cmd_start()
+2026-01-22 02:47:57,018 | INFO    | bot | /start from tg_id=747937058 username=baks1d
+2026-01-22 02:47:57,442 | ERROR   | bot | Failed to create backend session
 Traceback (most recent call last):
-  File "/Users/macintosh/Desktop/fixed_project_fixed_v3/bot/bot.py", line 57, in cmd_start
+  File "/Users/macintosh/Desktop/fixed_project_fixed_v3 3/bot/bot.py", line 66, in cmd_start
     data = await backend_start_session(user)
-  File "/Users/macintosh/Desktop/fixed_project_fixed_v3/bot/bot.py", line 45, in backend_start_session
-    async with session.post(url, json=payload, headers=headers, ssl=False) as resp:
-NameError: name 'headers' is not defined
-2026-01-22 00:33:30,072 | INFO    | __main__ | ← cmd_start() 325.3ms
-2026-01-22 00:33:30,072 | INFO    | aiogram.event | Update id=211697835 is handled. Duration 330 ms by bot id=7320198123
-2026-01-22 00:34:37,981 | WARNING | aiogram.dispatcher | Received SIGINT signal
-2026-01-22 00:34:37,984 | INFO    | aiogram.dispatcher | Polling stopped for bot @techreds_bot id=7320198123 - 'DB'
-2026-01-22 00:34:37,984 | INFO    | aiogram.dispatcher | Polling stopped
-2026-01-22 00:34:43,692 | INFO    | bot | Bot starting… WEBAPP_URL=https://cfaa0be4e823.ngrok-free.app BACKEND_URL=https://cfaa0be4e823.ngrok-free.app
-2026-01-22 00:34:43,693 | INFO    | aiogram.dispatcher | Start polling
-2026-01-22 00:34:44,124 | INFO    | aiogram.dispatcher | Run polling for bot @techreds_bot id=7320198123 - 'DB'
-2026-01-22 00:34:44,215 | INFO    | __main__ | → cmd_start()
-2026-01-22 00:34:44,215 | INFO    | bot | /start from tg_id=747937058 username=baks1d
-2026-01-22 00:34:45,178 | INFO    | __main__ | ← cmd_start() 962.9ms
-2026-01-22 00:34:45,178 | INFO    | aiogram.event | Update id=211697836 is handled. Duration 963 ms by bot id=7320198123
-2026-01-22 00:55:57,403 | WARNING | aiogram.dispatcher | Received SIGINT signal
-2026-01-22 00:55:57,406 | INFO    | aiogram.dispatcher | Polling stopped for bot @techreds_bot id=7320198123 - 'DB'
-2026-01-22 00:55:57,407 | INFO    | aiogram.dispatcher | Polling stopped
+  File "/Users/macintosh/Desktop/fixed_project_fixed_v3 3/bot/bot.py", line 52, in backend_start_session
+    data = await resp.json(content_type=None)
+  File "/Users/macintosh/Desktop/fixed_project_fixed_v3 3/.venv/lib/python3.10/site-packages/aiohttp/client_reqrep.py", line 1216, in json
+    return loads(stripped.decode(encoding))
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/json/__init__.py", line 346, in loads
+    return _default_decoder.decode(s)
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/json/decoder.py", line 337, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/json/decoder.py", line 355, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+2026-01-22 02:47:57,769 | INFO    | __main__ | ← cmd_start() 751.7ms
+2026-01-22 02:47:57,773 | INFO    | aiogram.event | Update id=211697840 is handled. Duration 756 ms by bot id=7320198123
+2026-01-22 02:48:50,387 | INFO    | __main__ | → cmd_start()
+2026-01-22 02:48:50,389 | INFO    | bot | /start from tg_id=747937058 username=baks1d
+2026-01-22 02:48:50,636 | ERROR   | bot | Failed to create backend session
+Traceback (most recent call last):
+  File "/Users/macintosh/Desktop/fixed_project_fixed_v3 3/bot/bot.py", line 66, in cmd_start
+    data = await backend_start_session(user)
+  File "/Users/macintosh/Desktop/fixed_project_fixed_v3 3/bot/bot.py", line 52, in backend_start_session
+    data = await resp.json(content_type=None)
+  File "/Users/macintosh/Desktop/fixed_project_fixed_v3 3/.venv/lib/python3.10/site-packages/aiohttp/client_reqrep.py", line 1216, in json
+    return loads(stripped.decode(encoding))
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/json/__init__.py", line 346, in loads
+    return _default_decoder.decode(s)
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/json/decoder.py", line 337, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/json/decoder.py", line 355, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+2026-01-22 02:48:50,879 | INFO    | __main__ | ← cmd_start() 492.0ms
+2026-01-22 02:48:50,880 | INFO    | aiogram.event | Update id=211697841 is handled. Duration 494 ms by bot id=7320198123
+2026-01-22 02:48:52,585 | INFO    | __main__ | → cmd_start()
+2026-01-22 02:48:52,586 | INFO    | bot | /start from tg_id=747937058 username=baks1d
+2026-01-22 02:48:52,821 | ERROR   | bot | Failed to create backend session
+Traceback (most recent call last):
+  File "/Users/macintosh/Desktop/fixed_project_fixed_v3 3/bot/bot.py", line 66, in cmd_start
+    data = await backend_start_session(user)
+  File "/Users/macintosh/Desktop/fixed_project_fixed_v3 3/bot/bot.py", line 52, in backend_start_session
+    data = await resp.json(content_type=None)
+  File "/Users/macintosh/Desktop/fixed_project_fixed_v3 3/.venv/lib/python3.10/site-packages/aiohttp/client_reqrep.py", line 1216, in json
+    return loads(stripped.decode(encoding))
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/json/__init__.py", line 346, in loads
+    return _default_decoder.decode(s)
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/json/decoder.py", line 337, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/json/decoder.py", line 355, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+2026-01-22 02:48:52,897 | INFO    | __main__ | ← cmd_start() 311.1ms
+2026-01-22 02:48:52,897 | INFO    | aiogram.event | Update id=211697842 is handled. Duration 316 ms by bot id=7320198123
+2026-01-22 02:49:01,249 | WARNING | aiogram.dispatcher | Received SIGINT signal
+2026-01-22 02:49:01,250 | INFO    | aiogram.dispatcher | Polling stopped for bot @techreds_bot id=7320198123 - 'DB'
+2026-01-22 02:49:01,251 | INFO    | aiogram.dispatcher | Polling stopped
+2026-01-22 02:49:06,670 | INFO    | bot | Bot starting… WEBAPP_URL=https://cc94587c4d5b.ngrok-free.app BACKEND_URL=https://cc94587c4d5b.ngrok-free.app
+2026-01-22 02:49:06,671 | INFO    | aiogram.dispatcher | Start polling
+2026-01-22 02:49:06,914 | INFO    | aiogram.dispatcher | Run polling for bot @techreds_bot id=7320198123 - 'DB'
+2026-01-22 02:49:07,006 | INFO    | __main__ | → cmd_start()
+2026-01-22 02:49:07,007 | INFO    | bot | /start from tg_id=747937058 username=baks1d
+2026-01-22 02:49:07,835 | INFO    | __main__ | ← cmd_start() 828.3ms
+2026-01-22 02:49:07,835 | INFO    | aiogram.event | Update id=211697843 is handled. Duration 829 ms by bot id=7320198123
+2026-01-22 02:51:57,504 | INFO    | __main__ | → cmd_start()
+2026-01-22 02:51:57,507 | INFO    | bot | /start from tg_id=7349040206 username=None
+2026-01-22 02:51:58,147 | INFO    | __main__ | ← cmd_start() 642.6ms
+2026-01-22 02:51:58,147 | INFO    | aiogram.event | Update id=211697844 is handled. Duration 646 ms by bot id=7320198123
+2026-01-22 02:53:01,128 | INFO    | __main__ | → cmd_start()
+2026-01-22 02:53:01,130 | INFO    | bot | /start from tg_id=7349040206 username=None
+2026-01-22 02:53:01,883 | INFO    | __main__ | ← cmd_start() 755.1ms
+2026-01-22 02:53:01,884 | INFO    | aiogram.event | Update id=211697845 is handled. Duration 756 ms by bot id=7320198123
+2026-01-22 02:58:00,296 | INFO    | __main__ | → cmd_start()
+2026-01-22 02:58:00,299 | INFO    | bot | /start from tg_id=747937058 username=baks1d
+2026-01-22 02:58:01,084 | INFO    | __main__ | ← cmd_start() 788.6ms
+2026-01-22 02:58:01,085 | INFO    | aiogram.event | Update id=211697846 is handled. Duration 795 ms by bot id=7320198123
+2026-01-22 02:58:27,821 | INFO    | aiogram.event | Update id=211697847 is not handled. Duration 3 ms by bot id=7320198123
+2026-01-22 03:00:28,346 | INFO    | aiogram.event | Update id=211697848 is not handled. Duration 0 ms by bot id=7320198123
+2026-01-22 03:02:25,715 | INFO    | aiogram.event | Update id=211697849 is not handled. Duration 1 ms by bot id=7320198123
+2026-01-22 03:10:42,505 | INFO    | __main__ | → cmd_start()
+2026-01-22 03:10:42,506 | INFO    | bot | /start from tg_id=747937058 username=baks1d
+2026-01-22 03:10:43,281 | INFO    | __main__ | ← cmd_start() 776.4ms
+2026-01-22 03:10:43,281 | INFO    | aiogram.event | Update id=211697850 is handled. Duration 779 ms by bot id=7320198123
+2026-01-22 03:23:41,818 | INFO    | __main__ | → cmd_start()
+2026-01-22 03:23:41,820 | INFO    | bot | /start from tg_id=747937058 username=baks1d
+2026-01-22 03:23:42,508 | ERROR   | bot | Failed to create backend session
+Traceback (most recent call last):
+  File "/Users/macintosh/Desktop/fixed_project_fixed_v3 3/bot/bot.py", line 66, in cmd_start
+    data = await backend_start_session(user)
+  File "/Users/macintosh/Desktop/fixed_project_fixed_v3 3/bot/bot.py", line 52, in backend_start_session
+    data = await resp.json(content_type=None)
+  File "/Users/macintosh/Desktop/fixed_project_fixed_v3 3/.venv/lib/python3.10/site-packages/aiohttp/client_reqrep.py", line 1216, in json
+    return loads(stripped.decode(encoding))
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/json/__init__.py", line 346, in loads
+    return _default_decoder.decode(s)
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/json/decoder.py", line 337, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/json/decoder.py", line 355, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+2026-01-22 03:23:42,774 | INFO    | __main__ | ← cmd_start() 956.0ms
+2026-01-22 03:23:42,774 | INFO    | aiogram.event | Update id=211697851 is handled. Duration 960 ms by bot id=7320198123
+2026-01-22 03:24:56,072 | INFO    | __main__ | → cmd_start()
+2026-01-22 03:24:56,073 | INFO    | bot | /start from tg_id=747937058 username=baks1d
+2026-01-22 03:24:56,850 | INFO    | __main__ | ← cmd_start() 778.5ms
+2026-01-22 03:24:56,851 | INFO    | aiogram.event | Update id=211697852 is handled. Duration 779 ms by bot id=7320198123
+2026-01-22 03:33:16,224 | INFO    | __main__ | → cmd_start()
+2026-01-22 03:33:16,227 | INFO    | bot | /start from tg_id=747937058 username=baks1d
+2026-01-22 03:33:17,082 | INFO    | __main__ | ← cmd_start() 857.7ms
+2026-01-22 03:33:17,082 | INFO    | aiogram.event | Update id=211697853 is handled. Duration 860 ms by bot id=7320198123
+2026-01-22 03:34:58,956 | INFO    | aiogram.event | Update id=211697854 is not handled. Duration 0 ms by bot id=7320198123
+2026-01-22 03:35:22,511 | INFO    | __main__ | → cmd_start()
+2026-01-22 03:35:22,512 | INFO    | bot | /start from tg_id=7349040206 username=None
+2026-01-22 03:35:23,258 | INFO    | __main__ | ← cmd_start() 746.4ms
+2026-01-22 03:35:23,258 | INFO    | aiogram.event | Update id=211697855 is handled. Duration 747 ms by bot id=7320198123
+2026-01-22 03:35:47,602 | INFO    | aiogram.event | Update id=211697856 is not handled. Duration 2 ms by bot id=7320198123
+2026-01-22 04:37:56,519 | ERROR   | aiogram.dispatcher | Failed to fetch updates - TelegramNetworkError: HTTP Client says - Request timeout error
+2026-01-22 04:37:56,525 | WARNING | aiogram.dispatcher | Sleep for 1.000000 seconds and try again... (tryings = 0, bot id = 7320198123)
+2026-01-22 04:38:07,754 | INFO    | aiogram.dispatcher | Connection established (tryings = 1, bot id = 7320198123)
+2026-01-22 05:38:00,266 | ERROR   | aiogram.dispatcher | Failed to fetch updates - TelegramNetworkError: HTTP Client says - ServerDisconnectedError: Server disconnected
+2026-01-22 05:38:00,271 | WARNING | aiogram.dispatcher | Sleep for 1.000000 seconds and try again... (tryings = 0, bot id = 7320198123)
+2026-01-22 05:38:11,524 | INFO    | aiogram.dispatcher | Connection established (tryings = 1, bot id = 7320198123)
+2026-01-22 06:00:25,950 | ERROR   | aiogram.dispatcher | Failed to fetch updates - TelegramNetworkError: HTTP Client says - ServerDisconnectedError: Server disconnected
+2026-01-22 06:00:25,954 | WARNING | aiogram.dispatcher | Sleep for 1.000000 seconds and try again... (tryings = 0, bot id = 7320198123)
+2026-01-22 06:00:37,188 | INFO    | aiogram.dispatcher | Connection established (tryings = 1, bot id = 7320198123)
+2026-01-22 06:39:01,384 | ERROR   | aiogram.dispatcher | Failed to fetch updates - TelegramNetworkError: HTTP Client says - ServerDisconnectedError: Server disconnected
+2026-01-22 06:39:01,390 | WARNING | aiogram.dispatcher | Sleep for 1.000000 seconds and try again... (tryings = 0, bot id = 7320198123)
+2026-01-22 06:39:12,627 | INFO    | aiogram.dispatcher | Connection established (tryings = 1, bot id = 7320198123)
+2026-01-22 07:40:46,754 | ERROR   | aiogram.dispatcher | Failed to fetch updates - TelegramNetworkError: HTTP Client says - Request timeout error
+2026-01-22 07:40:46,759 | WARNING | aiogram.dispatcher | Sleep for 1.000000 seconds and try again... (tryings = 0, bot id = 7320198123)
+2026-01-22 07:40:58,004 | INFO    | aiogram.dispatcher | Connection established (tryings = 1, bot id = 7320198123)
+2026-01-22 08:41:49,469 | ERROR   | aiogram.dispatcher | Failed to fetch updates - TelegramNetworkError: HTTP Client says - Request timeout error
+2026-01-22 08:41:49,475 | WARNING | aiogram.dispatcher | Sleep for 1.000000 seconds and try again... (tryings = 0, bot id = 7320198123)
+2026-01-22 08:42:00,812 | INFO    | aiogram.dispatcher | Connection established (tryings = 1, bot id = 7320198123)
+2026-01-22 18:25:25,972 | ERROR   | aiogram.dispatcher | Failed to fetch updates - TelegramNetworkError: HTTP Client says - Request timeout error
+2026-01-22 18:25:25,976 | WARNING | aiogram.dispatcher | Sleep for 1.000000 seconds and try again... (tryings = 0, bot id = 7320198123)
+2026-01-22 18:25:28,993 | ERROR   | aiogram.dispatcher | Failed to fetch updates - TelegramNetworkError: HTTP Client says - ClientConnectorError: Cannot connect to host api.telegram.org:443 ssl:default [None]
+2026-01-22 18:25:28,994 | WARNING | aiogram.dispatcher | Sleep for 1.406977 seconds and try again... (tryings = 1, bot id = 7320198123)
+2026-01-22 18:25:32,411 | ERROR   | aiogram.dispatcher | Failed to fetch updates - TelegramNetworkError: HTTP Client says - ClientConnectorError: Cannot connect to host api.telegram.org:443 ssl:default [None]
+2026-01-22 18:25:32,412 | WARNING | aiogram.dispatcher | Sleep for 1.876654 seconds and try again... (tryings = 2, bot id = 7320198123)
+2026-01-22 18:25:36,310 | ERROR   | aiogram.dispatcher | Failed to fetch updates - TelegramNetworkError: HTTP Client says - ClientConnectorError: Cannot connect to host api.telegram.org:443 ssl:default [None]
+2026-01-22 18:25:36,310 | WARNING | aiogram.dispatcher | Sleep for 2.493641 seconds and try again... (tryings = 3, bot id = 7320198123)
+2026-01-22 18:25:40,824 | ERROR   | aiogram.dispatcher | Failed to fetch updates - TelegramNetworkError: HTTP Client says - ClientConnectorError: Cannot connect to host api.telegram.org:443 ssl:default [None]
+2026-01-22 18:25:40,824 | WARNING | aiogram.dispatcher | Sleep for 3.312499 seconds and try again... (tryings = 4, bot id = 7320198123)
+2026-01-22 18:25:46,149 | ERROR   | aiogram.dispatcher | Failed to fetch updates - TelegramNetworkError: HTTP Client says - ClientConnectorError: Cannot connect to host api.telegram.org:443 ssl:default [None]
+2026-01-22 18:25:46,149 | WARNING | aiogram.dispatcher | Sleep for 4.043454 seconds and try again... (tryings = 5, bot id = 7320198123)
+2026-01-22 18:25:52,206 | ERROR   | aiogram.dispatcher | Failed to fetch updates - TelegramNetworkError: HTTP Client says - ClientConnectorError: Cannot connect to host api.telegram.org:443 ssl:default [None]
+2026-01-22 18:25:52,206 | WARNING | aiogram.dispatcher | Sleep for 5.109819 seconds and try again... (tryings = 6, bot id = 7320198123)
+2026-01-22 18:25:59,328 | ERROR   | aiogram.dispatcher | Failed to fetch updates - TelegramNetworkError: HTTP Client says - ClientConnectorError: Cannot connect to host api.telegram.org:443 ssl:default [None]
+2026-01-22 18:25:59,329 | WARNING | aiogram.dispatcher | Sleep for 5.202706 seconds and try again... (tryings = 7, bot id = 7320198123)
+2026-01-22 18:26:06,551 | ERROR   | aiogram.dispatcher | Failed to fetch updates - TelegramNetworkError: HTTP Client says - ClientConnectorError: Cannot connect to host api.telegram.org:443 ssl:default [None]
+2026-01-22 18:26:06,552 | WARNING | aiogram.dispatcher | Sleep for 4.916152 seconds and try again... (tryings = 8, bot id = 7320198123)
+2026-01-22 18:26:13,484 | ERROR   | aiogram.dispatcher | Failed to fetch updates - TelegramNetworkError: HTTP Client says - ClientConnectorError: Cannot connect to host api.telegram.org:443 ssl:default [None]
+2026-01-22 18:26:13,485 | WARNING | aiogram.dispatcher | Sleep for 4.876157 seconds and try again... (tryings = 9, bot id = 7320198123)
+2026-01-22 18:26:20,375 | ERROR   | aiogram.dispatcher | Failed to fetch updates - TelegramNetworkError: HTTP Client says - ClientConnectorError: Cannot connect to host api.telegram.org:443 ssl:default [None]
+2026-01-22 18:26:20,375 | WARNING | aiogram.dispatcher | Sleep for 5.064482 seconds and try again... (tryings = 10, bot id = 7320198123)
+2026-01-22 18:26:27,454 | ERROR   | aiogram.dispatcher | Failed to fetch updates - TelegramNetworkError: HTTP Client says - ClientConnectorError: Cannot connect to host api.telegram.org:443 ssl:default [None]
+2026-01-22 18:26:27,455 | WARNING | aiogram.dispatcher | Sleep for 4.891803 seconds and try again... (tryings = 11, bot id = 7320198123)
+2026-01-22 18:26:34,361 | ERROR   | aiogram.dispatcher | Failed to fetch updates - TelegramNetworkError: HTTP Client says - ClientConnectorError: Cannot connect to host api.telegram.org:443 ssl:default [None]
+2026-01-22 18:26:34,362 | WARNING | aiogram.dispatcher | Sleep for 5.024122 seconds and try again... (tryings = 12, bot id = 7320198123)
+2026-01-22 18:26:41,401 | ERROR   | aiogram.dispatcher | Failed to fetch updates - TelegramNetworkError: HTTP Client says - ClientConnectorError: Cannot connect to host api.telegram.org:443 ssl:default [None]
+2026-01-22 18:26:41,402 | WARNING | aiogram.dispatcher | Sleep for 5.116605 seconds and try again... (tryings = 13, bot id = 7320198123)
+2026-01-22 18:26:48,576 | ERROR   | aiogram.dispatcher | Failed to fetch updates - TelegramNetworkError: HTTP Client says - ClientConnectorError: Cannot connect to host api.telegram.org:443 ssl:default [None]
+2026-01-22 18:26:48,577 | WARNING | aiogram.dispatcher | Sleep for 4.968031 seconds and try again... (tryings = 14, bot id = 7320198123)
+2026-01-22 18:26:55,634 | ERROR   | aiogram.dispatcher | Failed to fetch updates - TelegramNetworkError: HTTP Client says - ClientConnectorError: Cannot connect to host api.telegram.org:443 ssl:default [None]
+2026-01-22 18:26:55,634 | WARNING | aiogram.dispatcher | Sleep for 4.870846 seconds and try again... (tryings = 15, bot id = 7320198123)
+2026-01-22 18:27:02,520 | ERROR   | aiogram.dispatcher | Failed to fetch updates - TelegramNetworkError: HTTP Client says - ClientConnectorError: Cannot connect to host api.telegram.org:443 ssl:default [None]
+2026-01-22 18:27:02,521 | WARNING | aiogram.dispatcher | Sleep for 4.866205 seconds and try again... (tryings = 16, bot id = 7320198123)
+2026-01-22 18:27:09,400 | ERROR   | aiogram.dispatcher | Failed to fetch updates - TelegramNetworkError: HTTP Client says - ClientConnectorError: Cannot connect to host api.telegram.org:443 ssl:default [None]
+2026-01-22 18:27:09,400 | WARNING | aiogram.dispatcher | Sleep for 5.007583 seconds and try again... (tryings = 17, bot id = 7320198123)
+2026-01-22 18:27:16,421 | ERROR   | aiogram.dispatcher | Failed to fetch updates - TelegramNetworkError: HTTP Client says - ClientConnectorError: Cannot connect to host api.telegram.org:443 ssl:default [None]
+2026-01-22 18:27:16,422 | WARNING | aiogram.dispatcher | Sleep for 5.009392 seconds and try again... (tryings = 18, bot id = 7320198123)
+2026-01-22 18:27:23,442 | ERROR   | aiogram.dispatcher | Failed to fetch updates - TelegramNetworkError: HTTP Client says - ClientConnectorError: Cannot connect to host api.telegram.org:443 ssl:default [None]
+2026-01-22 18:27:23,443 | WARNING | aiogram.dispatcher | Sleep for 5.006315 seconds and try again... (tryings = 19, bot id = 7320198123)
+2026-01-22 18:27:58,458 | ERROR   | aiogram.dispatcher | Failed to fetch updates - TelegramNetworkError: HTTP Client says - ClientConnectorError: Cannot connect to host api.telegram.org:443 ssl:default [nodename nor servname provided, or not known]
+2026-01-22 18:27:58,460 | WARNING | aiogram.dispatcher | Sleep for 4.969974 seconds and try again... (tryings = 20, bot id = 7320198123)
+2026-01-22 18:28:33,436 | ERROR   | aiogram.dispatcher | Failed to fetch updates - TelegramNetworkError: HTTP Client says - ClientConnectorError: Cannot connect to host api.telegram.org:443 ssl:default [nodename nor servname provided, or not known]
+2026-01-22 18:28:33,437 | WARNING | aiogram.dispatcher | Sleep for 5.053630 seconds and try again... (tryings = 21, bot id = 7320198123)
+2026-01-22 18:29:08,496 | ERROR   | aiogram.dispatcher | Failed to fetch updates - TelegramNetworkError: HTTP Client says - ClientConnectorError: Cannot connect to host api.telegram.org:443 ssl:default [nodename nor servname provided, or not known]
+2026-01-22 18:29:08,497 | WARNING | aiogram.dispatcher | Sleep for 5.046833 seconds and try again... (tryings = 22, bot id = 7320198123)
+2026-01-22 18:29:43,910 | INFO    | aiogram.dispatcher | Connection established (tryings = 23, bot id = 7320198123)
+2026-01-22 18:43:33,083 | WARNING | aiogram.dispatcher | Received SIGINT signal
+2026-01-22 18:43:33,099 | INFO    | aiogram.dispatcher | Polling stopped for bot @techreds_bot id=7320198123 - 'DB'
+2026-01-22 18:43:33,108 | INFO    | aiogram.dispatcher | Polling stopped
+2026-01-22 18:47:21,210 | INFO    | bot | Bot starting… WEBAPP_URL=https://cc94587c4d5b.ngrok-free.app BACKEND_URL=https://cc94587c4d5b.ngrok-free.app
+2026-01-22 18:47:21,211 | INFO    | aiogram.dispatcher | Start polling
+2026-01-22 18:47:22,918 | INFO    | aiogram.dispatcher | Run polling for bot @techreds_bot id=7320198123 - 'DB'
+2026-01-22 18:47:23,034 | INFO    | __main__ | → cmd_start()
+2026-01-22 18:47:23,034 | INFO    | bot | /start from tg_id=747937058 username=baks1d
+2026-01-22 18:47:23,598 | ERROR   | bot | Failed to create backend session
+Traceback (most recent call last):
+  File "/Users/macintosh/Desktop/fixed_project_fixed_v3 3/bot/bot.py", line 94, in cmd_start
+    data = await backend_start_session(user)
+  File "/Users/macintosh/Desktop/fixed_project_fixed_v3 3/bot/bot.py", line 53, in backend_start_session
+    data = await resp.json(content_type=None)
+  File "/Users/macintosh/Desktop/fixed_project_fixed_v3 3/.venv/lib/python3.10/site-packages/aiohttp/client_reqrep.py", line 1216, in json
+    return loads(stripped.decode(encoding))
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/json/__init__.py", line 346, in loads
+    return _default_decoder.decode(s)
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/json/decoder.py", line 337, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/json/decoder.py", line 355, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+2026-01-22 18:47:23,947 | INFO    | __main__ | ← cmd_start() 913.3ms
+2026-01-22 18:47:23,948 | INFO    | aiogram.event | Update id=211697857 is handled. Duration 913 ms by bot id=7320198123
+2026-01-22 18:47:26,396 | INFO    | __main__ | → cmd_start()
+2026-01-22 18:47:26,398 | INFO    | bot | /start from tg_id=747937058 username=baks1d
+2026-01-22 18:47:26,739 | ERROR   | bot | Failed to create backend session
+Traceback (most recent call last):
+  File "/Users/macintosh/Desktop/fixed_project_fixed_v3 3/bot/bot.py", line 94, in cmd_start
+    data = await backend_start_session(user)
+  File "/Users/macintosh/Desktop/fixed_project_fixed_v3 3/bot/bot.py", line 53, in backend_start_session
+    data = await resp.json(content_type=None)
+  File "/Users/macintosh/Desktop/fixed_project_fixed_v3 3/.venv/lib/python3.10/site-packages/aiohttp/client_reqrep.py", line 1216, in json
+    return loads(stripped.decode(encoding))
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/json/__init__.py", line 346, in loads
+    return _default_decoder.decode(s)
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/json/decoder.py", line 337, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/json/decoder.py", line 355, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+2026-01-22 18:47:26,843 | INFO    | __main__ | ← cmd_start() 447.7ms
+2026-01-22 18:47:26,844 | INFO    | aiogram.event | Update id=211697858 is handled. Duration 453 ms by bot id=7320198123
+2026-01-22 18:48:04,976 | WARNING | aiogram.dispatcher | Received SIGINT signal
+2026-01-22 18:48:04,977 | INFO    | aiogram.dispatcher | Polling stopped for bot @techreds_bot id=7320198123 - 'DB'
+2026-01-22 18:48:04,978 | INFO    | aiogram.dispatcher | Polling stopped
+2026-01-22 18:48:09,775 | INFO    | bot | Bot starting… WEBAPP_URL=https://cc94587c4d5b.ngrok-free.app BACKEND_URL=https://cc94587c4d5b.ngrok-free.app
+2026-01-22 18:48:09,775 | INFO    | aiogram.dispatcher | Start polling
+2026-01-22 18:48:10,259 | INFO    | aiogram.dispatcher | Run polling for bot @techreds_bot id=7320198123 - 'DB'
+2026-01-22 18:48:17,159 | INFO    | __main__ | → cmd_start()
+2026-01-22 18:48:17,159 | INFO    | bot | /start from tg_id=747937058 username=baks1d
+2026-01-22 18:48:17,674 | ERROR   | bot | Failed to create backend session
+Traceback (most recent call last):
+  File "/Users/macintosh/Desktop/fixed_project_fixed_v3 3/bot/bot.py", line 94, in cmd_start
+    data = await backend_start_session(user)
+  File "/Users/macintosh/Desktop/fixed_project_fixed_v3 3/bot/bot.py", line 53, in backend_start_session
+    data = await resp.json(content_type=None)
+  File "/Users/macintosh/Desktop/fixed_project_fixed_v3 3/.venv/lib/python3.10/site-packages/aiohttp/client_reqrep.py", line 1216, in json
+    return loads(stripped.decode(encoding))
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/json/__init__.py", line 346, in loads
+    return _default_decoder.decode(s)
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/json/decoder.py", line 337, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/json/decoder.py", line 355, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+2026-01-22 18:48:18,009 | INFO    | __main__ | ← cmd_start() 849.6ms
+2026-01-22 18:48:18,009 | INFO    | aiogram.event | Update id=211697859 is handled. Duration 851 ms by bot id=7320198123
+2026-01-22 19:03:14,173 | WARNING | aiogram.dispatcher | Received SIGINT signal
+2026-01-22 19:03:14,206 | INFO    | aiogram.dispatcher | Polling stopped for bot @techreds_bot id=7320198123 - 'DB'
+2026-01-22 19:03:14,208 | INFO    | aiogram.dispatcher | Polling stopped
+2026-01-22 19:03:19,331 | INFO    | bot | Bot starting… WEBAPP_URL=https://cc94587c4d5b.ngrok-free.app BACKEND_URL=https://cc94587c4d5b.ngrok-free.app
+2026-01-22 19:03:19,332 | INFO    | aiogram.dispatcher | Start polling
+2026-01-22 19:03:19,868 | INFO    | aiogram.dispatcher | Run polling for bot @techreds_bot id=7320198123 - 'DB'
+2026-01-22 19:03:24,208 | INFO    | __main__ | → cmd_start()
+2026-01-22 19:03:24,208 | INFO    | bot | /start from tg_id=747937058 username=baks1d
+2026-01-22 19:03:24,803 | INFO    | bot | backend_start_session: status=404 body=<!DOCTYPE html>
+<html class="h-full" lang="en-US" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="preload" href="https://assets.ngrok.com/fonts/euclid-square/EuclidSquare-Regular-WebS.woff" as="font" type="font/woff" crossorigin="anonymous" />
+    <link rel="preload" href="https://assets.ngrok.com/fonts/euclid-square/EuclidSquare-RegularItalic-WebS.woff" as="font" type="font/woff" crossorigin="anonymous" />
+    <link rel="preload" href="https://assets.ngrok.com/fonts/euclid-square/EuclidSquare-Medium-WebS.woff" as="font" type="font/woff" crossorigin="anonymous" />
+    <link rel="preload" href="https://assets.ngrok.com/fonts/euclid-square/EuclidSquare-MediumItalic-WebS.woff" as="font" type="font/woff" crossorigin="anonymous" />
+    <link rel="preload" href="https://assets.ngrok.com/fonts/ibm-plex-mono/IBMPlexMono-Text.woff" as="font" type="font/woff" crossorigin="anonymous" />
+    <link rel="preload" 
+2026-01-22 19:03:24,804 | ERROR   | bot | Failed to create backend session
+Traceback (most recent call last):
+  File "/Users/macintosh/Desktop/fixed_project_fixed_v3 3/bot/bot.py", line 59, in backend_start_session
+    data = json.loads(body_text) if body_text else {}
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/json/__init__.py", line 346, in loads
+    return _default_decoder.decode(s)
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/json/decoder.py", line 337, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/json/decoder.py", line 355, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/macintosh/Desktop/fixed_project_fixed_v3 3/bot/bot.py", line 123, in cmd_start
+    data = await backend_start_session(user)
+  File "/Users/macintosh/Desktop/fixed_project_fixed_v3 3/bot/bot.py", line 61, in backend_start_session
+    raise RuntimeError(f"Backend returned non-JSON response: status={resp.status}, body={body_text[:300]}")
+RuntimeError: Backend returned non-JSON response: status=404, body=<!DOCTYPE html>
+<html class="h-full" lang="en-US" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="preload" href="https://assets.ngrok.com/fonts/euclid-square/EuclidSquare-Regular-WebS.woff" as="font" type="font/wo
+2026-01-22 19:03:25,139 | INFO    | __main__ | ← cmd_start() 931.5ms
+2026-01-22 19:03:25,140 | INFO    | aiogram.event | Update id=211697860 is handled. Duration 932 ms by bot id=7320198123
+2026-01-22 19:06:42,438 | WARNING | aiogram.dispatcher | Received SIGINT signal
+2026-01-22 19:06:42,445 | INFO    | aiogram.dispatcher | Polling stopped for bot @techreds_bot id=7320198123 - 'DB'
+2026-01-22 19:06:42,446 | INFO    | aiogram.dispatcher | Polling stopped
+2026-01-22 19:06:48,683 | INFO    | bot | Bot starting… WEBAPP_URL=https://f2afec2c613c.ngrok-free.app BACKEND_URL=https://f2afec2c613c.ngrok-free.app
+2026-01-22 19:06:48,684 | INFO    | aiogram.dispatcher | Start polling
+2026-01-22 19:06:49,179 | INFO    | aiogram.dispatcher | Run polling for bot @techreds_bot id=7320198123 - 'DB'
+2026-01-22 19:06:49,273 | INFO    | __main__ | → cmd_start()
+2026-01-22 19:06:49,273 | INFO    | bot | /start from tg_id=747937058 username=baks1d
+2026-01-22 19:06:50,058 | INFO    | bot | backend_start_session: status=200 body={"access_token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTc2OTA5ODAwOSwianRpIjoiNmY4NGU4ZmEtOTBlNi00NDA3LWEwN2YtZGU4YWMwOTNkMmI0IiwidHlwZSI6ImFjY2VzcyIsInN1YiI6IjEiLCJuYmYiOjE3NjkwOTgwMDksImNzcmYiOiJiYmYzOTA2YS03OTQwLTQxZDYtOTMxNy0zZTBmMjYzMzc3YmEiLCJleHAiOjE3NjkxMDE2MDl9.0-T0gIMuByZaw3U9oTj9bgLPQkmWCyv7fDcQ2Tp3BFU","default_group_id":1,"ok":true}
+
+2026-01-22 19:06:50,991 | INFO    | __main__ | ← cmd_start() 1717.6ms
+2026-01-22 19:06:50,991 | INFO    | aiogram.event | Update id=211697861 is handled. Duration 1718 ms by bot id=7320198123
+2026-01-22 19:11:44,158 | INFO    | __main__ | → cmd_start()
+2026-01-22 19:11:44,160 | INFO    | bot | /start from tg_id=7349040206 username=inquiry_io
+2026-01-22 19:11:44,632 | INFO    | bot | backend_start_session: status=200 body={"access_token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTc2OTA5ODMwNCwianRpIjoiNTRhNmUyZjQtNWI3MS00MGM5LWI1NDctZDQyNDA1MjdiYzczIiwidHlwZSI6ImFjY2VzcyIsInN1YiI6IjIiLCJuYmYiOjE3NjkwOTgzMDQsImNzcmYiOiJiYjBjNmI2ZC1lNWFlLTQ2OGQtYmJjMC0xMzg4MDExZjk3NDEiLCJleHAiOjE3NjkxMDE5MDR9.CnnAJJ8D1QCg3s4glgW4d9hF_HIYnOUHy9MH8GcTj3U","default_group_id":3,"ok":true}
+
+2026-01-22 19:11:45,489 | INFO    | __main__ | ← cmd_start() 1332.3ms
+2026-01-22 19:11:45,490 | INFO    | aiogram.event | Update id=211697862 is handled. Duration 1334 ms by bot id=7320198123
+2026-01-22 19:11:49,910 | INFO    | aiogram.event | Update id=211697863 is handled. Duration 631 ms by bot id=7320198123
+2026-01-22 19:13:22,835 | INFO    | __main__ | → cmd_start()
+2026-01-22 19:13:22,836 | INFO    | bot | /start from tg_id=747937058 username=baks1d
+2026-01-22 19:13:23,447 | INFO    | bot | backend_start_session: status=200 body={"access_token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTc2OTA5ODQwMywianRpIjoiYjNmYzM2MWQtMTdiZC00YmM5LTljZTAtZDMyZjQ3ZmI5ZWQzIiwidHlwZSI6ImFjY2VzcyIsInN1YiI6IjEiLCJuYmYiOjE3NjkwOTg0MDMsImNzcmYiOiIwOGE0ZTBiNS1jMDlkLTRmZTUtOTM4OS0xZGRlMWJiM2QwZWEiLCJleHAiOjE3NjkxMDIwMDN9.FwWcGQSLSMWIUzoQENf45SPdnpFV18PeL5s6SK5pcok","default_group_id":1,"ok":true}
+
+2026-01-22 19:13:24,174 | INFO    | __main__ | ← cmd_start() 1338.9ms
+2026-01-22 19:13:24,175 | INFO    | aiogram.event | Update id=211697864 is handled. Duration 1339 ms by bot id=7320198123
+2026-01-22 19:23:43,439 | WARNING | aiogram.dispatcher | Received SIGINT signal
+2026-01-22 19:23:43,451 | INFO    | aiogram.dispatcher | Polling stopped for bot @techreds_bot id=7320198123 - 'DB'
+2026-01-22 19:23:43,452 | INFO    | aiogram.dispatcher | Polling stopped
+2026-01-22 19:46:15,857 | INFO    | bot | Bot starting… WEBAPP_URL=https://f2afec2c613c.ngrok-free.app BACKEND_URL=https://f2afec2c613c.ngrok-free.app
+2026-01-22 19:46:15,858 | INFO    | aiogram.dispatcher | Start polling
+2026-01-22 19:46:18,780 | INFO    | aiogram.dispatcher | Run polling for bot @techreds_bot id=7320198123 - 'DB'
+2026-01-22 19:46:18,934 | INFO    | __main__ | → cmd_id()
+2026-01-22 19:46:18,943 | INFO    | __main__ | → cmd_start()
+2026-01-22 19:46:18,944 | INFO    | bot | /start from tg_id=747937058 username=baks1d
+2026-01-22 19:46:19,407 | INFO    | __main__ | ← cmd_id() 473.1ms
+2026-01-22 19:46:19,408 | INFO    | aiogram.event | Update id=211697865 is handled. Duration 474 ms by bot id=7320198123
+2026-01-22 19:46:19,668 | INFO    | bot | backend_start_session: status=200 body={"access_token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTc2OTEwMDM3OSwianRpIjoiZWU3OTQ4NzYtMzNlZi00NzZjLWEzZWEtMmY3OTQ5ODA1ZGI1IiwidHlwZSI6ImFjY2VzcyIsInN1YiI6IjEiLCJuYmYiOjE3NjkxMDAzNzksImNzcmYiOiJlMzU4MDE4NS1jM2EyLTQ2ZjYtYWZlNy1hY2FmNjQ1ODA5MGYiLCJleHAiOjE3NjkxMDM5Nzl9.7wZyx-84XIjGs9GBf7ZuyvWp4FhEXFcYuDBNH0gAW6w","default_group_id":1,"ok":true}
+
+2026-01-22 19:46:20,204 | INFO    | __main__ | ← cmd_start() 1261.2ms
+2026-01-22 19:46:20,205 | INFO    | aiogram.event | Update id=211697866 is handled. Duration 1261 ms by bot id=7320198123
+2026-01-22 19:46:38,041 | WARNING | aiogram.dispatcher | Received SIGINT signal
+2026-01-22 19:46:38,043 | INFO    | aiogram.dispatcher | Polling stopped for bot @techreds_bot id=7320198123 - 'DB'
+2026-01-22 19:46:38,044 | INFO    | aiogram.dispatcher | Polling stopped

@@ -8,7 +8,6 @@ class Config:
     SECRET_KEY = os.getenv("SECRET_KEY", "dev-secret-key-change-me")
 
     # Database
-    # Store sqlite in instance/ by default
     SQLALCHEMY_DATABASE_URI = os.getenv("DATABASE_URL", "sqlite:///instance/app.db")
     SQLALCHEMY_TRACK_MODIFICATIONS = False
 
@@ -19,6 +18,9 @@ class Config:
     # Telegram
     BOT_TOKEN = os.getenv("BOT_TOKEN", "")
     TELEGRAM_VALIDATE = os.getenv("TELEGRAM_VALIDATE", "1") == "1"
+
+    # WebApp public URL (for invite links)
+    WEBAPP_URL = os.getenv("WEBAPP_URL", "")
 
     # Bot-to-backend auth
     BOT_API_KEY = os.getenv("BOT_API_KEY", "")
