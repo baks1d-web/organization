@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Telegram WebApp</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+<!-- AUTH SCREEN -->
+<div class="auth-screen active" id="auth">
+
+    <div class="auth-card">
+        <h2>Добро пожаловать</h2>
+        <p class="auth-subtitle">Войдите, чтобы продолжить</p>
+
+        <!-- TELEGRAM LOGIN -->
+        <button class="tg-btn" onclick="loginTelegram()">
+            Войти через Telegram
+        </button>
+
+        <div class="divider">или</div>
+
+        <!-- EMAIL LOGIN -->
+        <input type="email" id="email-input" placeholder="Email">
+        <input type="password" id="password-input" placeholder="Пароль">
+
+        <button class="email-btn" onclick="loginEmail()">
+            Войти по почте
+        </button>
+
+    </div>
+
+</div>
+
+<div class="app hidden" id="app">
+
+    <!-- HEADER -->
+    <header class="header">
+        <span id="screen-title">Сегодня</span>
+    </header>
+
+    <!-- SCREENS -->
+    <main class="content">
+        <!-- DEBUG: initData / token (для наглядности передачи данных) -->
+        <div class="card" id="debug-card">
+            <h3>Данные пользователя из initData</h3>
+            <div class="debug-pre" id="initdata-debug">Загрузка…</div>
+        </div>
+
+
+        <!-- HOME -->
+        <section class="screen active" id="home">
+            <div class="card">
+                <h3>Задачи на сегодня</h3>
+                <div id="home-tasks"></div>
+            </div>
+
+            <div class="card">
+                <h3>Баланс</h3>
+                <div class="balance" id="home-balance">Загрузка...</div>
+            </div>
+        </section>
+
+        <!-- TASKS -->
+        <section class="screen" id="tasks">
+            <div class="card">
+                <h3>Все задачи</h3>
+                <div id="all-tasks"></div>
+            </div>
+        </section>
+
+        <!-- FINANCE -->
+        <section class="screen" id="finance">
+            <div class="card">
+                <h3>Финансы</h3>
+                <div id="finance-list"></div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ADD BUTTON -->
+    <button class="add-btn" onclick="openModal()">＋ Добавить</button>
+
+    <!-- BOTTOM NAV -->
+    <nav class="bottom-nav">
+        <div class="nav-item active" onclick="switchScreen('home', 'Сегодня', this)">🏠<span>Главн</span></div>
+        <div class="nav-item" onclick="switchScreen('tasks', 'Задачи', this)">✅<span>Задачи</span></div>
+        <div class="nav-item" onclick="switchScreen('finance', 'Финансы', this)">💰<span>Финансы</span></div>
+    </nav>
+
+</div>
+
+<!-- MODAL -->
+<div class="modal hidden" id="modal">
+    <div class="modal-content">
+        <h3>Добавить</h3>
+
+        <div class="radio-group">
+            <label><input type="radio" name="type" value="task" checked> Задача</label>
+            <label><input type="radio" name="type" value="income"> Доход</label>
+            <label><input type="radio" name="type" value="expense"> Расход</label>
+        </div>
+
+        <input type="text" id="add-title" placeholder="Название">
+        <input type="number" id="add-amount" placeholder="Сумма (для финансов)">
+
+        <button class="save-btn" onclick="saveItem()">Сохранить</button>
+    </div>
+</div>
+
+<script src="/static/js/app.js"></script>
+</body>
+</html>

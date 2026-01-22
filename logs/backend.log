@@ -1,0 +1,261 @@
+2026-01-22 00:30:28,523 | INFO    | werkzeug | [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://10.33.0.2:5000
+2026-01-22 00:30:28,523 | INFO    | werkzeug | [33mPress CTRL+C to quit[0m
+2026-01-22 00:34:44,749 | INFO    | backend.app.routes.api | → bot_start()
+2026-01-22 00:34:44,832 | INFO    | backend.app.routes.api | ← bot_start() 84.1ms
+2026-01-22 00:34:44,834 | INFO    | werkzeug | 127.0.0.1 - - [22/Jan/2026 00:34:44] "POST /api/bot/start HTTP/1.1" 200 -
+2026-01-22 00:35:16,869 | INFO    | backend.app.routes.web | → index()
+2026-01-22 00:35:16,881 | INFO    | backend.app.routes.web | ← index() 11.7ms
+2026-01-22 00:35:16,882 | INFO    | werkzeug | 127.0.0.1 - - [22/Jan/2026 00:35:16] "GET /?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTc2OTAzMTI4NCwianRpIjoiNDAxNzc2NzYtNjg5YS00OWMwLWJlYTgtOTE1NTQ4ZTRmNjU4IiwidHlwZSI6ImFjY2VzcyIsInN1YiI6IjEiLCJuYmYiOjE3NjkwMzEyODQsImNzcmYiOiJhZjYxYzI5Yi03NDgwLTQ2MzYtYmZjNS02NWNmYTg5NGRhMzQiLCJleHAiOjE3NjkwMzQ4ODR9.8NsjRtId1VhS9CrBwsa6OnJtX7RnBxwpdxANio2vQx4 HTTP/1.1" 200 -
+2026-01-22 00:35:17,052 | INFO    | werkzeug | 127.0.0.1 - - [22/Jan/2026 00:35:17] "GET /static/css/style.css HTTP/1.1" 200 -
+2026-01-22 00:35:17,053 | INFO    | werkzeug | 127.0.0.1 - - [22/Jan/2026 00:35:17] "GET /static/js/app.js HTTP/1.1" 200 -
+2026-01-22 00:35:17,497 | INFO    | backend.app.routes.api | → auth_telegram()
+2026-01-22 00:35:17,505 | INFO    | backend.app.routes.api | ← auth_telegram() 8.1ms
+2026-01-22 00:35:17,506 | INFO    | werkzeug | 127.0.0.1 - - [22/Jan/2026 00:35:17] "POST /api/auth/telegram HTTP/1.1" 200 -
+2026-01-22 00:35:17,522 | INFO    | backend.app.routes.api | → auth_telegram()
+2026-01-22 00:35:17,528 | INFO    | backend.app.routes.api | ← auth_telegram() 5.6ms
+2026-01-22 00:35:17,528 | INFO    | werkzeug | 127.0.0.1 - - [22/Jan/2026 00:35:17] "POST /api/auth/telegram HTTP/1.1" 200 -
+2026-01-22 00:35:17,640 | INFO    | backend.app.routes.api | → balance()
+2026-01-22 00:35:17,650 | INFO    | backend.app.routes.api | → group_tasks()
+2026-01-22 00:35:17,652 | INFO    | backend.app.routes.api | ← balance() 11.3ms
+2026-01-22 00:35:17,653 | INFO    | werkzeug | 127.0.0.1 - - [22/Jan/2026 00:35:17] "GET /api/balance HTTP/1.1" 200 -
+2026-01-22 00:35:17,656 | INFO    | backend.app.routes.api | ← group_tasks() 6.3ms
+2026-01-22 00:35:17,657 | INFO    | werkzeug | 127.0.0.1 - - [22/Jan/2026 00:35:17] "GET /api/groups/1/tasks HTTP/1.1" 200 -
+2026-01-22 00:35:17,782 | INFO    | backend.app.routes.api | → balance()
+2026-01-22 00:35:17,786 | INFO    | backend.app.routes.api | → group_tasks()
+2026-01-22 00:35:17,786 | INFO    | backend.app.routes.api | ← balance() 5.0ms
+2026-01-22 00:35:17,788 | INFO    | werkzeug | 127.0.0.1 - - [22/Jan/2026 00:35:17] "GET /api/balance HTTP/1.1" 200 -
+2026-01-22 00:35:17,790 | INFO    | backend.app.routes.api | ← group_tasks() 3.4ms
+2026-01-22 00:35:17,791 | INFO    | werkzeug | 127.0.0.1 - - [22/Jan/2026 00:35:17] "GET /api/groups/1/tasks HTTP/1.1" 200 -
+2026-01-22 00:35:25,091 | INFO    | backend.app.routes.api | → group_tasks()
+2026-01-22 00:35:25,094 | INFO    | backend.app.routes.api | ← group_tasks() 3.2ms
+2026-01-22 00:35:25,095 | INFO    | werkzeug | 127.0.0.1 - - [22/Jan/2026 00:35:25] "GET /api/groups/1/tasks HTTP/1.1" 200 -
+2026-01-22 00:35:26,779 | INFO    | backend.app.routes.api | → finance()
+2026-01-22 00:35:26,783 | INFO    | backend.app.routes.api | ← finance() 4.0ms
+2026-01-22 00:35:26,784 | INFO    | werkzeug | 127.0.0.1 - - [22/Jan/2026 00:35:26] "GET /api/finance HTTP/1.1" 200 -
+2026-01-22 00:35:27,814 | INFO    | backend.app.routes.api | → group_tasks()
+2026-01-22 00:35:27,817 | INFO    | backend.app.routes.api | ← group_tasks() 3.5ms
+2026-01-22 00:35:27,818 | INFO    | werkzeug | 127.0.0.1 - - [22/Jan/2026 00:35:27] "GET /api/groups/1/tasks HTTP/1.1" 200 -
+2026-01-22 00:35:28,313 | INFO    | backend.app.routes.api | → group_tasks()
+2026-01-22 00:35:28,314 | INFO    | backend.app.routes.api | → balance()
+2026-01-22 00:35:28,319 | INFO    | backend.app.routes.api | ← group_tasks() 6.0ms
+2026-01-22 00:35:28,319 | INFO    | backend.app.routes.api | ← balance() 4.7ms
+2026-01-22 00:35:28,320 | INFO    | werkzeug | 127.0.0.1 - - [22/Jan/2026 00:35:28] "GET /api/groups/1/tasks HTTP/1.1" 200 -
+2026-01-22 00:35:28,320 | INFO    | werkzeug | 127.0.0.1 - - [22/Jan/2026 00:35:28] "GET /api/balance HTTP/1.1" 200 -
+2026-01-22 00:35:31,708 | INFO    | backend.app.routes.api | → group_tasks()
+2026-01-22 00:35:31,717 | INFO    | backend.app.routes.api | ← group_tasks() 8.8ms
+2026-01-22 00:35:31,717 | INFO    | werkzeug | 127.0.0.1 - - [22/Jan/2026 00:35:31] "POST /api/groups/1/tasks HTTP/1.1" 200 -
+2026-01-22 00:35:31,868 | INFO    | backend.app.routes.api | → group_tasks()
+2026-01-22 00:35:31,870 | INFO    | backend.app.routes.api | → balance()
+2026-01-22 00:35:31,876 | INFO    | backend.app.routes.api | ← balance() 5.6ms
+2026-01-22 00:35:31,876 | INFO    | backend.app.routes.api | ← group_tasks() 7.8ms
+2026-01-22 00:35:31,877 | INFO    | werkzeug | 127.0.0.1 - - [22/Jan/2026 00:35:31] "GET /api/balance HTTP/1.1" 200 -
+2026-01-22 00:35:31,877 | INFO    | werkzeug | 127.0.0.1 - - [22/Jan/2026 00:35:31] "GET /api/groups/1/tasks HTTP/1.1" 200 -
+2026-01-22 00:35:43,121 | INFO    | backend.app.routes.api | → group_tasks()
+2026-01-22 00:35:43,125 | INFO    | backend.app.routes.api | ← group_tasks() 3.9ms
+2026-01-22 00:35:43,127 | INFO    | werkzeug | 127.0.0.1 - - [22/Jan/2026 00:35:43] "GET /api/groups/1/tasks HTTP/1.1" 200 -
+2026-01-22 00:35:49,513 | INFO    | backend.app.routes.api | → finance()
+2026-01-22 00:35:49,520 | INFO    | backend.app.routes.api | ← finance() 7.0ms
+2026-01-22 00:35:49,521 | INFO    | werkzeug | 127.0.0.1 - - [22/Jan/2026 00:35:49] "POST /api/finance HTTP/1.1" 200 -
+2026-01-22 00:35:49,654 | INFO    | backend.app.routes.api | → group_tasks()
+2026-01-22 00:35:49,657 | INFO    | backend.app.routes.api | ← group_tasks() 3.1ms
+2026-01-22 00:35:49,658 | INFO    | werkzeug | 127.0.0.1 - - [22/Jan/2026 00:35:49] "GET /api/groups/1/tasks HTTP/1.1" 200 -
+2026-01-22 00:35:50,486 | INFO    | backend.app.routes.api | → done_task()
+2026-01-22 00:35:50,499 | INFO    | backend.app.routes.api | ← done_task() 13.2ms
+2026-01-22 00:35:50,500 | INFO    | werkzeug | 127.0.0.1 - - [22/Jan/2026 00:35:50] "POST /api/tasks/1/done HTTP/1.1" 200 -
+2026-01-22 00:35:53,865 | INFO    | backend.app.routes.api | → balance()
+2026-01-22 00:35:53,866 | INFO    | backend.app.routes.api | → group_tasks()
+2026-01-22 00:35:53,869 | INFO    | backend.app.routes.api | ← balance() 4.4ms
+2026-01-22 00:35:53,872 | INFO    | backend.app.routes.api | ← group_tasks() 5.2ms
+2026-01-22 00:35:53,872 | INFO    | werkzeug | 127.0.0.1 - - [22/Jan/2026 00:35:53] "GET /api/balance HTTP/1.1" 200 -
+2026-01-22 00:35:53,873 | INFO    | werkzeug | 127.0.0.1 - - [22/Jan/2026 00:35:53] "GET /api/groups/1/tasks HTTP/1.1" 200 -
+2026-01-22 00:36:00,112 | INFO    | backend.app.routes.api | → group_tasks()
+2026-01-22 00:36:00,118 | INFO    | backend.app.routes.api | ← group_tasks() 6.6ms
+2026-01-22 00:36:00,119 | INFO    | werkzeug | 127.0.0.1 - - [22/Jan/2026 00:36:00] "POST /api/groups/1/tasks HTTP/1.1" 200 -
+2026-01-22 00:36:00,265 | INFO    | backend.app.routes.api | → group_tasks()
+2026-01-22 00:36:00,267 | INFO    | backend.app.routes.api | → balance()
+2026-01-22 00:36:00,270 | INFO    | backend.app.routes.api | ← group_tasks() 5.0ms
+2026-01-22 00:36:00,272 | INFO    | backend.app.routes.api | ← balance() 4.9ms
+2026-01-22 00:36:00,272 | INFO    | werkzeug | 127.0.0.1 - - [22/Jan/2026 00:36:00] "GET /api/groups/1/tasks HTTP/1.1" 200 -
+2026-01-22 00:36:00,273 | INFO    | werkzeug | 127.0.0.1 - - [22/Jan/2026 00:36:00] "GET /api/balance HTTP/1.1" 200 -
+2026-01-22 00:36:05,663 | INFO    | backend.app.routes.api | → group_tasks()
+2026-01-22 00:36:05,667 | INFO    | backend.app.routes.api | ← group_tasks() 4.7ms
+2026-01-22 00:36:05,668 | INFO    | werkzeug | 127.0.0.1 - - [22/Jan/2026 00:36:05] "POST /api/groups/1/tasks HTTP/1.1" 200 -
+2026-01-22 00:36:05,805 | INFO    | backend.app.routes.api | → balance()
+2026-01-22 00:36:05,808 | INFO    | backend.app.routes.api | → group_tasks()
+2026-01-22 00:36:05,809 | INFO    | backend.app.routes.api | ← balance() 4.1ms
+2026-01-22 00:36:05,812 | INFO    | werkzeug | 127.0.0.1 - - [22/Jan/2026 00:36:05] "GET /api/balance HTTP/1.1" 200 -
+2026-01-22 00:36:05,813 | INFO    | backend.app.routes.api | ← group_tasks() 4.1ms
+2026-01-22 00:36:05,814 | INFO    | werkzeug | 127.0.0.1 - - [22/Jan/2026 00:36:05] "GET /api/groups/1/tasks HTTP/1.1" 200 -
+2026-01-22 00:36:09,467 | INFO    | backend.app.routes.api | → group_tasks()
+2026-01-22 00:36:09,475 | INFO    | backend.app.routes.api | ← group_tasks() 8.0ms
+2026-01-22 00:36:09,476 | INFO    | werkzeug | 127.0.0.1 - - [22/Jan/2026 00:36:09] "POST /api/groups/1/tasks HTTP/1.1" 200 -
+2026-01-22 00:36:09,641 | INFO    | backend.app.routes.api | → group_tasks()
+2026-01-22 00:36:09,642 | INFO    | backend.app.routes.api | → balance()
+2026-01-22 00:36:09,646 | INFO    | backend.app.routes.api | ← balance() 4.0ms
+2026-01-22 00:36:09,647 | INFO    | backend.app.routes.api | ← group_tasks() 6.3ms
+2026-01-22 00:36:09,647 | INFO    | werkzeug | 127.0.0.1 - - [22/Jan/2026 00:36:09] "GET /api/balance HTTP/1.1" 200 -
+2026-01-22 00:36:09,648 | INFO    | werkzeug | 127.0.0.1 - - [22/Jan/2026 00:36:09] "GET /api/groups/1/tasks HTTP/1.1" 200 -
+2026-01-22 00:36:12,454 | INFO    | backend.app.routes.api | → group_tasks()
+2026-01-22 00:36:12,459 | INFO    | backend.app.routes.api | ← group_tasks() 4.7ms
+2026-01-22 00:36:12,459 | INFO    | werkzeug | 127.0.0.1 - - [22/Jan/2026 00:36:12] "POST /api/groups/1/tasks HTTP/1.1" 200 -
+2026-01-22 00:36:12,593 | INFO    | backend.app.routes.api | → group_tasks()
+2026-01-22 00:36:12,595 | INFO    | backend.app.routes.api | → balance()
+2026-01-22 00:36:12,597 | INFO    | backend.app.routes.api | ← group_tasks() 3.3ms
+2026-01-22 00:36:12,598 | INFO    | backend.app.routes.api | ← balance() 3.3ms
+2026-01-22 00:36:12,598 | INFO    | werkzeug | 127.0.0.1 - - [22/Jan/2026 00:36:12] "GET /api/groups/1/tasks HTTP/1.1" 200 -
+2026-01-22 00:36:12,599 | INFO    | werkzeug | 127.0.0.1 - - [22/Jan/2026 00:36:12] "GET /api/balance HTTP/1.1" 200 -
+2026-01-22 00:36:15,551 | INFO    | backend.app.routes.api | → group_tasks()
+2026-01-22 00:36:15,557 | INFO    | backend.app.routes.api | ← group_tasks() 6.5ms
+2026-01-22 00:36:15,558 | INFO    | werkzeug | 127.0.0.1 - - [22/Jan/2026 00:36:15] "POST /api/groups/1/tasks HTTP/1.1" 200 -
+2026-01-22 00:36:15,693 | INFO    | backend.app.routes.api | → balance()
+2026-01-22 00:36:15,694 | INFO    | backend.app.routes.api | → group_tasks()
+2026-01-22 00:36:15,695 | INFO    | backend.app.routes.api | ← balance() 2.5ms
+2026-01-22 00:36:15,697 | INFO    | werkzeug | 127.0.0.1 - - [22/Jan/2026 00:36:15] "GET /api/balance HTTP/1.1" 200 -
+2026-01-22 00:36:15,698 | INFO    | backend.app.routes.api | ← group_tasks() 4.5ms
+2026-01-22 00:36:15,699 | INFO    | werkzeug | 127.0.0.1 - - [22/Jan/2026 00:36:15] "GET /api/groups/1/tasks HTTP/1.1" 200 -
+2026-01-22 00:36:18,402 | INFO    | backend.app.routes.api | → group_tasks()
+2026-01-22 00:36:18,410 | INFO    | backend.app.routes.api | ← group_tasks() 7.4ms
+2026-01-22 00:36:18,410 | INFO    | werkzeug | 127.0.0.1 - - [22/Jan/2026 00:36:18] "POST /api/groups/1/tasks HTTP/1.1" 200 -
+2026-01-22 00:36:18,546 | INFO    | backend.app.routes.api | → group_tasks()
+2026-01-22 00:36:18,547 | INFO    | backend.app.routes.api | → balance()
+2026-01-22 00:36:18,550 | INFO    | backend.app.routes.api | ← group_tasks() 3.8ms
+2026-01-22 00:36:18,551 | INFO    | backend.app.routes.api | ← balance() 4.2ms
+2026-01-22 00:36:18,552 | INFO    | werkzeug | 127.0.0.1 - - [22/Jan/2026 00:36:18] "GET /api/groups/1/tasks HTTP/1.1" 200 -
+2026-01-22 00:36:18,552 | INFO    | werkzeug | 127.0.0.1 - - [22/Jan/2026 00:36:18] "GET /api/balance HTTP/1.1" 200 -
+2026-01-22 00:36:33,893 | INFO    | backend.app.routes.api | → finance()
+2026-01-22 00:36:33,895 | INFO    | backend.app.routes.api | ← finance() 1.8ms
+2026-01-22 00:36:33,895 | INFO    | werkzeug | 127.0.0.1 - - [22/Jan/2026 00:36:33] "GET /api/finance HTTP/1.1" 200 -
+2026-01-22 00:36:39,004 | INFO    | backend.app.routes.web | → index()
+2026-01-22 00:36:39,005 | INFO    | backend.app.routes.web | ← index() 1.2ms
+2026-01-22 00:36:39,006 | INFO    | werkzeug | 127.0.0.1 - - [22/Jan/2026 00:36:39] "GET / HTTP/1.1" 200 -
+2026-01-22 00:36:39,210 | INFO    | werkzeug | 127.0.0.1 - - [22/Jan/2026 00:36:39] "GET /static/css/style.css HTTP/1.1" 200 -
+2026-01-22 00:36:39,212 | INFO    | werkzeug | 127.0.0.1 - - [22/Jan/2026 00:36:39] "GET /static/js/app.js HTTP/1.1" 200 -
+2026-01-22 00:36:39,713 | INFO    | werkzeug | 127.0.0.1 - - [22/Jan/2026 00:36:39] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2026-01-22 00:37:57,208 | INFO    | backend.app.routes.api | → group_tasks()
+2026-01-22 00:37:57,212 | INFO    | backend.app.routes.api | ← group_tasks() 3.6ms
+2026-01-22 00:37:57,212 | INFO    | werkzeug | 127.0.0.1 - - [22/Jan/2026 00:37:57] "GET /api/groups/1/tasks HTTP/1.1" 200 -
+2026-01-22 00:38:05,561 | INFO    | backend.app.routes.api | → finance()
+2026-01-22 00:38:05,563 | INFO    | backend.app.routes.api | ← finance() 1.7ms
+2026-01-22 00:38:05,564 | INFO    | werkzeug | 127.0.0.1 - - [22/Jan/2026 00:38:05] "GET /api/finance HTTP/1.1" 200 -
+2026-01-22 00:38:06,262 | INFO    | backend.app.routes.api | → finance()
+2026-01-22 00:38:06,264 | INFO    | backend.app.routes.api | ← finance() 2.0ms
+2026-01-22 00:38:06,265 | INFO    | werkzeug | 127.0.0.1 - - [22/Jan/2026 00:38:06] "GET /api/finance HTTP/1.1" 200 -
+2026-01-22 00:38:07,241 | INFO    | backend.app.routes.api | → finance()
+2026-01-22 00:38:07,242 | INFO    | backend.app.routes.api | ← finance() 1.8ms
+2026-01-22 00:38:07,243 | INFO    | werkzeug | 127.0.0.1 - - [22/Jan/2026 00:38:07] "GET /api/finance HTTP/1.1" 200 -
+2026-01-22 00:38:08,131 | INFO    | backend.app.routes.api | → finance()
+2026-01-22 00:38:08,133 | INFO    | backend.app.routes.api | ← finance() 2.1ms
+2026-01-22 00:38:08,134 | INFO    | werkzeug | 127.0.0.1 - - [22/Jan/2026 00:38:08] "GET /api/finance HTTP/1.1" 200 -
+2026-01-22 00:38:16,642 | INFO    | backend.app.routes.api | → finance()
+2026-01-22 00:38:16,650 | INFO    | backend.app.routes.api | ← finance() 7.7ms
+2026-01-22 00:38:16,651 | INFO    | werkzeug | 127.0.0.1 - - [22/Jan/2026 00:38:16] "POST /api/finance HTTP/1.1" 200 -
+2026-01-22 00:38:16,784 | INFO    | backend.app.routes.api | → finance()
+2026-01-22 00:38:16,786 | INFO    | backend.app.routes.api | ← finance() 2.0ms
+2026-01-22 00:38:16,787 | INFO    | werkzeug | 127.0.0.1 - - [22/Jan/2026 00:38:16] "GET /api/finance HTTP/1.1" 200 -
+2026-01-22 00:38:20,351 | INFO    | backend.app.routes.api | → group_tasks()
+2026-01-22 00:38:20,353 | INFO    | backend.app.routes.api | → balance()
+2026-01-22 00:38:20,356 | INFO    | backend.app.routes.api | ← balance() 3.3ms
+2026-01-22 00:38:20,357 | INFO    | backend.app.routes.api | ← group_tasks() 5.8ms
+2026-01-22 00:38:20,357 | INFO    | werkzeug | 127.0.0.1 - - [22/Jan/2026 00:38:20] "GET /api/balance HTTP/1.1" 200 -
+2026-01-22 00:38:20,358 | INFO    | werkzeug | 127.0.0.1 - - [22/Jan/2026 00:38:20] "GET /api/groups/1/tasks HTTP/1.1" 200 -
+2026-01-22 00:38:23,449 | INFO    | backend.app.routes.api | → finance()
+2026-01-22 00:38:23,451 | INFO    | backend.app.routes.api | ← finance() 2.0ms
+2026-01-22 00:38:23,452 | INFO    | werkzeug | 127.0.0.1 - - [22/Jan/2026 00:38:23] "GET /api/finance HTTP/1.1" 200 -
+2026-01-22 00:38:32,409 | INFO    | backend.app.routes.api | → finance()
+2026-01-22 00:38:32,415 | INFO    | backend.app.routes.api | ← finance() 5.9ms
+2026-01-22 00:38:32,416 | INFO    | werkzeug | 127.0.0.1 - - [22/Jan/2026 00:38:32] "POST /api/finance HTTP/1.1" 200 -
+2026-01-22 00:38:32,550 | INFO    | backend.app.routes.api | → finance()
+2026-01-22 00:38:32,552 | INFO    | backend.app.routes.api | ← finance() 2.4ms
+2026-01-22 00:38:32,553 | INFO    | werkzeug | 127.0.0.1 - - [22/Jan/2026 00:38:32] "GET /api/finance HTTP/1.1" 200 -
+2026-01-22 00:38:35,163 | INFO    | backend.app.routes.api | → group_tasks()
+2026-01-22 00:38:35,165 | INFO    | backend.app.routes.api | → balance()
+2026-01-22 00:38:35,168 | INFO    | backend.app.routes.api | ← group_tasks() 4.3ms
+2026-01-22 00:38:35,169 | INFO    | backend.app.routes.api | ← balance() 4.3ms
+2026-01-22 00:38:35,170 | INFO    | werkzeug | 127.0.0.1 - - [22/Jan/2026 00:38:35] "GET /api/groups/1/tasks HTTP/1.1" 200 -
+2026-01-22 00:38:35,170 | INFO    | werkzeug | 127.0.0.1 - - [22/Jan/2026 00:38:35] "GET /api/balance HTTP/1.1" 200 -
+2026-01-22 00:38:47,988 | INFO    | backend.app.routes.api | → finance()
+2026-01-22 00:38:47,990 | INFO    | backend.app.routes.api | ← finance() 1.7ms
+2026-01-22 00:38:47,990 | INFO    | werkzeug | 127.0.0.1 - - [22/Jan/2026 00:38:47] "GET /api/finance HTTP/1.1" 200 -
+2026-01-22 00:41:36,196 | INFO    | backend.app.routes.api | → finance()
+2026-01-22 00:41:36,206 | INFO    | backend.app.routes.api | ← finance() 9.8ms
+2026-01-22 00:41:36,207 | INFO    | werkzeug | 127.0.0.1 - - [22/Jan/2026 00:41:36] "POST /api/finance HTTP/1.1" 200 -
+2026-01-22 00:41:36,345 | INFO    | backend.app.routes.api | → finance()
+2026-01-22 00:41:36,347 | INFO    | backend.app.routes.api | ← finance() 1.3ms
+2026-01-22 00:41:36,347 | INFO    | werkzeug | 127.0.0.1 - - [22/Jan/2026 00:41:36] "GET /api/finance HTTP/1.1" 200 -
+2026-01-22 00:41:37,994 | INFO    | backend.app.routes.api | → group_tasks()
+2026-01-22 00:41:37,995 | INFO    | backend.app.routes.api | → balance()
+2026-01-22 00:41:37,997 | INFO    | backend.app.routes.api | ← group_tasks() 3.6ms
+2026-01-22 00:41:37,998 | INFO    | backend.app.routes.api | ← balance() 3.1ms
+2026-01-22 00:41:37,999 | INFO    | werkzeug | 127.0.0.1 - - [22/Jan/2026 00:41:37] "GET /api/groups/1/tasks HTTP/1.1" 200 -
+2026-01-22 00:41:37,999 | INFO    | werkzeug | 127.0.0.1 - - [22/Jan/2026 00:41:37] "GET /api/balance HTTP/1.1" 200 -
+2026-01-22 00:46:50,593 | INFO    | backend.app.routes.web | → index()
+2026-01-22 00:46:50,597 | INFO    | backend.app.routes.web | ← index() 4.3ms
+2026-01-22 00:46:50,600 | INFO    | werkzeug | 127.0.0.1 - - [22/Jan/2026 00:46:50] "GET /?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTc2OTAzMTI4NCwianRpIjoiNDAxNzc2NzYtNjg5YS00OWMwLWJlYTgtOTE1NTQ4ZTRmNjU4IiwidHlwZSI6ImFjY2VzcyIsInN1YiI6IjEiLCJuYmYiOjE3NjkwMzEyODQsImNzcmYiOiJhZjYxYzI5Yi03NDgwLTQ2MzYtYmZjNS02NWNmYTg5NGRhMzQiLCJleHAiOjE3NjkwMzQ4ODR9.8NsjRtId1VhS9CrBwsa6OnJtX7RnBxwpdxANio2vQx4 HTTP/1.1" 200 -
+2026-01-22 00:46:50,822 | INFO    | werkzeug | 127.0.0.1 - - [22/Jan/2026 00:46:50] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2026-01-22 00:46:50,823 | INFO    | werkzeug | 127.0.0.1 - - [22/Jan/2026 00:46:50] "[36mGET /static/js/app.js HTTP/1.1[0m" 304 -
+2026-01-22 00:46:51,002 | INFO    | backend.app.routes.api | → auth_telegram()
+2026-01-22 00:46:51,017 | INFO    | backend.app.routes.api | → auth_telegram()
+2026-01-22 00:46:51,085 | INFO    | backend.app.routes.api | ← auth_telegram() 83.0ms
+2026-01-22 00:46:51,085 | INFO    | backend.app.routes.api | ← auth_telegram() 67.9ms
+2026-01-22 00:46:51,086 | INFO    | werkzeug | 127.0.0.1 - - [22/Jan/2026 00:46:51] "POST /api/auth/telegram HTTP/1.1" 200 -
+2026-01-22 00:46:51,088 | INFO    | werkzeug | 127.0.0.1 - - [22/Jan/2026 00:46:51] "POST /api/auth/telegram HTTP/1.1" 200 -
+2026-01-22 00:46:51,230 | INFO    | backend.app.routes.api | → group_tasks()
+2026-01-22 00:46:51,231 | INFO    | backend.app.routes.api | → balance()
+2026-01-22 00:46:51,237 | INFO    | backend.app.routes.api | ← balance() 6.1ms
+2026-01-22 00:46:51,237 | INFO    | backend.app.routes.api | ← group_tasks() 7.3ms
+2026-01-22 00:46:51,238 | INFO    | werkzeug | 127.0.0.1 - - [22/Jan/2026 00:46:51] "GET /api/balance HTTP/1.1" 200 -
+2026-01-22 00:46:51,238 | INFO    | werkzeug | 127.0.0.1 - - [22/Jan/2026 00:46:51] "GET /api/groups/1/tasks HTTP/1.1" 200 -
+2026-01-22 00:46:51,365 | INFO    | backend.app.routes.api | → balance()
+2026-01-22 00:46:51,367 | INFO    | backend.app.routes.api | → group_tasks()
+2026-01-22 00:46:51,368 | INFO    | backend.app.routes.api | ← balance() 3.6ms
+2026-01-22 00:46:51,371 | INFO    | backend.app.routes.api | ← group_tasks() 4.8ms
+2026-01-22 00:46:51,372 | INFO    | werkzeug | 127.0.0.1 - - [22/Jan/2026 00:46:51] "GET /api/balance HTTP/1.1" 200 -
+2026-01-22 00:46:51,372 | INFO    | werkzeug | 127.0.0.1 - - [22/Jan/2026 00:46:51] "GET /api/groups/1/tasks HTTP/1.1" 200 -
+2026-01-22 00:46:56,352 | INFO    | backend.app.routes.api | → group_tasks()
+2026-01-22 00:46:56,354 | INFO    | backend.app.routes.api | ← group_tasks() 1.9ms
+2026-01-22 00:46:56,355 | INFO    | werkzeug | 127.0.0.1 - - [22/Jan/2026 00:46:56] "GET /api/groups/1/tasks HTTP/1.1" 200 -
+2026-01-22 00:46:57,438 | INFO    | backend.app.routes.api | → done_task()
+2026-01-22 00:46:57,450 | INFO    | backend.app.routes.api | ← done_task() 11.6ms
+2026-01-22 00:46:57,451 | INFO    | werkzeug | 127.0.0.1 - - [22/Jan/2026 00:46:57] "POST /api/tasks/4/done HTTP/1.1" 200 -
+2026-01-22 00:51:21,540 | INFO    | backend.app.routes.api | → balance()
+2026-01-22 00:51:21,542 | INFO    | backend.app.routes.api | → group_tasks()
+2026-01-22 00:51:21,563 | INFO    | backend.app.routes.api | ← balance() 22.9ms
+2026-01-22 00:51:21,566 | INFO    | werkzeug | 127.0.0.1 - - [22/Jan/2026 00:51:21] "GET /api/balance HTTP/1.1" 200 -
+2026-01-22 00:51:21,568 | INFO    | backend.app.routes.api | ← group_tasks() 25.6ms
+2026-01-22 00:51:21,569 | INFO    | werkzeug | 127.0.0.1 - - [22/Jan/2026 00:51:21] "GET /api/groups/1/tasks HTTP/1.1" 200 -
+2026-01-22 00:51:32,372 | INFO    | backend.app.routes.api | → group_tasks()
+2026-01-22 00:51:32,381 | INFO    | backend.app.routes.api | ← group_tasks() 8.8ms
+2026-01-22 00:51:32,382 | INFO    | werkzeug | 127.0.0.1 - - [22/Jan/2026 00:51:32] "POST /api/groups/1/tasks HTTP/1.1" 200 -
+2026-01-22 00:51:32,509 | INFO    | backend.app.routes.api | → group_tasks()
+2026-01-22 00:51:32,510 | INFO    | backend.app.routes.api | → balance()
+2026-01-22 00:51:32,512 | INFO    | backend.app.routes.api | ← group_tasks() 3.2ms
+2026-01-22 00:51:32,513 | INFO    | backend.app.routes.api | ← balance() 2.8ms
+2026-01-22 00:51:32,513 | INFO    | werkzeug | 127.0.0.1 - - [22/Jan/2026 00:51:32] "GET /api/groups/1/tasks HTTP/1.1" 200 -
+2026-01-22 00:51:32,514 | INFO    | werkzeug | 127.0.0.1 - - [22/Jan/2026 00:51:32] "GET /api/balance HTTP/1.1" 200 -
+2026-01-22 00:51:32,832 | INFO    | backend.app.routes.api | → done_task()
+2026-01-22 00:51:32,840 | INFO    | backend.app.routes.api | ← done_task() 7.8ms
+2026-01-22 00:51:32,841 | INFO    | werkzeug | 127.0.0.1 - - [22/Jan/2026 00:51:32] "POST /api/tasks/2/done HTTP/1.1" 200 -
+2026-01-22 00:51:37,695 | INFO    | backend.app.routes.api | → group_tasks()
+2026-01-22 00:51:37,701 | INFO    | backend.app.routes.api | ← group_tasks() 6.0ms
+2026-01-22 00:51:37,702 | INFO    | werkzeug | 127.0.0.1 - - [22/Jan/2026 00:51:37] "POST /api/groups/1/tasks HTTP/1.1" 200 -
+2026-01-22 00:51:37,839 | INFO    | backend.app.routes.api | → group_tasks()
+2026-01-22 00:51:37,841 | INFO    | backend.app.routes.api | → balance()
+2026-01-22 00:51:37,844 | INFO    | backend.app.routes.api | ← group_tasks() 5.3ms
+2026-01-22 00:51:37,846 | INFO    | backend.app.routes.api | ← balance() 5.0ms
+2026-01-22 00:51:37,846 | INFO    | werkzeug | 127.0.0.1 - - [22/Jan/2026 00:51:37] "GET /api/groups/1/tasks HTTP/1.1" 200 -
+2026-01-22 00:51:37,847 | INFO    | werkzeug | 127.0.0.1 - - [22/Jan/2026 00:51:37] "GET /api/balance HTTP/1.1" 200 -
+2026-01-22 00:51:41,159 | INFO    | backend.app.routes.api | → group_tasks()
+2026-01-22 00:51:41,162 | INFO    | backend.app.routes.api | ← group_tasks() 3.4ms
+2026-01-22 00:51:41,163 | INFO    | werkzeug | 127.0.0.1 - - [22/Jan/2026 00:51:41] "GET /api/groups/1/tasks HTTP/1.1" 200 -
+2026-01-22 00:51:49,830 | INFO    | backend.app.routes.api | → group_tasks()
+2026-01-22 00:51:49,834 | INFO    | backend.app.routes.api | ← group_tasks() 4.4ms
+2026-01-22 00:51:49,834 | INFO    | werkzeug | 127.0.0.1 - - [22/Jan/2026 00:51:49] "POST /api/groups/1/tasks HTTP/1.1" 200 -
+2026-01-22 00:51:49,969 | INFO    | backend.app.routes.api | → group_tasks()
+2026-01-22 00:51:49,971 | INFO    | backend.app.routes.api | ← group_tasks() 2.4ms
+2026-01-22 00:51:49,972 | INFO    | werkzeug | 127.0.0.1 - - [22/Jan/2026 00:51:49] "GET /api/groups/1/tasks HTTP/1.1" 200 -
+2026-01-22 00:51:50,774 | INFO    | backend.app.routes.api | → finance()
+2026-01-22 00:51:50,776 | INFO    | backend.app.routes.api | ← finance() 2.3ms
+2026-01-22 00:51:50,777 | INFO    | werkzeug | 127.0.0.1 - - [22/Jan/2026 00:51:50] "GET /api/finance HTTP/1.1" 200 -
