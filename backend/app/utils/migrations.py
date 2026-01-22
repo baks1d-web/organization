@@ -27,13 +27,12 @@ def ensure_sqlite_schema() -> None:
 
     # Columns for Task table
     alter_statements: list[str] = []
-    if not _has_column("task", "assigned_by_id"):
-        alter_statements.append("ALTER TABLE task ADD COLUMN assigned_by_id INTEGER")
-    if not _has_column("task", "description"):
-        alter_statements.append("ALTER TABLE task ADD COLUMN description TEXT NOT NULL DEFAULT ''")
-    if not _has_column("task", "status"):
-        alter_statements.append("ALTER TABLE task ADD COLUMN status VARCHAR(32) NOT NULL DEFAULT 'new'")
-
+    if not _has_column("tasks", "assigned_by_id"):
+        alter_statements.append("ALTER TABLE tasks ADD COLUMN assigned_by_id INTEGER")
+    if not _has_column("tasks", "description"):
+        alter_statements.append("ALTER TABLE tasks ADD COLUMN description TEXT NOT NULL DEFAULT ''")
+    if not _has_column("tasks", "status"):
+        alter_statements.append("ALTER TABLE tasks ADD COLUMN status VARCHAR(32) NOT NULL DEFAULT 'new'")
     if not alter_statements:
         return
 

@@ -28,7 +28,7 @@ function setToken(token) {
 function getToken() {
   return localStorage.getItem('access_token') || '';
 }
-unction setDefaultGroupId(defaultGroupId, { force = false } = {}) {
+function setDefaultGroupId(defaultGroupId, { force = false } = {}) {
   if (!defaultGroupId) return;
   const current = localStorage.getItem('default_group_id');
   if (force || !current) {
@@ -75,19 +75,9 @@ const STATE = {
   manageMode: null, // 'categories'|'methods'
 };
 
-function renderInitDataDebug() {
-  const el = document.getElementById('initdata-debug');
-  if (!el) return;
-
-  const debug = {
-    hasTelegramWebApp: Boolean(tg),
-    initDataLength: tg && tg.initData ? tg.initData.length : 0,
-    initDataUnsafe: tg ? tg.initDataUnsafe : null,
-    urlTokenPresent: Boolean(getUrlToken()),
-    inviteParamPresent: Boolean(getInviteToken()),
-  };
-
-  el.textContent = JSON.stringify(debug, null, 2);
+async function bootAfterLogin() {
+  await loadGroups();
+  loadCurrentScreen();
 }
 
 function enterApp() {
@@ -162,8 +152,6 @@ async function loginWithStoredToken() {
 }
 
 async function autoLogin() {
-  renderInitDataDebug();
-
   try { if (await loginWithTelegramInitData()) { enterApp(); return; } } catch (e) { console.warn(e); }
   try { if (await loginWithUrlToken()) { enterApp(); return; } } catch (e) { console.warn(e); }
   try { if (await loginWithStoredToken()) { enterApp(); return; } } catch (e) { console.warn(e); }
@@ -202,12 +190,12 @@ function loadCurrentScreen() {
   if (active.id === 'settings') loadNotificationSettings();
 
   if (active.id === 'group_tasks') {
-    updateCommonMode();
-    renderGroupsList();
-    if (STATE.selectedGroupId) {
-      if (STATE.commonTab === 'finance') loadGroupFinance();
-      else loadGroupTasks();
-    }
+    loadGroups().then(() => {
+      if (STATE.selectedGroupId) {
+        if (STATE.commonTab === 'finance') loadGroupFinance();
+        else loadGroupTasks();
+      }
+    });
   }
 }
 
