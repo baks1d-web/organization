@@ -73,6 +73,9 @@ const STATE = {
 
   currentTask: null,
   manageMode: null, // 'categories'|'methods'
+  habitsView: 'week',
+  habitsAnchor: null,
+
 };
 
 async function bootAfterLogin() {
@@ -187,6 +190,7 @@ function loadCurrentScreen() {
   if (active.id === 'home') loadHome();
   if (active.id === 'tasks') loadTasks();
   if (active.id === 'finance') loadFinance();
+  if (active.id === 'habits') loadHabits();
   if (active.id === 'settings') loadNotificationSettings();
 
   if (active.id === 'group_tasks') {
@@ -1057,3 +1061,165 @@ function escapeHtml(str) {
   autoLogin();
   window.addEventListener('load', () => autoLogin());
 })();
+
+
+// ---------------- Habits UI ----------------
+function setHabitsView(view) {
+  STATE.habitsView = (view === 'month') ? 'month' : 'week';
+
+  const w = document.getElementById('habits-week-btn');
+  const m = document.getElementById('habits-month-btn');
+  if (w && m) {
+    w.classList.toggle('active', STATE.habitsView === 'week');
+    m.classList.toggle('active', STATE.habitsView === 'month');
+  }
+  loadHabits();
+}
+
+function _todayISO() {
+  const d = new Date();
+  const pad = (n) => String(n).padStart(2, '0');
+  return `${d.getFullYear()}-${pad(d.getMonth()+1)}-${pad(d.getDate())}`;
+}
+
+async function loadHabits() {
+  try {
+    const w = document.getElementById('habits-week-btn');
+    const m = document.getElementById('habits-month-btn');
+    if (w && m) {
+      w.classList.toggle('active', STATE.habitsView === 'week');
+      m.classList.toggle('active', STATE.habitsView === 'month');
+    }
+
+    const anchor = STATE.habitsAnchor || _todayISO();
+    const data = await apiFetch(`/api/habits?view=${encodeURIComponent(STATE.habitsView)}&date=${encodeURIComponent(anchor)}`);
+    renderHabits(data);
+  } catch (e) {
+    console.error(e);
+    showToast(`Привычки: ${e.message || e}`);
+  }
+}
+
+function renderHabits(data) {
+  const list = document.getElementById('habits-list');
+  if (!list) return;
+
+  // progress
+  const done = data?.overall?.done ?? 0;
+  const total = data?.overall?.total ?? 0;
+  const pct = total > 0 ? Math.round((done / total) * 100) : 0;
+
+  const fill = document.getElementById('habits-bar-fill');
+  const txt = document.getElementById('habits-bar-text');
+  if (fill) fill.style.width = `${pct}%`;
+  if (txt) txt.textContent = `${done} / ${total}`;
+
+  const today = _todayISO();
+  const days = (data.days || []).map(d => d);
+
+  list.innerHTML = '';
+  (data.habits || []).forEach(h => {
+    const card = document.createElement('div');
+    card.className = 'habit-card';
+
+    const head = document.createElement('div');
+    head.className = 'habit-head';
+
+    const title = document.createElement('div');
+    title.className = 'habit-title';
+    title.textContent = h.title;
+
+    const count = document.createElement('div');
+    count.className = 'habit-count';
+    count.textContent = `${h.done}/${h.total}`;
+
+    head.appendChild(title);
+    head.appendChild(count);
+
+    const daysRow = document.createElement('div');
+    daysRow.className = 'habit-days';
+
+    days.forEach(d => {
+      const b = document.createElement('div');
+      b.className = 'habit-day';
+
+      const iso = d.date;
+      const isDone = h.checks && h.checks[iso];
+      if (isDone) b.classList.add('done');
+      if (iso === today) b.classList.add('today');
+
+      const lbl = document.createElement('div');
+      lbl.className = 'lbl';
+      lbl.textContent = d.label;
+
+      b.appendChild(lbl);
+
+      // In month view show day number; in week view keep empty circle; if done show checkmark
+      const main = document.createElement('span');
+      main.textContent = isDone ? '✓' : ((STATE.habitsView === 'month') ? String(d.day) : '');
+      b.appendChild(main);
+      b.appendChild(lbl);
+
+      b.onclick = () => toggleHabitDay(h.id, iso, !isDone);
+      daysRow.appendChild(b);
+    });
+
+    card.appendChild(head);
+    card.appendChild(daysRow);
+    list.appendChild(card);
+  });
+
+  if ((data.habits || []).length === 0) {
+    const empty = document.createElement('div');
+    empty.className = 'card';
+    empty.innerHTML = '<h3>Привычек пока нет</h3><div class="muted">Нажмите “Добавить привычку”, чтобы начать.</div>';
+    list.appendChild(empty);
+  }
+}
+
+async function toggleHabitDay(habitId, isoDate, done) {
+  try {
+    await apiFetch(`/api/habits/${habitId}/check`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ date: isoDate, done }),
+    });
+    // quick reload for consistent counts
+    await loadHabits();
+  } catch (e) {
+    console.error(e);
+    showToast(e.message || 'Ошибка');
+  }
+}
+
+// ---- Modal ----
+function openHabitModal() {
+  const m = document.getElementById('habit-modal');
+  if (m) m.classList.remove('hidden');
+  const inp = document.getElementById('habit-title');
+  if (inp) { inp.value = ''; inp.focus(); }
+}
+
+function closeHabitModal() {
+  const m = document.getElementById('habit-modal');
+  if (m) m.classList.add('hidden');
+}
+
+async function createHabit() {
+  const inp = document.getElementById('habit-title');
+  const title = (inp?.value || '').trim();
+  if (!title) { showToast('Введите название'); return; }
+
+  try {
+    await apiFetch('/api/habits', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ title }),
+    });
+    closeHabitModal();
+    await loadHabits();
+  } catch (e) {
+    console.error(e);
+    showToast(e.message || 'Ошибка');
+  }
+}
