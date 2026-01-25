@@ -444,3 +444,6 @@ RuntimeError: Backend returned non-JSON response: status=404, body=<!DOCTYPE htm
 2026-01-22 20:15:14,761 | INFO    | __main__ | ← cmd_start() 1386.7ms
 2026-01-22 20:15:14,761 | INFO    | aiogram.event | Update id=211697873 is handled. Duration 1391 ms by bot id=7320198123
 2026-01-22 20:15:19,071 | INFO    | aiogram.event | Update id=211697874 is handled. Duration 836 ms by bot id=7320198123
+2026-01-22 20:27:53,073 | WARNING | aiogram.dispatcher | Received SIGINT signal
+2026-01-22 20:27:53,085 | INFO    | aiogram.dispatcher | Polling stopped for bot @techreds_bot id=7320198123 - 'DB'
+2026-01-22 20:27:53,089 | INFO    | aiogram.dispatcher | Polling stopped

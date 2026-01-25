@@ -2354,3 +2354,14 @@ sqlalchemy.exc.NoSuchTableError: task
 2026-01-22 20:22:52,887 | INFO    | backend.app.routes.api | → balance()
 2026-01-22 20:22:52,888 | INFO    | backend.app.routes.api | ← balance() 1.4ms
 2026-01-22 20:22:52,889 | INFO    | werkzeug | 127.0.0.1 - - [22/Jan/2026 20:22:52] "GET /api/balance HTTP/1.1" 200 -
+2026-01-22 20:23:16,915 | INFO    | backend.app.routes.web | → index()
+2026-01-22 20:23:16,918 | INFO    | backend.app.routes.web | ← index() 3.1ms
+2026-01-22 20:23:16,920 | INFO    | werkzeug | 127.0.0.1 - - [22/Jan/2026 20:23:16] "GET /?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTc2OTEwMTI5NSwianRpIjoiMzZlODQ0ZTktNjFhOC00OWUyLWIzNmMtNzRmOWYwMzJiYTEyIiwidHlwZSI6ImFjY2VzcyIsInN1YiI6IjEiLCJuYmYiOjE3NjkxMDEyOTUsImNzcmYiOiJmZWJkMGE2Yy03NGEzLTRiYTEtOWQ0NC02ZTcyMjM0NGNhNGEiLCJleHAiOjE3NjkxMDQ4OTV9.MXrYux0B1uxWao5uldp4qGY41FsW7K9QvJREbzX6xoE HTTP/1.1" 200 -
+2026-01-22 20:23:17,544 | INFO    | werkzeug | 127.0.0.1 - - [22/Jan/2026 20:23:17] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2026-01-22 20:23:18,279 | INFO    | werkzeug | 127.0.0.1 - - [22/Jan/2026 20:23:18] "[36mGET /static/js/app.js HTTP/1.1[0m" 304 -
+2026-01-22 20:23:18,450 | INFO    | backend.app.routes.api | → auth_telegram()
+2026-01-22 20:23:18,478 | INFO    | backend.app.routes.api | → auth_telegram()
+2026-01-22 20:23:18,516 | INFO    | backend.app.routes.api | ← auth_telegram() 65.7ms
+2026-01-22 20:23:18,517 | INFO    | backend.app.routes.api | ← auth_telegram() 39.0ms
+2026-01-22 20:23:18,518 | INFO    | werkzeug | 127.0.0.1 - - [22/Jan/2026 20:23:18] "POST /api/auth/telegram HTTP/1.1" 200 -
+2026-01-22 20:23:18,519 | INFO    | werkzeug | 127.0.0.1 - - [22/Jan/2026 20:23:18] "POST /api/auth/telegram HTTP/1.1" 200 -
