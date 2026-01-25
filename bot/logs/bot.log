@@ -625,3 +625,21 @@ Traceback (most recent call last):
 asyncio.exceptions.TimeoutError
 2026-01-25 13:59:53,512 | INFO    | __main__ | ← cmd_start() 21699.9ms
 2026-01-25 13:59:53,513 | INFO    | aiogram.event | Update id=211697891 is handled. Duration 21703 ms by bot id=7320198123
+2026-01-25 14:02:22,636 | INFO    | __main__ | → cmd_start()
+2026-01-25 14:02:22,640 | INFO    | bot | /start from tg_id=747937058 username=baks1d
+2026-01-25 14:02:23,125 | INFO    | bot | backend_start_session: status=200 body={"access_token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTc2OTMzODk0MywianRpIjoiZTZmYjljZGQtNGViOC00YzVhLTgzMjYtYTlkNTUzMmFhZWExIiwidHlwZSI6ImFjY2VzcyIsInN1YiI6IjEiLCJuYmYiOjE3NjkzMzg5NDMsImNzcmYiOiI2NzYwNTE4Ny02NzkxLTRlZTUtOGUyZC1kYTI2NTUwYjkxNjgiLCJleHAiOjE3NjkzNDI1NDN9.gQsxY47-3ltdlIVPPYF1ENp3XsmKSEvufS8iHLO5nAg","default_group_id":1,"ok":true}
+
+2026-01-25 14:02:24,073 | INFO    | __main__ | ← cmd_start() 1437.5ms
+2026-01-25 14:02:24,074 | INFO    | aiogram.event | Update id=211697892 is handled. Duration 1441 ms by bot id=7320198123
+2026-01-25 14:02:35,147 | INFO    | __main__ | → cmd_start()
+2026-01-25 14:02:35,148 | INFO    | bot | /start from tg_id=747937058 username=baks1d
+2026-01-25 14:02:35,532 | INFO    | bot | backend_start_session: status=200 body={"access_token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTc2OTMzODk1NSwianRpIjoiNTMzYmQ5M2QtODlhYS00MzZiLTlmZjMtY2IwNDc2N2FmZjlkIiwidHlwZSI6ImFjY2VzcyIsInN1YiI6IjEiLCJuYmYiOjE3NjkzMzg5NTUsImNzcmYiOiJhNjFkMDAzZS0wZTAzLTRkNDctYjE3NC1lZTExNjg0ODMzZGYiLCJleHAiOjE3NjkzNDI1NTV9.eeTQvgnCc0AuetulBtNe8KFrPNKSH5EzHVj1wLAfSpI","default_group_id":1,"ok":true}
+
+2026-01-25 14:02:36,255 | INFO    | __main__ | ← cmd_start() 1108.7ms
+2026-01-25 14:02:36,256 | INFO    | aiogram.event | Update id=211697893 is handled. Duration 1110 ms by bot id=7320198123
+2026-01-25 14:03:26,644 | INFO    | __main__ | → cmd_start()
+2026-01-25 14:03:26,646 | INFO    | bot | /start from tg_id=747937058 username=baks1d
+2026-01-25 14:03:27,447 | INFO    | bot | backend_start_session: status=200 body={"access_token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTc2OTMzOTAwNywianRpIjoiZDYzOWViNTktYjFmZC00NGNlLTkzZGEtODcwNjIxMGY5YmEyIiwidHlwZSI6ImFjY2VzcyIsInN1YiI6IjEiLCJuYmYiOjE3NjkzMzkwMDcsImNzcmYiOiI5ZmQzZDExNi1kODQ5LTRmZTMtYWRjYS03NmNhMTE2YzU5ODMiLCJleHAiOjE3NjkzNDI2MDd9.Fbzb7wVwJ_oBaw7zqyRZaCHJEyc7b618uY3fKpEb57U","default_group_id":1,"ok":true}
+
+2026-01-25 14:03:28,287 | INFO    | __main__ | ← cmd_start() 1642.7ms
+2026-01-25 14:03:28,287 | INFO    | aiogram.event | Update id=211697894 is handled. Duration 1644 ms by bot id=7320198123
