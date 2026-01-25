@@ -286,3 +286,115 @@
 2026-01-25 14:21:25,503 | INFO    | backend.app.routes.api | → balance()
 2026-01-25 14:21:25,505 | INFO    | backend.app.routes.api | ← balance() 1.9ms
 2026-01-25 14:21:25,506 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 14:21:25] "GET /api/balance HTTP/1.1" 200 -
+2026-01-25 14:37:40,579 | INFO    | backend.app.routes.web | → index()
+2026-01-25 14:37:40,583 | INFO    | backend.app.routes.web | ← index() 3.9ms
+2026-01-25 14:37:40,586 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 14:37:40] "GET /?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTc2OTMzOTAwNywianRpIjoiZDYzOWViNTktYjFmZC00NGNlLTkzZGEtODcwNjIxMGY5YmEyIiwidHlwZSI6ImFjY2VzcyIsInN1YiI6IjEiLCJuYmYiOjE3NjkzMzkwMDcsImNzcmYiOiI5ZmQzZDExNi1kODQ5LTRmZTMtYWRjYS03NmNhMTE2YzU5ODMiLCJleHAiOjE3NjkzNDI2MDd9.Fbzb7wVwJ_oBaw7zqyRZaCHJEyc7b618uY3fKpEb57U HTTP/1.1" 200 -
+2026-01-25 14:37:40,841 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 14:37:40] "GET /static/css/style.css HTTP/1.1" 200 -
+2026-01-25 14:37:40,919 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 14:37:40] "GET /static/js/app.js HTTP/1.1" 200 -
+2026-01-25 14:37:41,283 | INFO    | backend.app.routes.api | → auth_telegram()
+2026-01-25 14:37:41,310 | INFO    | backend.app.routes.api | → auth_telegram()
+2026-01-25 14:37:41,323 | INFO    | backend.app.routes.api | ← auth_telegram() 39.8ms
+2026-01-25 14:37:41,323 | INFO    | backend.app.routes.api | ← auth_telegram() 13.1ms
+2026-01-25 14:37:41,323 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 14:37:41] "POST /api/auth/telegram HTTP/1.1" 200 -
+2026-01-25 14:37:41,324 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 14:37:41] "POST /api/auth/telegram HTTP/1.1" 200 -
+2026-01-25 14:37:41,537 | INFO    | backend.app.routes.api | → list_groups()
+2026-01-25 14:37:41,540 | INFO    | backend.app.routes.api | → list_groups()
+2026-01-25 14:37:41,545 | INFO    | backend.app.routes.api | ← list_groups() 7.4ms
+2026-01-25 14:37:41,548 | INFO    | backend.app.routes.api | ← list_groups() 7.8ms
+2026-01-25 14:37:41,548 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 14:37:41] "GET /api/groups HTTP/1.1" 200 -
+2026-01-25 14:37:41,549 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 14:37:41] "GET /api/groups HTTP/1.1" 200 -
+2026-01-25 14:37:41,773 | INFO    | backend.app.routes.api | → group_tasks()
+2026-01-25 14:37:41,774 | INFO    | backend.app.routes.api | → group_tasks()
+2026-01-25 14:37:41,794 | INFO    | backend.app.routes.api | ← group_tasks() 19.9ms
+2026-01-25 14:37:41,795 | INFO    | backend.app.routes.api | ← group_tasks() 22.5ms
+2026-01-25 14:37:41,795 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 14:37:41] "GET /api/groups/1/tasks HTTP/1.1" 200 -
+2026-01-25 14:37:41,796 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 14:37:41] "GET /api/groups/1/tasks HTTP/1.1" 200 -
+2026-01-25 14:37:42,014 | INFO    | backend.app.routes.api | → balance()
+2026-01-25 14:37:42,016 | INFO    | backend.app.routes.api | → balance()
+2026-01-25 14:37:42,019 | INFO    | backend.app.routes.api | ← balance() 5.1ms
+2026-01-25 14:37:42,020 | INFO    | backend.app.routes.api | ← balance() 3.8ms
+2026-01-25 14:37:42,020 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 14:37:42] "GET /api/balance HTTP/1.1" 200 -
+2026-01-25 14:37:42,021 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 14:37:42] "GET /api/balance HTTP/1.1" 200 -
+2026-01-25 14:37:51,034 | INFO    | backend.app.routes.api | → list_groups()
+2026-01-25 14:37:51,040 | INFO    | backend.app.routes.api | ← list_groups() 6.0ms
+2026-01-25 14:37:51,041 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 14:37:51] "GET /api/groups HTTP/1.1" 200 -
+2026-01-25 14:37:51,354 | INFO    | backend.app.routes.api | → group_tasks()
+2026-01-25 14:37:51,364 | INFO    | backend.app.routes.api | ← group_tasks() 10.8ms
+2026-01-25 14:37:51,365 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 14:37:51] "GET /api/groups/2/tasks HTTP/1.1" 200 -
+2026-01-25 14:37:51,483 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 14:37:51] "GET /api/habits?view=week&date=2026-01-25 HTTP/1.1" 200 -
+2026-01-25 17:12:16,509 | INFO    | werkzeug | [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://10.33.0.2:5000
+2026-01-25 17:12:16,509 | INFO    | werkzeug | [33mPress CTRL+C to quit[0m
+2026-01-25 17:12:36,298 | INFO    | backend.app.routes.api | → bot_start()
+2026-01-25 17:12:36,342 | INFO    | backend.app.routes.api | ← bot_start() 43.2ms
+2026-01-25 17:12:36,343 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 17:12:36] "POST /api/bot/start HTTP/1.1" 200 -
+2026-01-25 17:12:37,031 | INFO    | backend.app.routes.api | → bot_invites_pending()
+2026-01-25 17:12:37,037 | INFO    | backend.app.routes.api | ← bot_invites_pending() 6.2ms
+2026-01-25 17:12:37,038 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 17:12:37] "POST /api/bot/invites/pending HTTP/1.1" 200 -
+2026-01-25 17:12:40,662 | INFO    | backend.app.routes.web | → index()
+2026-01-25 17:12:40,672 | INFO    | backend.app.routes.web | ← index() 9.3ms
+2026-01-25 17:12:40,672 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 17:12:40] "GET /?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTc2OTM1MDM1NiwianRpIjoiMGE1M2JmNWItNTJhZS00ZjIxLWE1MTEtMDg0MDI0YjA5MzAxIiwidHlwZSI6ImFjY2VzcyIsInN1YiI6IjEiLCJuYmYiOjE3NjkzNTAzNTYsImNzcmYiOiJiMGQzMTdiNi0zMWY4LTQyMTEtYjUyMC0yZmEwMTMwYzdkMDYiLCJleHAiOjE3NjkzNTM5NTZ9.qaNbHBZQg0p7dBF_zX-JwvVZgAfdb-hcR5VjzFAST7w HTTP/1.1" 200 -
+2026-01-25 17:12:41,107 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 17:12:41] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2026-01-25 17:12:41,429 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 17:12:41] "GET /static/js/app.js HTTP/1.1" 200 -
+2026-01-25 17:12:41,858 | INFO    | backend.app.routes.api | → auth_telegram()
+2026-01-25 17:12:41,868 | INFO    | backend.app.routes.api | ← auth_telegram() 10.4ms
+2026-01-25 17:12:41,869 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 17:12:41] "POST /api/auth/telegram HTTP/1.1" 200 -
+2026-01-25 17:12:41,999 | INFO    | backend.app.routes.api | → auth_telegram()
+2026-01-25 17:12:42,010 | INFO    | backend.app.routes.api | ← auth_telegram() 11.2ms
+2026-01-25 17:12:42,012 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 17:12:42] "POST /api/auth/telegram HTTP/1.1" 200 -
+2026-01-25 17:12:42,159 | INFO    | backend.app.routes.api | → list_groups()
+2026-01-25 17:12:42,169 | INFO    | backend.app.routes.api | ← list_groups() 9.4ms
+2026-01-25 17:12:42,169 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 17:12:42] "GET /api/groups HTTP/1.1" 200 -
+2026-01-25 17:12:42,437 | INFO    | backend.app.routes.api | → list_groups()
+2026-01-25 17:12:42,441 | INFO    | backend.app.routes.api | ← list_groups() 3.9ms
+2026-01-25 17:12:42,441 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 17:12:42] "GET /api/groups HTTP/1.1" 200 -
+2026-01-25 17:12:42,450 | INFO    | backend.app.routes.api | → group_tasks()
+2026-01-25 17:12:42,468 | INFO    | backend.app.routes.api | ← group_tasks() 18.2ms
+2026-01-25 17:12:42,469 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 17:12:42] "GET /api/groups/1/tasks HTTP/1.1" 200 -
+2026-01-25 17:12:42,740 | INFO    | backend.app.routes.api | → group_tasks()
+2026-01-25 17:12:42,754 | INFO    | backend.app.routes.api | ← group_tasks() 14.2ms
+2026-01-25 17:12:42,755 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 17:12:42] "GET /api/groups/1/tasks HTTP/1.1" 200 -
+2026-01-25 17:12:42,871 | INFO    | backend.app.routes.api | → balance()
+2026-01-25 17:12:42,875 | INFO    | backend.app.routes.api | ← balance() 3.9ms
+2026-01-25 17:12:42,876 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 17:12:42] "GET /api/balance HTTP/1.1" 200 -
+2026-01-25 17:12:43,133 | INFO    | backend.app.routes.api | → balance()
+2026-01-25 17:12:43,134 | INFO    | backend.app.routes.api | ← balance() 1.7ms
+2026-01-25 17:12:43,135 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 17:12:43] "GET /api/balance HTTP/1.1" 200 -
+2026-01-25 17:12:56,326 | INFO    | backend.app.routes.api | → get_notification_settings()
+2026-01-25 17:12:56,328 | INFO    | backend.app.routes.api | ← get_notification_settings() 1.8ms
+2026-01-25 17:12:56,329 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 17:12:56] "GET /api/settings/notifications HTTP/1.1" 200 -
+2026-01-25 17:12:59,991 | INFO    | backend.app.routes.api | → finance()
+2026-01-25 17:12:59,995 | INFO    | backend.app.routes.api | ← finance() 4.1ms
+2026-01-25 17:12:59,996 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 17:12:59] "GET /api/finance HTTP/1.1" 200 -
+2026-01-25 17:13:10,509 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 17:13:10] "GET /api/habits?view=week&date=2026-01-25 HTTP/1.1" 200 -
+2026-01-25 17:13:10,850 | INFO    | backend.app.routes.api | → finance()
+2026-01-25 17:13:10,852 | INFO    | backend.app.routes.api | ← finance() 2.6ms
+2026-01-25 17:13:10,853 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 17:13:10] "GET /api/finance HTTP/1.1" 200 -
+2026-01-25 17:13:11,383 | INFO    | backend.app.routes.api | → finance()
+2026-01-25 17:13:11,385 | INFO    | backend.app.routes.api | ← finance() 2.1ms
+2026-01-25 17:13:11,385 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 17:13:11] "GET /api/finance HTTP/1.1" 200 -
+2026-01-25 17:13:26,505 | INFO    | backend.app.routes.api | → group_tasks()
+2026-01-25 17:13:26,519 | INFO    | backend.app.routes.api | ← group_tasks() 14.4ms
+2026-01-25 17:13:26,521 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 17:13:26] "GET /api/groups/1/tasks HTTP/1.1" 200 -
+2026-01-25 17:13:26,805 | INFO    | backend.app.routes.api | → balance()
+2026-01-25 17:13:26,808 | INFO    | backend.app.routes.api | ← balance() 2.5ms
+2026-01-25 17:13:26,809 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 17:13:26] "GET /api/balance HTTP/1.1" 200 -
+2026-01-25 17:13:27,216 | INFO    | backend.app.routes.api | → group_tasks()
+2026-01-25 17:13:27,232 | INFO    | backend.app.routes.api | ← group_tasks() 15.3ms
+2026-01-25 17:13:27,232 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 17:13:27] "GET /api/groups/1/tasks HTTP/1.1" 200 -
+2026-01-25 17:13:27,652 | INFO    | backend.app.routes.api | → balance()
+2026-01-25 17:13:27,655 | INFO    | backend.app.routes.api | ← balance() 3.5ms
+2026-01-25 17:13:27,656 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 17:13:27] "GET /api/balance HTTP/1.1" 200 -
+2026-01-25 17:13:28,183 | INFO    | backend.app.routes.api | → group_members()
+2026-01-25 17:13:28,186 | INFO    | backend.app.routes.api | → list_users()
+2026-01-25 17:13:28,191 | INFO    | backend.app.routes.api | ← group_members() 8.0ms
+2026-01-25 17:13:28,193 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 17:13:28] "GET /api/groups/1/members HTTP/1.1" 200 -
+2026-01-25 17:13:28,194 | INFO    | backend.app.routes.api | ← list_users() 8.0ms
+2026-01-25 17:13:28,195 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 17:13:28] "GET /api/users HTTP/1.1" 200 -
+2026-01-25 17:13:31,699 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 17:13:31] "GET /api/habits?view=week&date=2026-01-25 HTTP/1.1" 200 -
+2026-01-25 17:13:32,327 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 17:13:32] "GET /api/habits?view=week&date=2026-01-25 HTTP/1.1" 200 -
+2026-01-25 17:13:35,146 | INFO    | backend.app.routes.api | → finance()
+2026-01-25 17:13:35,148 | INFO    | backend.app.routes.api | ← finance() 2.6ms
+2026-01-25 17:13:35,149 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 17:13:35] "GET /api/finance HTTP/1.1" 200 -

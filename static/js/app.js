@@ -58,8 +58,10 @@ const STATE = {
 
   tasksCache: [],
   groupTasksCache: [],
+  financeCache: [],
+  groupFinanceCacheByGroup: {},
 
-    currentDateISO: null,
+  currentDateISO: null,
 
 
   groups: [],
@@ -222,15 +224,48 @@ function updateDateHeader() {
   const date = parseISODate(STATE.currentDateISO) || new Date();
   const titleEl = document.querySelector('.date-title');
   const subtitleEl = document.querySelector('.date-subtitle');
+  const calInput = document.getElementById('calendar-input');
   if (titleEl) titleEl.textContent = formatDateTitle(date);
   if (subtitleEl) subtitleEl.textContent = formatDateSubtitle(date);
+  if (calInput) calInput.value = toISODate(date);
+}
+
+function getActiveDateISO() {
+  return STATE.currentDateISO || toISODate(new Date());
+}
+
+function filterTasksByCurrentDate(tasks) {
+  const activeDate = getActiveDateISO();
+  return (tasks || []).filter(task => {
+    if (!task?.deadline) return true;
+    return task.deadline === activeDate;
+  });
+}
+
+function isoFromDateTime(value) {
+  if (!value) return '';
+  return String(value).slice(0, 10);
+}
+
+function filterFinanceByCurrentDate(items) {
+  const activeDate = getActiveDateISO();
+  return (items || []).filter(item => isoFromDateTime(item.created_at) === activeDate);
 }
 
 function rerenderTasksForDate() {
   renderHomeTasks();
   const active = document.querySelector('.screen.active');
-  if (active?.id === 'group_tasks' && STATE.commonTab === 'tasks' && STATE.selectedGroupId) {
-    renderGroupTasks();
+  if (!active) return;
+  if (active.id === 'finance') {
+    renderFinanceList();
+  }
+  if (active.id === 'group_tasks') {
+    if (STATE.commonTab === 'tasks' && STATE.selectedGroupId) {
+      renderGroupTasks();
+    }
+    if (STATE.commonTab === 'finance' && STATE.selectedGroupId) {
+      renderGroupFinanceList();
+    }
   }
 }
 
@@ -250,9 +285,37 @@ function initDateNavigation() {
 
   const prevBtn = document.getElementById('prev-day-btn');
   const nextBtn = document.getElementById('next-day-btn');
+  const calBtn = document.getElementById('calendar-btn');
+  const calInput = document.getElementById('calendar-input');
+  const settingsBtn = document.getElementById('settings-btn');
   if (prevBtn) prevBtn.addEventListener('click', () => shiftCurrentDate(-1));
   if (nextBtn) nextBtn.addEventListener('click', () => shiftCurrentDate(1));
+  if (calInput) {
+    calInput.value = getActiveDateISO();
+    calInput.addEventListener('change', (event) => {
+      const value = event.target.value;
+      if (value) {
+        STATE.currentDateISO = value;
+        updateDateHeader();
+        rerenderTasksForDate();
+      }
+    });
+  }
+  if (calBtn && calInput) {
+    calBtn.addEventListener('click', () => {
+      calInput.value = getActiveDateISO();
+      calInput.showPicker?.();
+      calInput.focus();
+      calInput.click();
+    });
+  }
+  if (settingsBtn) {
+    settingsBtn.addEventListener('click', () => {
+      switchScreen('settings', 'Настройки');
+    });
+  }
 }
+
 
 
 // ---- Date helpers ----
@@ -380,10 +443,24 @@ async function loadTasks(containerId = 'all-tasks') {
 // ---- Finance (personal) ----
 async function loadFinance() {
   const data = await apiFetch('/api/finance');
+  STATE.financeCache = data.items || [];
+  renderFinanceList();
+}
+
+function renderFinanceList() {
   const container = document.getElementById('finance-list');
+  if (!container) return;
+
   container.innerHTML = '';
 
-  (data.items || []).forEach(i => {
+  const items = filterFinanceByCurrentDate(STATE.financeCache || []);
+  if (!items.length) {
+    container.innerHTML = '<p class="muted">Пока нет операций</p>';
+    return;
+  }
+
+  items.forEach(i => {
+
     const div = document.createElement('div');
     div.className = `finance-row ${i.amount > 0 ? 'plus' : 'minus'}`;
     div.innerHTML = `${i.amount} ₽ <span>${escapeHtml(i.title)}</span>`;
@@ -545,14 +622,15 @@ async function loadGroupTasks() {
   if (!STATE.selectedGroupId) return;
 
   const data = await apiFetch(`/api/groups/${STATE.selectedGroupId}/tasks`);
-  const tasks = data.items || [];
-  STATE.groupTasksCache = tasks;
+  STATE.groupTasksCache = data.items || [];
 
     renderGroupTasks();
 }
 function renderGroupTasks() {
-  renderTaskList('group-tasks-list', STATE.groupTasksCache || [], STATE.groupTasksPage, 'group');
+  const tasks = filterTasksByCurrentDate(STATE.groupTasksCache || []);
+  renderTaskList('group-tasks-list', tasks, STATE.groupTasksPage, 'group');
 }
+
 
 
 // ---- Create group flow (separate menu) ----
@@ -739,11 +817,27 @@ async function loadGroupFinance() {
 
   const data = await apiFetch(`/api/groups/${STATE.selectedGroupId}/finance`);
   document.getElementById('group-balance').textContent = `${data.balance} ₽`;
+    STATE.groupFinanceCacheByGroup[STATE.selectedGroupId] = data.items || [];
+  renderGroupFinanceList();
+
+  await getGroupFinanceMeta(STATE.selectedGroupId);
+}
+
+function renderGroupFinanceList() {
+  if (!STATE.selectedGroupId) return;
 
   const list = document.getElementById('group-finance-list');
+    if (!list) return;
   list.innerHTML = '';
 
-  (data.items || []).forEach(it => {
+  const items = filterFinanceByCurrentDate(STATE.groupFinanceCacheByGroup[STATE.selectedGroupId] || []);
+  if (!items.length) {
+    list.innerHTML = '<p class="muted">Пока нет операций</p>';
+    return;
+  }
+
+  items.forEach(it => {
+
     const div = document.createElement('div');
     div.className = `finance-row ${it.kind === 'income' ? 'plus' : 'minus'}`;
     const cat = it.category ? it.category.name : '—';
@@ -759,7 +853,6 @@ async function loadGroupFinance() {
     list.appendChild(div);
   });
 
-  await getGroupFinanceMeta(STATE.selectedGroupId);
 }
 
 // ---- Add modal ----
@@ -1073,6 +1166,7 @@ function escapeHtml(str) {
       tg.setBackgroundColor(tg.themeParams.bg_color);
     } catch {}
   }
+
 
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', initDateNavigation);
