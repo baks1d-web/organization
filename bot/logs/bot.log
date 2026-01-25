@@ -468,12 +468,12 @@ RuntimeError: Backend returned non-JSON response: status=404, body=<!DOCTYPE htm
 
 2026-01-25 13:23:34,206 | INFO    | __main__ | ← cmd_start() 1635.1ms
 2026-01-25 13:23:34,206 | INFO    | aiogram.event | Update id=211697880 is handled. Duration 1639 ms by bot id=7320198123
-2026-01-25 20:51:47,963 | INFO    | bot | Bot starting… WEBAPP_URL=https://c0624301343d.ngrok-free.app BACKEND_URL=https://c0624301343d.ngrok-free.app
-2026-01-25 20:51:47,964 | INFO    | aiogram.dispatcher | Start polling
-2026-01-25 20:51:48,597 | INFO    | aiogram.dispatcher | Run polling for bot @techreds_bot id=7320198123 - 'DB'
-2026-01-25 20:51:48,690 | INFO    | __main__ | → cmd_start()
-2026-01-25 20:51:48,690 | INFO    | bot | /start from tg_id=747937058 username=baks1d
-2026-01-25 20:51:49,249 | INFO    | bot | backend_start_session: status=200 body={"access_token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTc2OTM2MzUwOSwianRpIjoiMGNmYzY3YzEtMjA5OS00MjNkLTkzMWMtZjgyNTdlMTFlYTYxIiwidHlwZSI6ImFjY2VzcyIsInN1YiI6IjEiLCJuYmYiOjE3NjkzNjM1MDksImNzcmYiOiJkNGYxNGYyZC1iZGU4LTQ4MWUtYWI3NC00YjExMGYzOWFjNjUiLCJleHAiOjE3NjkzNjcxMDl9.3iTsBau7ORuj-dgeT7LebrWdp27Hf-Ek9v9y1kr0pLo","default_group_id":1,"ok":true}
+2026-01-25 20:54:14,272 | INFO    | bot | Bot starting… WEBAPP_URL=https://c0624301343d.ngrok-free.app BACKEND_URL=https://c0624301343d.ngrok-free.app
+2026-01-25 20:54:14,273 | INFO    | aiogram.dispatcher | Start polling
+2026-01-25 20:54:14,541 | INFO    | aiogram.dispatcher | Run polling for bot @techreds_bot id=7320198123 - 'DB'
+2026-01-25 20:54:15,470 | INFO    | __main__ | → cmd_start()
+2026-01-25 20:54:15,470 | INFO    | bot | /start from tg_id=747937058 username=baks1d
+2026-01-25 20:54:16,190 | INFO    | bot | backend_start_session: status=200 body={"access_token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTc2OTM2MzY1NiwianRpIjoiZjI0MmRjNTgtYjBiYi00M2NhLTlkN2EtMjM0ZjU3MTUwYjdjIiwidHlwZSI6ImFjY2VzcyIsInN1YiI6IjEiLCJuYmYiOjE3NjkzNjM2NTYsImNzcmYiOiIyOTdlNDA1My0yMTAzLTQ3M2UtYTYzMi1lOTViYTY2OTZiOTkiLCJleHAiOjE3NjkzNjcyNTZ9.MoFoPVdV1pbYCoFNUwsunqK2mOH-_d0cjpflqZrlz1w","default_group_id":1,"ok":true}
 
-2026-01-25 20:51:49,990 | INFO    | __main__ | ← cmd_start() 1300.5ms
-2026-01-25 20:51:49,991 | INFO    | aiogram.event | Update id=211697910 is handled. Duration 1301 ms by bot id=7320198123
+2026-01-25 20:54:17,041 | INFO    | __main__ | ← cmd_start() 1571.4ms
+2026-01-25 20:54:17,042 | INFO    | aiogram.event | Update id=211697911 is handled. Duration 1572 ms by bot id=7320198123

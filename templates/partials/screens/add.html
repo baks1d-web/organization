@@ -1,0 +1,58 @@
+<section class="screen" id="add">
+  <div class="card">
+    <div class="card-header" style="display:flex;align-items:center;justify-content:space-between;gap:12px;">
+      <h2 style="margin:0;">Добавить</h2>
+      <button class="ghost-btn" data-action="add.cancel">Назад</button>
+    </div>
+
+    <div class="radio-group" data-add-type style="margin-top:12px;">
+      <label><input type="radio" name="add-type" value="task" checked data-action="add.changeType"> Задача</label>
+      <label><input type="radio" name="add-type" value="income" data-action="add.changeType"> Доход</label>
+      <label><input type="radio" name="add-type" value="expense" data-action="add.changeType"> Расход</label>
+    </div>
+
+    <div id="add-task-fields">
+      <input type="text" id="add-task-title" placeholder="Название задачи" />
+      <textarea id="add-task-desc" placeholder="Описание (не обязательно)"></textarea>
+
+      <div class="row">
+        <label class="label">Срок исполнения</label>
+        <input type="date" id="add-task-deadline" />
+      </div>
+
+      <div class="row">
+        <label class="label">Исполнители</label>
+        <div class="muted small" style="margin-bottom:8px;">Список включает всех пользователей, которые запускали бота.</div>
+        <div id="add-task-assignees" class="assignees"></div>
+      </div>
+    </div>
+
+    <div id="add-finance-fields" class="hidden">
+      <textarea id="add-fin-desc" placeholder="Описание (не обязательно)"></textarea>
+      <input type="number" id="add-fin-amount" placeholder="Сумма" />
+
+      <div class="row">
+        <label class="label">Статья</label>
+        <div class="select-row">
+          <select id="add-fin-category"></select>
+          <button class="mini-btn" data-action="manage.open" data-mode="categories">✎</button>
+        </div>
+      </div>
+
+      <div class="row">
+        <label class="label">Способ</label>
+        <div class="select-row">
+          <select id="add-fin-method"></select>
+          <button class="mini-btn" data-action="manage.open" data-mode="methods">✎</button>
+        </div>
+      </div>
+
+      <div class="muted small">Редактирование статей/способов доступно в “Общие → Финансы”.</div>
+    </div>
+
+    <div class="modal-actions" style="margin-top:12px;">
+      <button class="ghost-btn" data-action="add.cancel">Отмена</button>
+      <button class="save-btn" data-action="add.save">Сохранить</button>
+    </div>
+  </div>
+</section>
