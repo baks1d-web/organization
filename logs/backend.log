@@ -3038,3 +3038,40 @@ jinja2.exceptions.TemplateNotFound: partials/components/auth.html
 2026-01-25 19:07:32,525 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 19:07:32] "[36mGET /static/js/core/state.js HTTP/1.1[0m" 304 -
 2026-01-25 19:07:32,527 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 19:07:32] "[36mGET /static/js/ui/modals.js HTTP/1.1[0m" 304 -
 2026-01-25 19:07:32,693 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 19:07:32] "[36mGET /static/js/features/users.js HTTP/1.1[0m" 304 -
+2026-01-25 19:08:52,236 | INFO    | werkzeug | [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://10.33.0.2:5000
+2026-01-25 19:08:52,236 | INFO    | werkzeug | [33mPress CTRL+C to quit[0m
+2026-01-25 19:09:06,498 | INFO    | backend.app.routes.api | → bot_start()
+2026-01-25 19:09:06,555 | INFO    | backend.app.routes.api | ← bot_start() 57.6ms
+2026-01-25 19:09:06,556 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 19:09:06] "POST /api/bot/start HTTP/1.1" 200 -
+2026-01-25 19:09:06,866 | INFO    | backend.app.routes.api | → bot_invites_pending()
+2026-01-25 19:09:06,873 | INFO    | backend.app.routes.api | ← bot_invites_pending() 6.8ms
+2026-01-25 19:09:06,874 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 19:09:06] "POST /api/bot/invites/pending HTTP/1.1" 200 -
+2026-01-25 19:09:08,931 | INFO    | backend.app.routes.web | → index()
+2026-01-25 19:09:08,963 | INFO    | backend.app.routes.web | ← index() 31.5ms
+2026-01-25 19:09:08,963 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 19:09:08] "GET /?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTc2OTM1NzM0NiwianRpIjoiZjhmNGY5M2EtNzZlNy00Mzg0LWJiZDgtNmIxMGJhNDkyNjQxIiwidHlwZSI6ImFjY2VzcyIsInN1YiI6IjEiLCJuYmYiOjE3NjkzNTczNDYsImNzcmYiOiI4NzViOWYzNS0zYjA1LTQ4MjgtYTc1Zi0zZWM2MmYzNTRmYjQiLCJleHAiOjE3NjkzNjA5NDZ9.jQc7GvwDEsbcgdr3-mfWjn3dD__Ytd_2Iw-6vJtHTOI HTTP/1.1" 200 -
+2026-01-25 19:09:09,281 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 19:09:09] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2026-01-25 19:09:09,282 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 19:09:09] "[36mGET /static/js/app.js HTTP/1.1[0m" 304 -
+2026-01-25 19:09:09,503 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 19:09:09] "[36mGET /static/js/features/bootstrap.js HTTP/1.1[0m" 304 -
+2026-01-25 19:09:09,504 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 19:09:09] "[36mGET /static/js/ui/actions.js HTTP/1.1[0m" 304 -
+2026-01-25 19:09:09,711 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 19:09:09] "[36mGET /static/js/features/auth.js HTTP/1.1[0m" 304 -
+2026-01-25 19:09:09,712 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 19:09:09] "[36mGET /static/js/features/navigation.js HTTP/1.1[0m" 304 -
+2026-01-25 19:09:09,716 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 19:09:09] "[36mGET /static/js/features/actions_registry.js HTTP/1.1[0m" 304 -
+2026-01-25 19:09:09,717 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 19:09:09] "[36mGET /static/js/integrations/telegram_back.js HTTP/1.1[0m" 304 -
+2026-01-25 19:09:09,723 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 19:09:09] "[36mGET /static/js/features/datebar.js HTTP/1.1[0m" 304 -
+2026-01-25 19:09:09,726 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 19:09:09] "[36mGET /static/js/ui/dom.js HTTP/1.1[0m" 304 -
+2026-01-25 19:09:10,042 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 19:09:10] "[36mGET /static/js/features/tasks.js HTTP/1.1[0m" 304 -
+2026-01-25 19:09:10,044 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 19:09:10] "[36mGET /static/js/core/storage.js HTTP/1.1[0m" 304 -
+2026-01-25 19:09:10,048 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 19:09:10] "[36mGET /static/js/features/manage.js HTTP/1.1[0m" 304 -
+2026-01-25 19:09:10,048 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 19:09:10] "[36mGET /static/js/features/add.js HTTP/1.1[0m" 304 -
+2026-01-25 19:09:10,052 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 19:09:10] "[36mGET /static/js/ui/modals.js HTTP/1.1[0m" 304 -
+2026-01-25 19:09:10,054 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 19:09:10] "[36mGET /static/js/features/home.js HTTP/1.1[0m" 304 -
+2026-01-25 19:09:10,056 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 19:09:10] "[36mGET /static/js/core/state.js HTTP/1.1[0m" 304 -
+2026-01-25 19:09:10,108 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 19:09:10] "[36mGET /static/js/features/settings.js HTTP/1.1[0m" 304 -
+2026-01-25 19:09:10,110 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 19:09:10] "[36mGET /static/js/features/personal_finance.js HTTP/1.1[0m" 304 -
+2026-01-25 19:09:10,112 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 19:09:10] "[36mGET /static/js/features/groups.js HTTP/1.1[0m" 304 -
+2026-01-25 19:09:10,113 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 19:09:10] "[36mGET /static/js/core/api.js HTTP/1.1[0m" 304 -
+2026-01-25 19:09:10,114 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 19:09:10] "[36mGET /static/js/core/utils.js HTTP/1.1[0m" 304 -
+2026-01-25 19:09:10,229 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 19:09:10] "[36mGET /static/js/features/users.js HTTP/1.1[0m" 304 -

@@ -501,3 +501,15 @@ RuntimeError: Backend returned non-JSON response: status=404, body=<!DOCTYPE htm
 
 2026-01-25 19:07:29,620 | INFO    | __main__ | ← cmd_start() 1362.2ms
 2026-01-25 19:07:29,620 | INFO    | aiogram.event | Update id=211697903 is handled. Duration 1363 ms by bot id=7320198123
+2026-01-25 19:08:45,389 | WARNING | aiogram.dispatcher | Received SIGINT signal
+2026-01-25 19:08:45,396 | INFO    | aiogram.dispatcher | Polling stopped for bot @techreds_bot id=7320198123 - 'DB'
+2026-01-25 19:08:45,397 | INFO    | aiogram.dispatcher | Polling stopped
+2026-01-25 19:09:01,252 | INFO    | bot | Bot starting… WEBAPP_URL=https://1341b9de3187.ngrok-free.app BACKEND_URL=https://1341b9de3187.ngrok-free.app
+2026-01-25 19:09:01,253 | INFO    | aiogram.dispatcher | Start polling
+2026-01-25 19:09:01,797 | INFO    | aiogram.dispatcher | Run polling for bot @techreds_bot id=7320198123 - 'DB'
+2026-01-25 19:09:06,046 | INFO    | __main__ | → cmd_start()
+2026-01-25 19:09:06,046 | INFO    | bot | /start from tg_id=747937058 username=baks1d
+2026-01-25 19:09:06,618 | INFO    | bot | backend_start_session: status=200 body={"access_token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTc2OTM1NzM0NiwianRpIjoiZjhmNGY5M2EtNzZlNy00Mzg0LWJiZDgtNmIxMGJhNDkyNjQxIiwidHlwZSI6ImFjY2VzcyIsInN1YiI6IjEiLCJuYmYiOjE3NjkzNTczNDYsImNzcmYiOiI4NzViOWYzNS0zYjA1LTQ4MjgtYTc1Zi0zZWM2MmYzNTRmYjQiLCJleHAiOjE3NjkzNjA5NDZ9.jQc7GvwDEsbcgdr3-mfWjn3dD__Ytd_2Iw-6vJtHTOI","default_group_id":1,"ok":true}
+
+2026-01-25 19:09:07,238 | INFO    | __main__ | ← cmd_start() 1192.0ms
+2026-01-25 19:09:07,239 | INFO    | aiogram.event | Update id=211697904 is handled. Duration 1193 ms by bot id=7320198123
