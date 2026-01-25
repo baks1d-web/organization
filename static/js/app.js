@@ -59,11 +59,11 @@ const STATE = {
   tasksCache: [],
   groupTasksCache: [],
 
-  homeFilter: 'today',
+    currentDateISO: null,
+
 
   groups: [],
   selectedGroupId: null,
-  groupFilter: 'today',
 
   commonTab: 'tasks', // tasks | finance
 
@@ -202,6 +202,58 @@ function loadCurrentScreen() {
     });
   }
 }
+// ---- Date navigation ----
+function formatDateTitle(date) {
+  const today = startOfDay(new Date());
+  const diff = daysDiff(today, date);
+  if (diff === 0) return 'Сегодня';
+  if (diff === 1) return 'Завтра';
+  if (diff === -1) return 'Вчера';
+  const formatted = new Intl.DateTimeFormat('ru-RU', { day: 'numeric', month: 'short' }).format(date);
+  return formatted.charAt(0).toUpperCase() + formatted.slice(1);
+}
+
+function formatDateSubtitle(date) {
+  const formatted = new Intl.DateTimeFormat('ru-RU', { weekday: 'short', day: 'numeric', month: 'short' }).format(date);
+  return formatted.charAt(0).toUpperCase() + formatted.slice(1);
+}
+
+function updateDateHeader() {
+  const date = parseISODate(STATE.currentDateISO) || new Date();
+  const titleEl = document.querySelector('.date-title');
+  const subtitleEl = document.querySelector('.date-subtitle');
+  if (titleEl) titleEl.textContent = formatDateTitle(date);
+  if (subtitleEl) subtitleEl.textContent = formatDateSubtitle(date);
+}
+
+function rerenderTasksForDate() {
+  renderHomeTasks();
+  const active = document.querySelector('.screen.active');
+  if (active?.id === 'group_tasks' && STATE.commonTab === 'tasks' && STATE.selectedGroupId) {
+    renderGroupTasks();
+  }
+}
+
+function shiftCurrentDate(days) {
+  const base = parseISODate(STATE.currentDateISO) || new Date();
+  base.setDate(base.getDate() + days);
+  STATE.currentDateISO = toISODate(base);
+  updateDateHeader();
+  rerenderTasksForDate();
+}
+
+function initDateNavigation() {
+  if (!STATE.currentDateISO) {
+    STATE.currentDateISO = toISODate(new Date());
+  }
+  updateDateHeader();
+
+  const prevBtn = document.getElementById('prev-day-btn');
+  const nextBtn = document.getElementById('next-day-btn');
+  if (prevBtn) prevBtn.addEventListener('click', () => shiftCurrentDate(-1));
+  if (nextBtn) nextBtn.addEventListener('click', () => shiftCurrentDate(1));
+}
+
 
 // ---- Date helpers ----
 function parseISODate(iso) {
@@ -225,22 +277,7 @@ function isUrgentByDeadline(deadlineISO, days) {
   return diff <= days;
 }
 
-function filterTasksByMode(tasks, mode) {
-  const today = startOfDay(new Date());
-  const tomorrow = new Date(today.getFullYear(), today.getMonth(), today.getDate() + 1);
-  const plus5 = new Date(today.getFullYear(), today.getMonth(), today.getDate() + 5);
 
-  return tasks.filter(t => {
-    const dl = parseISODate(t.deadline);
-    if (!dl) return mode === 'all';
-    const d = startOfDay(dl).getTime();
-
-    if (mode === 'today') return d === startOfDay(today).getTime();
-    if (mode === 'tomorrow') return d === startOfDay(tomorrow).getTime();
-    if (mode === '5plus') return d >= startOfDay(plus5).getTime();
-    return true;
-  });
-}
 
 // ---- Render tasks list with pagination ----
 function renderTaskList(containerId, tasks, page, key) {
@@ -314,13 +351,6 @@ function renderTaskList(containerId, tasks, page, key) {
 }
 
 // ---- HOME ----
-window.setHomeFilter = function setHomeFilter(mode, btn) {
-  STATE.homeFilter = mode;
-  document.querySelectorAll('#home .chip').forEach(b => b.classList.remove('active'));
-  if (btn) btn.classList.add('active');
-  STATE.homePage = 1;
-  renderHomeTasks();
-};
 
 async function loadHome() {
   await loadPersonalTasks();
@@ -336,12 +366,7 @@ async function loadPersonalTasks() {
 
 function renderHomeTasks() {
   const tasks = STATE.tasksCache || [];
-  const urgentCount = tasks.filter(t => !t.done && isUrgentByDeadline(t.deadline, 3)).length;
-  const uc = document.getElementById('home-urgent-count');
-  if (uc) uc.textContent = String(urgentCount);
-
-  const filtered = filterTasksByMode(tasks, STATE.homeFilter || 'today');
-  renderTaskList('home-tasks', filtered, STATE.homePage, 'home');
+  renderTaskList('home-tasks', tasks, STATE.homePage, 'home');
 }
 
 // ---- TASKS screen ----
@@ -515,14 +540,6 @@ window.setCommonTab = async function setCommonTab(tab) {
   else await loadGroupTasks();
 };
 
-window.setGroupFilter = function setGroupFilter(mode, btn) {
-  STATE.groupFilter = mode;
-  document.querySelectorAll('#group_tasks #shared-group-tasks-card .chip').forEach(b => b.classList.remove('active'));
-  if (btn) btn.classList.add('active');
-  STATE.groupTasksPage = 1;
-  loadGroupTasks();
-};
-
 async function loadGroupTasks() {
   updateCommonMode();
   if (!STATE.selectedGroupId) return;
@@ -531,13 +548,12 @@ async function loadGroupTasks() {
   const tasks = data.items || [];
   STATE.groupTasksCache = tasks;
 
-  const urgentCount = tasks.filter(t => !t.done && isUrgentByDeadline(t.deadline, 3)).length;
-  const uc = document.getElementById('urgent-count');
-  if (uc) uc.textContent = String(urgentCount);
-
-  const filtered = filterTasksByMode(tasks, STATE.groupFilter || 'today');
-  renderTaskList('group-tasks-list', filtered, STATE.groupTasksPage, 'group');
+    renderGroupTasks();
 }
+function renderGroupTasks() {
+  renderTaskList('group-tasks-list', STATE.groupTasksCache || [], STATE.groupTasksPage, 'group');
+}
+
 
 // ---- Create group flow (separate menu) ----
 window.openCreateGroupModal = function openCreateGroupModal() {
@@ -1057,6 +1073,13 @@ function escapeHtml(str) {
       tg.setBackgroundColor(tg.themeParams.bg_color);
     } catch {}
   }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initDateNavigation);
+  } else {
+    initDateNavigation();
+  }
+
 
   autoLogin();
   window.addEventListener('load', () => autoLogin());

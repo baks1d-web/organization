@@ -243,3 +243,46 @@
 2026-01-25 14:06:20,023 | INFO    | backend.app.routes.api | → balance()
 2026-01-25 14:06:20,025 | INFO    | backend.app.routes.api | ← balance() 2.3ms
 2026-01-25 14:06:20,026 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 14:06:20] "GET /api/balance HTTP/1.1" 200 -
+2026-01-25 14:07:44,083 | INFO    | backend.app.routes.api | → finance()
+2026-01-25 14:07:44,100 | INFO    | backend.app.routes.api | ← finance() 17.9ms
+2026-01-25 14:07:44,101 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 14:07:44] "GET /api/finance HTTP/1.1" 200 -
+2026-01-25 14:07:45,236 | INFO    | backend.app.routes.api | → group_tasks()
+2026-01-25 14:07:45,252 | INFO    | backend.app.routes.api | ← group_tasks() 16.0ms
+2026-01-25 14:07:45,253 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 14:07:45] "GET /api/groups/1/tasks HTTP/1.1" 200 -
+2026-01-25 14:07:51,105 | INFO    | backend.app.routes.api | → balance()
+2026-01-25 14:07:51,109 | INFO    | backend.app.routes.api | ← balance() 3.8ms
+2026-01-25 14:07:51,110 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 14:07:51] "GET /api/balance HTTP/1.1" 200 -
+2026-01-25 14:21:18,124 | INFO    | werkzeug | [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://10.33.0.2:5000
+2026-01-25 14:21:18,124 | INFO    | werkzeug | [33mPress CTRL+C to quit[0m
+2026-01-25 14:21:23,445 | INFO    | backend.app.routes.web | → index()
+2026-01-25 14:21:23,458 | INFO    | backend.app.routes.web | ← index() 12.9ms
+2026-01-25 14:21:23,462 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 14:21:23] "GET /?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTc2OTMzOTAwNywianRpIjoiZDYzOWViNTktYjFmZC00NGNlLTkzZGEtODcwNjIxMGY5YmEyIiwidHlwZSI6ImFjY2VzcyIsInN1YiI6IjEiLCJuYmYiOjE3NjkzMzkwMDcsImNzcmYiOiI5ZmQzZDExNi1kODQ5LTRmZTMtYWRjYS03NmNhMTE2YzU5ODMiLCJleHAiOjE3NjkzNDI2MDd9.Fbzb7wVwJ_oBaw7zqyRZaCHJEyc7b618uY3fKpEb57U HTTP/1.1" 200 -
+2026-01-25 14:21:23,816 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 14:21:23] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2026-01-25 14:21:23,896 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 14:21:23] "GET /static/js/app.js HTTP/1.1" 200 -
+2026-01-25 14:21:24,292 | INFO    | backend.app.routes.api | → auth_telegram()
+2026-01-25 14:21:24,304 | INFO    | backend.app.routes.api | → auth_telegram()
+2026-01-25 14:21:24,335 | INFO    | backend.app.routes.api | ← auth_telegram() 42.9ms
+2026-01-25 14:21:24,335 | INFO    | backend.app.routes.api | ← auth_telegram() 31.8ms
+2026-01-25 14:21:24,336 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 14:21:24] "POST /api/auth/telegram HTTP/1.1" 200 -
+2026-01-25 14:21:24,336 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 14:21:24] "POST /api/auth/telegram HTTP/1.1" 200 -
+2026-01-25 14:21:24,591 | INFO    | backend.app.routes.api | → list_groups()
+2026-01-25 14:21:24,605 | INFO    | backend.app.routes.api | ← list_groups() 13.6ms
+2026-01-25 14:21:24,606 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 14:21:24] "GET /api/groups HTTP/1.1" 200 -
+2026-01-25 14:21:24,839 | INFO    | backend.app.routes.api | → list_groups()
+2026-01-25 14:21:24,847 | INFO    | backend.app.routes.api | ← list_groups() 8.3ms
+2026-01-25 14:21:24,848 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 14:21:24] "GET /api/groups HTTP/1.1" 200 -
+2026-01-25 14:21:24,869 | INFO    | backend.app.routes.api | → group_tasks()
+2026-01-25 14:21:24,889 | INFO    | backend.app.routes.api | ← group_tasks() 19.4ms
+2026-01-25 14:21:24,890 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 14:21:24] "GET /api/groups/1/tasks HTTP/1.1" 200 -
+2026-01-25 14:21:25,111 | INFO    | backend.app.routes.api | → group_tasks()
+2026-01-25 14:21:25,121 | INFO    | backend.app.routes.api | ← group_tasks() 9.6ms
+2026-01-25 14:21:25,121 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 14:21:25] "GET /api/groups/1/tasks HTTP/1.1" 200 -
+2026-01-25 14:21:25,135 | INFO    | backend.app.routes.api | → balance()
+2026-01-25 14:21:25,139 | INFO    | backend.app.routes.api | ← balance() 4.7ms
+2026-01-25 14:21:25,140 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 14:21:25] "GET /api/balance HTTP/1.1" 200 -
+2026-01-25 14:21:25,503 | INFO    | backend.app.routes.api | → balance()
+2026-01-25 14:21:25,505 | INFO    | backend.app.routes.api | ← balance() 1.9ms
+2026-01-25 14:21:25,506 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 14:21:25] "GET /api/balance HTTP/1.1" 200 -

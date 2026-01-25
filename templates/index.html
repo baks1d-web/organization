@@ -32,13 +32,11 @@
      <div class="top-menu">
       <button class="avatar-btn" type="button" aria-label="Профиль">D</button>
       <div class="top-menu-center" aria-label="Навигация по дате">
-        <button class="circle-btn" type="button" aria-label="Предыдущий день">‹</button>
-        <div class="date-pill">
+        <button class="circle-btn" id="prev-day-btn" type="button" aria-label="Предыдущий день">‹</button>        <div class="date-pill">
           <div class="date-title">Вчера</div>
           <div class="date-subtitle">Сб, 24 янв.</div>
         </div>
-        <button class="circle-btn" type="button" aria-label="Следующий день">›</button>
-      </div>
+        <button class="circle-btn" id="next-day-btn" type="button" aria-label="Следующий день">›</button>      </div>
       <button class="circle-btn" type="button" aria-label="Открыть календарь">📅</button>
     </div>
     <div class="screen-title" id="screen-title">Главная</div>
@@ -49,17 +47,7 @@
     <!-- HOME -->
     <section class="screen active" id="home">
       <div class="card">
-        <div class="filter-bar">
-          <button class="chip active" onclick="setHomeFilter('today', this)">Сегодня</button>
-          <button class="chip" onclick="setHomeFilter('tomorrow', this)">Завтра</button>
-          <button class="chip" onclick="setHomeFilter('5plus', this)">5+ дней</button>
-          <button class="chip" onclick="setHomeFilter('all', this)">Все</button>
 
-          <div class="chip-right">
-            <span class="flame">🔥</span>
-            <span id="home-urgent-count">0</span>
-          </div>
-        </div>
 
         <div id="home-tasks"></div>
       </div>
@@ -163,17 +151,6 @@
 
       <!-- Common tasks panel -->
       <div class="card hidden" id="shared-group-tasks-card">
-        <div class="filter-bar">
-          <button class="chip active" onclick="setGroupFilter('today', this)">Сегодня</button>
-          <button class="chip" onclick="setGroupFilter('tomorrow', this)">Завтра</button>
-          <button class="chip" onclick="setGroupFilter('5plus', this)">5+ дней</button>
-          <button class="chip" onclick="setGroupFilter('all', this)">Все</button>
-
-          <div class="chip-right">
-            <span class="flame">🔥</span>
-            <span id="urgent-count">0</span>
-          </div>
-        </div>
 
         <div id="group-tasks-list"></div>
       </div>
