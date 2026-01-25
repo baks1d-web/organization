@@ -29,17 +29,7 @@
 
 <div class="app hidden" id="app">
   <header class="header">
-     <div class="top-menu">
-      <button class="avatar-btn" id="settings-btn" type="button" aria-label="Профиль">D</button>
-       <div class="top-menu-center" aria-label="Навигация по дате">
-        <button class="circle-btn" id="prev-day-btn" type="button" aria-label="Предыдущий день">‹</button>
-         <div class="date-title">Вчера</div>
-          <div class="date-subtitle">Сб, 24 янв.</div>
-        </div>
-        <button class="circle-btn" id="next-day-btn" type="button" aria-label="Следующий день">›</button>      </div>
-      <button class="circle-btn" type="button" aria-label="Открыть календарь">📅</button>
-    </div>
-    <div class="screen-title" id="screen-title">Главная</div>
+    <span id="screen-title">Главная</span>
   </header>
 
   <main class="content">
@@ -47,7 +37,17 @@
     <!-- HOME -->
     <section class="screen active" id="home">
       <div class="card">
+        <div class="filter-bar">
+          <button class="chip active" onclick="setHomeFilter('today', this)">Сегодня</button>
+          <button class="chip" onclick="setHomeFilter('tomorrow', this)">Завтра</button>
+          <button class="chip" onclick="setHomeFilter('5plus', this)">5+ дней</button>
+          <button class="chip" onclick="setHomeFilter('all', this)">Все</button>
 
+          <div class="chip-right">
+            <span class="flame">🔥</span>
+            <span id="home-urgent-count">0</span>
+          </div>
+        </div>
 
         <div id="home-tasks"></div>
       </div>
@@ -71,30 +71,6 @@
       <div class="card">
         <h3>Финансы</h3>
         <div id="finance-list"></div>
-      </div>
-    </section>
-
-
-    <!-- HABITS -->
-    <section class="screen" id="habits">
-      <div class="habits-wrap">
-        <div class="habits-toggle">
-          <button class="seg-btn active" id="habits-week-btn" onclick="setHabitsView('week')">
-            <span class="seg-icon">▮▮▮</span> Неделя
-          </button>
-          <button class="seg-btn" id="habits-month-btn" onclick="setHabitsView('month')">
-            <span class="seg-icon">▦</span> Месяц
-          </button>
-        </div>
-
-        <div class="habits-progress">
-          <div class="habits-bar"><div class="habits-bar-fill" id="habits-bar-fill"></div></div>
-          <div class="habits-bar-text" id="habits-bar-text">0 / 0</div>
-        </div>
-
-        <div id="habits-list"></div>
-
-        <button class="habits-add" onclick="openHabitModal()">＋ Добавить привычку</button>
       </div>
     </section>
 
@@ -151,6 +127,17 @@
 
       <!-- Common tasks panel -->
       <div class="card hidden" id="shared-group-tasks-card">
+        <div class="filter-bar">
+          <button class="chip active" onclick="setGroupFilter('today', this)">Сегодня</button>
+          <button class="chip" onclick="setGroupFilter('tomorrow', this)">Завтра</button>
+          <button class="chip" onclick="setGroupFilter('5plus', this)">5+ дней</button>
+          <button class="chip" onclick="setGroupFilter('all', this)">Все</button>
+
+          <div class="chip-right">
+            <span class="flame">🔥</span>
+            <span id="urgent-count">0</span>
+          </div>
+        </div>
 
         <div id="group-tasks-list"></div>
       </div>
@@ -218,8 +205,8 @@
     <div class="nav-item active" onclick="switchScreen('home', 'Главная', this)">🏠<span>Главн</span></div>
     <div class="nav-item" onclick="switchScreen('tasks', 'Задачи', this)">✅<span>Задачи</span></div>
     <div class="nav-item" onclick="switchScreen('finance', 'Финансы', this)">💰<span>Финансы</span></div>
-    <div class="nav-item" onclick="switchScreen('habits', 'Привычки', this)">🔁<span>Привычки</span></div>
     <div class="nav-item" id="nav-group-tasks" onclick="switchScreen('group_tasks', 'Общие', this)">👥<span>Общие</span></div>
+    <div class="nav-item" onclick="switchScreen('settings', 'Настройки', this)">⚙️<span>Настр</span></div>
   </nav>
 </div>
 
@@ -393,22 +380,5 @@
 </div>
 
 <script src="/static/js/app.js"></script>
-
-<!-- ADD HABIT MODAL -->
-<div class="modal hidden" id="habit-modal">
-  <div class="modal-content">
-    <div class="modal-header">
-      <h3>Новая привычка</h3>
-      <button class="btn ghost" onclick="closeHabitModal()">✕</button>
-    </div>
-    <div class="form-row">
-      <input id="habit-title" class="input" type="text" placeholder="Название (например, Не курю)" />
-    </div>
-    <div class="modal-actions">
-      <button class="btn" onclick="createHabit()">Добавить</button>
-    </div>
-  </div>
-</div>
-
 </body>
 </html>

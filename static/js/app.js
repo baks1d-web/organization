@@ -58,14 +58,12 @@ const STATE = {
 
   tasksCache: [],
   groupTasksCache: [],
-  financeCache: [],
-  groupFinanceCacheByGroup: {},
 
-  currentDateISO: null,
-
+  homeFilter: 'today',
 
   groups: [],
   selectedGroupId: null,
+  groupFilter: 'today',
 
   commonTab: 'tasks', // tasks | finance
 
@@ -75,9 +73,6 @@ const STATE = {
 
   currentTask: null,
   manageMode: null, // 'categories'|'methods'
-  habitsView: 'week',
-  habitsAnchor: null,
-
 };
 
 async function bootAfterLogin() {
@@ -192,7 +187,6 @@ function loadCurrentScreen() {
   if (active.id === 'home') loadHome();
   if (active.id === 'tasks') loadTasks();
   if (active.id === 'finance') loadFinance();
-  if (active.id === 'habits') loadHabits();
   if (active.id === 'settings') loadNotificationSettings();
 
   if (active.id === 'group_tasks') {
@@ -204,119 +198,6 @@ function loadCurrentScreen() {
     });
   }
 }
-// ---- Date navigation ----
-function formatDateTitle(date) {
-  const today = startOfDay(new Date());
-  const diff = daysDiff(today, date);
-  if (diff === 0) return 'Сегодня';
-  if (diff === 1) return 'Завтра';
-  if (diff === -1) return 'Вчера';
-  const formatted = new Intl.DateTimeFormat('ru-RU', { day: 'numeric', month: 'short' }).format(date);
-  return formatted.charAt(0).toUpperCase() + formatted.slice(1);
-}
-
-function formatDateSubtitle(date) {
-  const formatted = new Intl.DateTimeFormat('ru-RU', { weekday: 'short', day: 'numeric', month: 'short' }).format(date);
-  return formatted.charAt(0).toUpperCase() + formatted.slice(1);
-}
-
-function updateDateHeader() {
-  const date = parseISODate(STATE.currentDateISO) || new Date();
-  const titleEl = document.querySelector('.date-title');
-  const subtitleEl = document.querySelector('.date-subtitle');
-  const calInput = document.getElementById('calendar-input');
-  if (titleEl) titleEl.textContent = formatDateTitle(date);
-  if (subtitleEl) subtitleEl.textContent = formatDateSubtitle(date);
-  if (calInput) calInput.value = toISODate(date);
-}
-
-function getActiveDateISO() {
-  return STATE.currentDateISO || toISODate(new Date());
-}
-
-function filterTasksByCurrentDate(tasks) {
-  const activeDate = getActiveDateISO();
-  return (tasks || []).filter(task => {
-    if (!task?.deadline) return true;
-    return task.deadline === activeDate;
-  });
-}
-
-function isoFromDateTime(value) {
-  if (!value) return '';
-  return String(value).slice(0, 10);
-}
-
-function filterFinanceByCurrentDate(items) {
-  const activeDate = getActiveDateISO();
-  return (items || []).filter(item => isoFromDateTime(item.created_at) === activeDate);
-}
-
-function rerenderTasksForDate() {
-  renderHomeTasks();
-  const active = document.querySelector('.screen.active');
-  if (!active) return;
-  if (active.id === 'finance') {
-    renderFinanceList();
-  }
-  if (active.id === 'group_tasks') {
-    if (STATE.commonTab === 'tasks' && STATE.selectedGroupId) {
-      renderGroupTasks();
-    }
-    if (STATE.commonTab === 'finance' && STATE.selectedGroupId) {
-      renderGroupFinanceList();
-    }
-  }
-}
-
-function shiftCurrentDate(days) {
-  const base = parseISODate(STATE.currentDateISO) || new Date();
-  base.setDate(base.getDate() + days);
-  STATE.currentDateISO = toISODate(base);
-  updateDateHeader();
-  rerenderTasksForDate();
-}
-
-function initDateNavigation() {
-  if (!STATE.currentDateISO) {
-    STATE.currentDateISO = toISODate(new Date());
-  }
-  updateDateHeader();
-
-  const prevBtn = document.getElementById('prev-day-btn');
-  const nextBtn = document.getElementById('next-day-btn');
-  const calBtn = document.getElementById('calendar-btn');
-  const calInput = document.getElementById('calendar-input');
-  const settingsBtn = document.getElementById('settings-btn');
-  if (prevBtn) prevBtn.addEventListener('click', () => shiftCurrentDate(-1));
-  if (nextBtn) nextBtn.addEventListener('click', () => shiftCurrentDate(1));
-  if (calInput) {
-    calInput.value = getActiveDateISO();
-    calInput.addEventListener('change', (event) => {
-      const value = event.target.value;
-      if (value) {
-        STATE.currentDateISO = value;
-        updateDateHeader();
-        rerenderTasksForDate();
-      }
-    });
-  }
-  if (calBtn && calInput) {
-    calBtn.addEventListener('click', () => {
-      calInput.value = getActiveDateISO();
-      calInput.showPicker?.();
-      calInput.focus();
-      calInput.click();
-    });
-  }
-  if (settingsBtn) {
-    settingsBtn.addEventListener('click', () => {
-      switchScreen('settings', 'Настройки');
-    });
-  }
-}
-
-
 
 // ---- Date helpers ----
 function parseISODate(iso) {
@@ -340,7 +221,22 @@ function isUrgentByDeadline(deadlineISO, days) {
   return diff <= days;
 }
 
+function filterTasksByMode(tasks, mode) {
+  const today = startOfDay(new Date());
+  const tomorrow = new Date(today.getFullYear(), today.getMonth(), today.getDate() + 1);
+  const plus5 = new Date(today.getFullYear(), today.getMonth(), today.getDate() + 5);
 
+  return tasks.filter(t => {
+    const dl = parseISODate(t.deadline);
+    if (!dl) return mode === 'all';
+    const d = startOfDay(dl).getTime();
+
+    if (mode === 'today') return d === startOfDay(today).getTime();
+    if (mode === 'tomorrow') return d === startOfDay(tomorrow).getTime();
+    if (mode === '5plus') return d >= startOfDay(plus5).getTime();
+    return true;
+  });
+}
 
 // ---- Render tasks list with pagination ----
 function renderTaskList(containerId, tasks, page, key) {
@@ -414,6 +310,13 @@ function renderTaskList(containerId, tasks, page, key) {
 }
 
 // ---- HOME ----
+window.setHomeFilter = function setHomeFilter(mode, btn) {
+  STATE.homeFilter = mode;
+  document.querySelectorAll('#home .chip').forEach(b => b.classList.remove('active'));
+  if (btn) btn.classList.add('active');
+  STATE.homePage = 1;
+  renderHomeTasks();
+};
 
 async function loadHome() {
   await loadPersonalTasks();
@@ -429,7 +332,12 @@ async function loadPersonalTasks() {
 
 function renderHomeTasks() {
   const tasks = STATE.tasksCache || [];
-  renderTaskList('home-tasks', tasks, STATE.homePage, 'home');
+  const urgentCount = tasks.filter(t => !t.done && isUrgentByDeadline(t.deadline, 3)).length;
+  const uc = document.getElementById('home-urgent-count');
+  if (uc) uc.textContent = String(urgentCount);
+
+  const filtered = filterTasksByMode(tasks, STATE.homeFilter || 'today');
+  renderTaskList('home-tasks', filtered, STATE.homePage, 'home');
 }
 
 // ---- TASKS screen ----
@@ -443,24 +351,10 @@ async function loadTasks(containerId = 'all-tasks') {
 // ---- Finance (personal) ----
 async function loadFinance() {
   const data = await apiFetch('/api/finance');
-  STATE.financeCache = data.items || [];
-  renderFinanceList();
-}
-
-function renderFinanceList() {
   const container = document.getElementById('finance-list');
-  if (!container) return;
-
   container.innerHTML = '';
 
-  const items = filterFinanceByCurrentDate(STATE.financeCache || []);
-  if (!items.length) {
-    container.innerHTML = '<p class="muted">Пока нет операций</p>';
-    return;
-  }
-
-  items.forEach(i => {
-
+  (data.items || []).forEach(i => {
     const div = document.createElement('div');
     div.className = `finance-row ${i.amount > 0 ? 'plus' : 'minus'}`;
     div.innerHTML = `${i.amount} ₽ <span>${escapeHtml(i.title)}</span>`;
@@ -617,21 +511,29 @@ window.setCommonTab = async function setCommonTab(tab) {
   else await loadGroupTasks();
 };
 
+window.setGroupFilter = function setGroupFilter(mode, btn) {
+  STATE.groupFilter = mode;
+  document.querySelectorAll('#group_tasks #shared-group-tasks-card .chip').forEach(b => b.classList.remove('active'));
+  if (btn) btn.classList.add('active');
+  STATE.groupTasksPage = 1;
+  loadGroupTasks();
+};
+
 async function loadGroupTasks() {
   updateCommonMode();
   if (!STATE.selectedGroupId) return;
 
   const data = await apiFetch(`/api/groups/${STATE.selectedGroupId}/tasks`);
-  STATE.groupTasksCache = data.items || [];
+  const tasks = data.items || [];
+  STATE.groupTasksCache = tasks;
 
-    renderGroupTasks();
+  const urgentCount = tasks.filter(t => !t.done && isUrgentByDeadline(t.deadline, 3)).length;
+  const uc = document.getElementById('urgent-count');
+  if (uc) uc.textContent = String(urgentCount);
+
+  const filtered = filterTasksByMode(tasks, STATE.groupFilter || 'today');
+  renderTaskList('group-tasks-list', filtered, STATE.groupTasksPage, 'group');
 }
-function renderGroupTasks() {
-  const tasks = filterTasksByCurrentDate(STATE.groupTasksCache || []);
-  renderTaskList('group-tasks-list', tasks, STATE.groupTasksPage, 'group');
-}
-
-
 
 // ---- Create group flow (separate menu) ----
 window.openCreateGroupModal = function openCreateGroupModal() {
@@ -817,27 +719,11 @@ async function loadGroupFinance() {
 
   const data = await apiFetch(`/api/groups/${STATE.selectedGroupId}/finance`);
   document.getElementById('group-balance').textContent = `${data.balance} ₽`;
-    STATE.groupFinanceCacheByGroup[STATE.selectedGroupId] = data.items || [];
-  renderGroupFinanceList();
-
-  await getGroupFinanceMeta(STATE.selectedGroupId);
-}
-
-function renderGroupFinanceList() {
-  if (!STATE.selectedGroupId) return;
 
   const list = document.getElementById('group-finance-list');
-    if (!list) return;
   list.innerHTML = '';
 
-  const items = filterFinanceByCurrentDate(STATE.groupFinanceCacheByGroup[STATE.selectedGroupId] || []);
-  if (!items.length) {
-    list.innerHTML = '<p class="muted">Пока нет операций</p>';
-    return;
-  }
-
-  items.forEach(it => {
-
+  (data.items || []).forEach(it => {
     const div = document.createElement('div');
     div.className = `finance-row ${it.kind === 'income' ? 'plus' : 'minus'}`;
     const cat = it.category ? it.category.name : '—';
@@ -853,6 +739,7 @@ function renderGroupFinanceList() {
     list.appendChild(div);
   });
 
+  await getGroupFinanceMeta(STATE.selectedGroupId);
 }
 
 // ---- Add modal ----
@@ -1167,176 +1054,6 @@ function escapeHtml(str) {
     } catch {}
   }
 
-
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', initDateNavigation);
-  } else {
-    initDateNavigation();
-  }
-
-
   autoLogin();
   window.addEventListener('load', () => autoLogin());
 })();
-
-
-// ---------------- Habits UI ----------------
-function setHabitsView(view) {
-  STATE.habitsView = (view === 'month') ? 'month' : 'week';
-
-  const w = document.getElementById('habits-week-btn');
-  const m = document.getElementById('habits-month-btn');
-  if (w && m) {
-    w.classList.toggle('active', STATE.habitsView === 'week');
-    m.classList.toggle('active', STATE.habitsView === 'month');
-  }
-  loadHabits();
-}
-
-function _todayISO() {
-  const d = new Date();
-  const pad = (n) => String(n).padStart(2, '0');
-  return `${d.getFullYear()}-${pad(d.getMonth()+1)}-${pad(d.getDate())}`;
-}
-
-async function loadHabits() {
-  try {
-    const w = document.getElementById('habits-week-btn');
-    const m = document.getElementById('habits-month-btn');
-    if (w && m) {
-      w.classList.toggle('active', STATE.habitsView === 'week');
-      m.classList.toggle('active', STATE.habitsView === 'month');
-    }
-
-    const anchor = STATE.habitsAnchor || _todayISO();
-    const data = await apiFetch(`/api/habits?view=${encodeURIComponent(STATE.habitsView)}&date=${encodeURIComponent(anchor)}`);
-    renderHabits(data);
-  } catch (e) {
-    console.error(e);
-    showToast(`Привычки: ${e.message || e}`);
-  }
-}
-
-function renderHabits(data) {
-  const list = document.getElementById('habits-list');
-  if (!list) return;
-
-  // progress
-  const done = data?.overall?.done ?? 0;
-  const total = data?.overall?.total ?? 0;
-  const pct = total > 0 ? Math.round((done / total) * 100) : 0;
-
-  const fill = document.getElementById('habits-bar-fill');
-  const txt = document.getElementById('habits-bar-text');
-  if (fill) fill.style.width = `${pct}%`;
-  if (txt) txt.textContent = `${done} / ${total}`;
-
-  const today = _todayISO();
-  const days = (data.days || []).map(d => d);
-
-  list.innerHTML = '';
-  (data.habits || []).forEach(h => {
-    const card = document.createElement('div');
-    card.className = 'habit-card';
-
-    const head = document.createElement('div');
-    head.className = 'habit-head';
-
-    const title = document.createElement('div');
-    title.className = 'habit-title';
-    title.textContent = h.title;
-
-    const count = document.createElement('div');
-    count.className = 'habit-count';
-    count.textContent = `${h.done}/${h.total}`;
-
-    head.appendChild(title);
-    head.appendChild(count);
-
-    const daysRow = document.createElement('div');
-    daysRow.className = 'habit-days';
-
-    days.forEach(d => {
-      const b = document.createElement('div');
-      b.className = 'habit-day';
-
-      const iso = d.date;
-      const isDone = h.checks && h.checks[iso];
-      if (isDone) b.classList.add('done');
-      if (iso === today) b.classList.add('today');
-
-      const lbl = document.createElement('div');
-      lbl.className = 'lbl';
-      lbl.textContent = d.label;
-
-      b.appendChild(lbl);
-
-      // In month view show day number; in week view keep empty circle; if done show checkmark
-      const main = document.createElement('span');
-      main.textContent = isDone ? '✓' : ((STATE.habitsView === 'month') ? String(d.day) : '');
-      b.appendChild(main);
-      b.appendChild(lbl);
-
-      b.onclick = () => toggleHabitDay(h.id, iso, !isDone);
-      daysRow.appendChild(b);
-    });
-
-    card.appendChild(head);
-    card.appendChild(daysRow);
-    list.appendChild(card);
-  });
-
-  if ((data.habits || []).length === 0) {
-    const empty = document.createElement('div');
-    empty.className = 'card';
-    empty.innerHTML = '<h3>Привычек пока нет</h3><div class="muted">Нажмите “Добавить привычку”, чтобы начать.</div>';
-    list.appendChild(empty);
-  }
-}
-
-async function toggleHabitDay(habitId, isoDate, done) {
-  try {
-    await apiFetch(`/api/habits/${habitId}/check`, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ date: isoDate, done }),
-    });
-    // quick reload for consistent counts
-    await loadHabits();
-  } catch (e) {
-    console.error(e);
-    showToast(e.message || 'Ошибка');
-  }
-}
-
-// ---- Modal ----
-function openHabitModal() {
-  const m = document.getElementById('habit-modal');
-  if (m) m.classList.remove('hidden');
-  const inp = document.getElementById('habit-title');
-  if (inp) { inp.value = ''; inp.focus(); }
-}
-
-function closeHabitModal() {
-  const m = document.getElementById('habit-modal');
-  if (m) m.classList.add('hidden');
-}
-
-async function createHabit() {
-  const inp = document.getElementById('habit-title');
-  const title = (inp?.value || '').trim();
-  if (!title) { showToast('Введите название'); return; }
-
-  try {
-    await apiFetch('/api/habits', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ title }),
-    });
-    closeHabitModal();
-    await loadHabits();
-  } catch (e) {
-    console.error(e);
-    showToast(e.message || 'Ошибка');
-  }
-}

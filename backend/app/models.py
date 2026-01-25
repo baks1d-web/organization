@@ -173,30 +173,3 @@ class GroupUsernameInvite(db.Model):
     decided_at = db.Column(db.DateTime, nullable=True)
 
     created_at = db.Column(db.DateTime, default=datetime.utcnow, nullable=False)
-
-
-# ---------------- Habits ----------------
-class Habit(db.Model):
-    __tablename__ = "habits"
-
-    id = db.Column(db.Integer, primary_key=True)
-    user_id = db.Column(db.Integer, db.ForeignKey("users.id"), nullable=False, index=True)
-
-    title = db.Column(db.String(256), nullable=False)
-    is_active = db.Column(db.Boolean, default=True, nullable=False)
-
-    created_at = db.Column(db.DateTime, default=datetime.utcnow, nullable=False)
-
-
-class HabitCheck(db.Model):
-    __tablename__ = "habit_checks"
-
-    id = db.Column(db.Integer, primary_key=True)
-    habit_id = db.Column(db.Integer, db.ForeignKey("habits.id"), nullable=False, index=True)
-    day = db.Column(db.Date, nullable=False, index=True)
-
-    created_at = db.Column(db.DateTime, default=datetime.utcnow, nullable=False)
-
-    __table_args__ = (
-        db.UniqueConstraint("habit_id", "day", name="uq_habit_day"),
-    )
