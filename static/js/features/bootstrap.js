@@ -1,5 +1,7 @@
 import { autoLogin } from './auth.js';
-import { loadCurrentScreen } from './navigation.js';
+import { loadCurrentScreen, initRouting } from './navigation.js';
+import { initTelegramBackButton } from '../integrations/telegram_back.js';
+import { initDatebar } from './datebar.js';
 
 /* global Telegram */
 const tg = (window.Telegram && window.Telegram.WebApp) ? window.Telegram.WebApp : null;
@@ -16,6 +18,9 @@ function initTelegramUi() {
 
 export function initApp() {
   initTelegramUi();
+  initRouting('home');
+  initTelegramBackButton();
+  initDatebar();
 
   window.addEventListener('load', async () => {
     await autoLogin();

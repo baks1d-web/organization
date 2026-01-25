@@ -1,33 +1,85 @@
 import { apiFetch } from '../core/api.js';
 import { STATE } from '../core/state.js';
-import { filterTasksByMode, isUrgentByDeadline } from '../core/utils.js';
+import { isUrgentByDeadline } from '../core/utils.js';
 import { renderTaskList, loadPersonalTasks } from './tasks.js';
 
 export async function loadHome() {
   await loadPersonalTasks();
-  renderHomeTasks();
+  // finance cache for calendar + daily view
+  try { const mod = await import('./personal_finance.js'); await mod.loadFinanceCache(); } catch {}
+  renderDayItems();
   await loadBalance();
 }
 
-export function setFilter(ctx) {
-  const mode = ctx?.dataset?.filter;
-  if (!mode) return;
-  STATE.homeFilter = mode;
-  document.querySelectorAll('#home .chip').forEach(b => b.classList.remove('active'));
-  ctx.el?.classList.add('active');
-  STATE.homePage = 1;
-  renderHomeTasks();
+export function setFilter() { /* deprecated: day-based header */ }
+
+
+
+export function renderDayItems() {
+  const iso = STATE.selectedDate;
+  const tasks = (STATE.tasksCache || []).filter(t => !t.done && t.status !== 'done' && String(t.deadline || '').slice(0,10) === iso);
+  const urgentCount = tasks.filter(t => isUrgentByDeadline(t.deadline, 3)).length;
+
+  let financeItems = [];
+  try {
+    // finance cache comes from personal_finance module
+    financeItems = (STATE.financeCache || []).filter(i => String(i.created_at || '').slice(0,10) === iso);
+  } catch {}
+
+  const summary = document.getElementById('day-summary');
+  if (summary) summary.textContent = `Задач: ${tasks.length} (срочных: ${urgentCount}) • Записей: ${financeItems.length}`;
+
+  const container = document.getElementById('home-day-items');
+  if (!container) return;
+  container.innerHTML = '';
+
+  const mode = STATE.topFilter || 'tasks';
+
+  if (mode === 'tasks' || mode === 'all') {
+    const h = document.createElement('h3');
+    h.textContent = 'Активные задачи';
+    container.appendChild(h);
+    if (tasks.length) {
+      const wrap = document.createElement('div');
+      wrap.id = 'home-day-tasks';
+      container.appendChild(wrap);
+      renderTaskList('home-day-tasks', tasks, 1, 'home');
+    } else {
+      const empty = document.createElement('div');
+      empty.className = 'empty';
+      empty.textContent = 'На эту дату задач нет.';
+      container.appendChild(empty);
+    }
+  }
+
+  if (mode === 'finance' || mode === 'all') {
+    const h = document.createElement('h3');
+    h.textContent = 'Финансы';
+    container.appendChild(h);
+
+    if (financeItems.length) {
+      financeItems.forEach(i => {
+        const row = document.createElement('div');
+        row.className = `finance-row ${i.amount > 0 ? 'plus' : 'minus'}`;
+        row.innerHTML = `${i.amount} ₽ <span>${(i.title || '').replace(/[&<>"']/g, (c)=>({ '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;' }[c]))}</span>`;
+        container.appendChild(row);
+      });
+    } else {
+      const empty = document.createElement('div');
+      empty.className = 'empty';
+      empty.textContent = 'На эту дату финансовых записей нет.';
+      container.appendChild(empty);
+    }
+  }
 }
 
-export function renderHomeTasks() {
-  const tasks = STATE.tasksCache || [];
-  const urgentCount = tasks.filter(t => !t.done && isUrgentByDeadline(t.deadline, 3)).length;
-  const uc = document.getElementById('home-urgent-count');
-  if (uc) uc.textContent = String(urgentCount);
-
-  const filtered = filterTasksByMode(tasks, STATE.homeFilter || 'today');
-  renderTaskList('home-tasks', filtered, STATE.homePage, 'home');
-}
+window.addEventListener('date:changed', () => {
+  // re-render only when home is active
+  if (document.getElementById('home')?.classList.contains('active')) renderDayItems();
+});
+window.addEventListener('date:filterChanged', () => {
+  if (document.getElementById('home')?.classList.contains('active')) renderDayItems();
+});
 
 async function loadBalance() {
   try {

@@ -13,10 +13,11 @@
       {% include 'partials/screens/tasks.html' %}
       {% include 'partials/screens/finance.html' %}
       {% include 'partials/screens/group_tasks.html' %}
+      {% include 'partials/screens/add.html' %}
       {% include 'partials/screens/settings.html' %}
     </main>
 
-    <button class="add-btn" data-action="modal.open" data-modal="add-modal">＋ Добавить</button>
+    <button class="add-btn" data-action="add.open">＋ Добавить</button>
 
     {% include 'partials/components/bottom_nav.html' %}
   </div>
@@ -24,7 +25,6 @@
   {# MODALS #}
   {% include 'partials/modals/create_group.html' %}
   {% include 'partials/modals/invite_user.html' %}
-  {% include 'partials/modals/add.html' %}
   {% include 'partials/modals/manage.html' %}
   {% include 'partials/modals/task_details.html' %}
 {% endblock %}

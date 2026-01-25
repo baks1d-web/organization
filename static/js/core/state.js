@@ -10,6 +10,10 @@ export const STATE = {
 
   homeFilter: 'today',
 
+  selectedDate: null, // YYYY-MM-DD
+  topFilter: 'tasks', // tasks | finance | all
+  financeCache: [],
+
   groups: [],
   selectedGroupId: null,
   groupFilter: 'today',
@@ -22,4 +26,7 @@ export const STATE = {
 
   currentTask: null,
   manageMode: null, // 'categories'|'methods'
+
+  // Navigation stack for pseudo-pages inside one HTML
+  navStack: [],
 };

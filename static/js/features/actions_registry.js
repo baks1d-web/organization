@@ -6,6 +6,7 @@ import * as tasks from './tasks.js';
 import * as add from './add.js';
 import * as manage from './manage.js';
 import * as settings from './settings.js';
+import * as datebar from './datebar.js';
 import { openModal, closeModal } from '../ui/modals.js';
 
 /**
@@ -17,6 +18,15 @@ export const ACTIONS = {
   'auth.loginEmail': (ctx) => auth.loginEmail(ctx),
 
   'nav.switch': (ctx) => nav.switchScreen(ctx),
+
+
+  'date.prev': () => datebar.prevDay(),
+  'date.next': () => datebar.nextDay(),
+  'date.openCalendar': () => datebar.openCalendar(),
+  'date.closeCalendar': () => datebar.closeCalendar(),
+  'date.setFilter': (ctx) => datebar.setTopFilter(ctx),
+  'date.pick': (ctx) => datebar.pickDate(ctx),
+
 
   'home.setFilter': (ctx) => home.setFilter(ctx),
 
@@ -31,7 +41,9 @@ export const ACTIONS = {
   'tasks.saveDetails': () => tasks.saveTaskDetails(),
 
   'add.changeType': () => add.renderAddType(),
+  'add.open': () => add.openAddPage(),
   'add.save': () => add.saveAddModal(),
+  'add.cancel': () => add.cancelAddPage(),
 
   'manage.open': (ctx) => manage.openManageModal(ctx),
   'manage.add': () => manage.manageAdd(),
@@ -42,7 +54,7 @@ export const ACTIONS = {
   'modal.open': (ctx) => {
     const id = ctx.el?.dataset?.modal;
     if (!id) return;
-    if (id === 'add-modal') add.openAddModal();
+    if (id === 'add-modal') add.openAddPage();
     else if (id === 'create-group-modal') groups.openCreateModal();
     else if (id === 'invite-user-modal') groups.openInviteModal();
     else openModal(id);

@@ -64,3 +64,41 @@ export function filterTasksByMode(tasks, mode) {
     return true;
   });
 }
+
+
+export function isoDate(d) {
+  // YYYY-MM-DD in local time
+  const yyyy = d.getFullYear();
+  const mm = String(d.getMonth() + 1).padStart(2, '0');
+  const dd = String(d.getDate()).padStart(2, '0');
+  return `${yyyy}-${mm}-${dd}`;
+}
+
+export function ruDateParts(iso) {
+  const d = new Date(iso + 'T00:00:00');
+  const today = new Date();
+  const t0 = new Date(today.getFullYear(), today.getMonth(), today.getDate());
+  const diffDays = Math.round((d - t0) / (24 * 3600 * 1000));
+
+  let relative = '';
+  if (diffDays === -1) relative = 'Вчера';
+  else if (diffDays === 0) relative = 'Сегодня';
+  else if (diffDays === 1) relative = 'Завтра';
+  else relative = d.toLocaleDateString('ru-RU', { weekday: 'short' }).replace('.', '');
+
+  const pretty = d.toLocaleDateString('ru-RU', { weekday: 'short', day: '2-digit', month: 'short' })
+    .replace('.', '');
+  // e.g. "сб, 24 янв"
+  const capPretty = pretty.charAt(0).toUpperCase() + pretty.slice(1);
+
+  return { relative, pretty: capPretty };
+}
+
+export function isoFromCreatedAt(value) {
+  if (!value) return null;
+  try {
+    return String(value).slice(0, 10);
+  } catch {
+    return null;
+  }
+}

@@ -86,8 +86,17 @@ export async function loadTasks(containerId = 'all-tasks') {
   if (!STATE.tasksCache || STATE.tasksCache.length === 0) {
     await loadPersonalTasks();
   }
-  renderTaskList(containerId, STATE.tasksCache || [], STATE.tasksPage, 'tasks');
+
+  // По умолчанию экран "Задачи" показывает активные задачи на выбранную дату
+  const iso = STATE.selectedDate;
+  const filtered = (STATE.tasksCache || []).filter(t => !t.done && t.status !== 'done' && String(t.deadline || '').slice(0, 10) === iso);
+  renderTaskList(containerId, filtered, STATE.tasksPage, 'tasks');
 }
+
+// обновлять список задач при смене даты (только когда экран активен)
+window.addEventListener('date:changed', () => {
+  if (document.getElementById('tasks')?.classList.contains('active')) loadTasks();
+});
 
 // ---- Members + all users as assignees ----
 async function fetchGroupMembers(groupId) {

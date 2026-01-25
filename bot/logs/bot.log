@@ -468,3 +468,36 @@ RuntimeError: Backend returned non-JSON response: status=404, body=<!DOCTYPE htm
 
 2026-01-25 13:23:34,206 | INFO    | __main__ | ← cmd_start() 1635.1ms
 2026-01-25 13:23:34,206 | INFO    | aiogram.event | Update id=211697880 is handled. Duration 1639 ms by bot id=7320198123
+2026-01-25 18:59:11,188 | INFO    | bot | Bot starting… WEBAPP_URL=https://1341b9de3187.ngrok-free.app BACKEND_URL=https://1341b9de3187.ngrok-free.app
+2026-01-25 18:59:11,189 | INFO    | aiogram.dispatcher | Start polling
+2026-01-25 18:59:11,717 | INFO    | aiogram.dispatcher | Run polling for bot @techreds_bot id=7320198123 - 'DB'
+2026-01-25 18:59:14,589 | INFO    | __main__ | → cmd_start()
+2026-01-25 18:59:14,589 | INFO    | bot | /start from tg_id=747937058 username=baks1d
+2026-01-25 18:59:15,131 | INFO    | bot | backend_start_session: status=200 body={"access_token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTc2OTM1Njc1NSwianRpIjoiZWVjYmMyZWQtY2Y3NC00Y2E0LWFlZDEtZDQzMGE3YjRiZmY4IiwidHlwZSI6ImFjY2VzcyIsInN1YiI6IjEiLCJuYmYiOjE3NjkzNTY3NTUsImNzcmYiOiIwMmMzOTUyYy1kZmNjLTQ5ZmYtYTQzYi03OWM4NTU0NThhZTAiLCJleHAiOjE3NjkzNjAzNTV9.9hOCJZaGzkUIjWqa5tLj5H0z1nk-0QnDkfduNcbtauw","default_group_id":1,"ok":true}
+
+2026-01-25 18:59:15,793 | INFO    | __main__ | ← cmd_start() 1203.8ms
+2026-01-25 18:59:15,793 | INFO    | aiogram.event | Update id=211697901 is handled. Duration 1204 ms by bot id=7320198123
+2026-01-25 19:01:08,111 | INFO    | __main__ | → cmd_start()
+2026-01-25 19:01:08,114 | INFO    | bot | /start from tg_id=747937058 username=baks1d
+2026-01-25 19:01:08,734 | INFO    | bot | backend_start_session: status=200 body={"access_token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTc2OTM1Njg2OCwianRpIjoiZDI5YzhmNjUtMjNkZC00OGRlLThjMWMtOTA3MmI4ZDZjMDdmIiwidHlwZSI6ImFjY2VzcyIsInN1YiI6IjEiLCJuYmYiOjE3NjkzNTY4NjgsImNzcmYiOiIxMzQyNTM1Zi04YjZlLTRmNzgtODI3Yi0zOTYzOTkzYzYxMDIiLCJleHAiOjE3NjkzNjA0Njh9.fDmV32Zf3XH5umMC2tUG_qyrklltDn9BpMJEXa4yPVQ","default_group_id":1,"ok":true}
+
+2026-01-25 19:01:09,501 | INFO    | __main__ | ← cmd_start() 1390.0ms
+2026-01-25 19:01:09,502 | INFO    | aiogram.event | Update id=211697902 is handled. Duration 1392 ms by bot id=7320198123
+2026-01-25 19:03:18,372 | WARNING | aiogram.dispatcher | Received SIGINT signal
+2026-01-25 19:03:18,377 | INFO    | aiogram.dispatcher | Polling stopped for bot @techreds_bot id=7320198123 - 'DB'
+2026-01-25 19:03:18,377 | INFO    | aiogram.dispatcher | Polling stopped
+2026-01-25 19:03:25,926 | INFO    | bot | Bot starting… WEBAPP_URL=https://1341b9de3187.ngrok-free.app BACKEND_URL=https://1341b9de3187.ngrok-free.app
+2026-01-25 19:03:25,926 | INFO    | aiogram.dispatcher | Start polling
+2026-01-25 19:03:26,408 | INFO    | aiogram.dispatcher | Run polling for bot @techreds_bot id=7320198123 - 'DB'
+2026-01-25 19:07:22,823 | WARNING | aiogram.dispatcher | Received SIGINT signal
+2026-01-25 19:07:22,829 | INFO    | aiogram.dispatcher | Polling stopped for bot @techreds_bot id=7320198123 - 'DB'
+2026-01-25 19:07:22,829 | INFO    | aiogram.dispatcher | Polling stopped
+2026-01-25 19:07:27,708 | INFO    | bot | Bot starting… WEBAPP_URL=https://1341b9de3187.ngrok-free.app BACKEND_URL=https://1341b9de3187.ngrok-free.app
+2026-01-25 19:07:27,709 | INFO    | aiogram.dispatcher | Start polling
+2026-01-25 19:07:28,169 | INFO    | aiogram.dispatcher | Run polling for bot @techreds_bot id=7320198123 - 'DB'
+2026-01-25 19:07:28,258 | INFO    | __main__ | → cmd_start()
+2026-01-25 19:07:28,258 | INFO    | bot | /start from tg_id=747937058 username=baks1d
+2026-01-25 19:07:28,843 | INFO    | bot | backend_start_session: status=200 body={"access_token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTc2OTM1NzI0OCwianRpIjoiMmM2MTQ2Y2ItZTM3NS00MGI5LThmMDYtYTI2YmYzYTZmMzY4IiwidHlwZSI6ImFjY2VzcyIsInN1YiI6IjEiLCJuYmYiOjE3NjkzNTcyNDgsImNzcmYiOiI5YWFmOTFiYi02MTA0LTRmZTQtYmJkMC1kYTU5YTNkMDJjN2EiLCJleHAiOjE3NjkzNjA4NDh9.qU9QPdXJ-HKrKDNIa_Oe41HDMZqX2R74tsnuXb25MoQ","default_group_id":1,"ok":true}
+
+2026-01-25 19:07:29,620 | INFO    | __main__ | ← cmd_start() 1362.2ms
+2026-01-25 19:07:29,620 | INFO    | aiogram.event | Update id=211697903 is handled. Duration 1363 ms by bot id=7320198123

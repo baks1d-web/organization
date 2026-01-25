@@ -1,18 +1,11 @@
 <section class="screen active" id="home" data-screen>
   <div class="card">
-    <div class="filter-bar" data-filter-bar="home">
-      <button class="chip active" data-action="home.setFilter" data-filter="today">Сегодня</button>
-      <button class="chip" data-action="home.setFilter" data-filter="tomorrow">Завтра</button>
-      <button class="chip" data-action="home.setFilter" data-filter="5plus">5+ дней</button>
-      <button class="chip" data-action="home.setFilter" data-filter="all">Все</button>
-
-      <div class="chip-right">
-        <span class="flame">🔥</span>
-        <span id="home-urgent-count">0</span>
-      </div>
+    <div class="day-head">
+      <div class="day-head-title">На выбранную дату</div>
+      <div class="day-head-sub" id="day-summary">—</div>
     </div>
 
-    <div id="home-tasks"></div>
+    <div id="home-day-items"></div>
   </div>
 
   <div class="card">

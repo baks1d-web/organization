@@ -1,12 +1,12 @@
 import { apiFetch } from '../core/api.js';
 import { STATE } from '../core/state.js';
 import { escapeHtml } from '../core/utils.js';
-import { openModal, closeModal } from '../ui/modals.js';
 import { userDisplayName } from './users.js';
 import { loadPersonalTasks, loadTasks } from './tasks.js';
 import { renderHomeTasks } from './home.js';
 import { loadGroupFinance, loadGroupTasks, getGroupFinanceMeta } from './groups.js';
 import { loadFinance } from './personal_finance.js';
+import { goToScreen, goBack } from './navigation.js';
 
 function toISODate(d) {
   const y = d.getFullYear();
@@ -72,7 +72,7 @@ function fillSelectOptions(selectId, items) {
   });
 }
 
-export async function openAddModal() {
+export async function openAddPage() {
   const active = document.querySelector('.screen.active')?.id;
 
   if (active === 'group_tasks' && !STATE.selectedGroupId) {
@@ -80,7 +80,7 @@ export async function openAddModal() {
     return;
   }
 
-  openModal('add-modal');
+  goToScreen('add', { title: 'Добавить', navEl: null, push: true });
 
   const dt = new Date();
   const plus7 = new Date(dt.getFullYear(), dt.getMonth(), dt.getDate() + 7);
@@ -191,7 +191,8 @@ export async function saveAddModal() {
       }
     }
 
-    closeModal('add-modal');
+    // return to previous page (or home)
+    goBack('home');
     document.getElementById('add-task-title').value = '';
     document.getElementById('add-task-desc').value = '';
     document.getElementById('add-fin-desc').value = '';
@@ -199,4 +200,8 @@ export async function saveAddModal() {
   } catch (e) {
     alert('Ошибка сохранения: ' + (e.message || e));
   }
+}
+
+export function cancelAddPage() {
+  goBack('home');
 }
