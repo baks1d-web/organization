@@ -468,6 +468,3 @@ RuntimeError: Backend returned non-JSON response: status=404, body=<!DOCTYPE htm
 
 2026-01-25 13:23:34,206 | INFO    | __main__ | ← cmd_start() 1635.1ms
 2026-01-25 13:23:34,206 | INFO    | aiogram.event | Update id=211697880 is handled. Duration 1639 ms by bot id=7320198123
-2026-01-25 17:17:21,261 | INFO    | bot | Bot starting… WEBAPP_URL=https://bc1a9aeadcf4.ngrok-free.app BACKEND_URL=https://bc1a9aeadcf4.ngrok-free.app
-2026-01-25 17:17:21,262 | INFO    | aiogram.dispatcher | Start polling
-2026-01-25 17:17:22,685 | INFO    | aiogram.dispatcher | Run polling for bot @techreds_bot id=7320198123 - 'DB'

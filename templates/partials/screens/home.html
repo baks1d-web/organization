@@ -1,0 +1,22 @@
+<section class="screen active" id="home" data-screen>
+  <div class="card">
+    <div class="filter-bar" data-filter-bar="home">
+      <button class="chip active" data-action="home.setFilter" data-filter="today">Сегодня</button>
+      <button class="chip" data-action="home.setFilter" data-filter="tomorrow">Завтра</button>
+      <button class="chip" data-action="home.setFilter" data-filter="5plus">5+ дней</button>
+      <button class="chip" data-action="home.setFilter" data-filter="all">Все</button>
+
+      <div class="chip-right">
+        <span class="flame">🔥</span>
+        <span id="home-urgent-count">0</span>
+      </div>
+    </div>
+
+    <div id="home-tasks"></div>
+  </div>
+
+  <div class="card">
+    <h3>Баланс</h3>
+    <div class="balance" id="home-balance">Загрузка...</div>
+  </div>
+</section>
