@@ -2630,448 +2630,64 @@ sqlalchemy.exc.NoSuchTableError: task
 2026-01-25 13:27:37,787 | INFO    | backend.app.routes.api | → finance()
 2026-01-25 13:27:37,791 | INFO    | backend.app.routes.api | ← finance() 4.5ms
 2026-01-25 13:27:37,792 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 13:27:37] "GET /api/finance HTTP/1.1" 200 -
-2026-01-25 18:58:55,023 | INFO    | werkzeug | [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+2026-01-25 20:51:42,260 | INFO    | werkzeug | [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
  * Running on all addresses (0.0.0.0)
  * Running on http://127.0.0.1:5000
  * Running on http://10.33.0.2:5000
-2026-01-25 18:58:55,023 | INFO    | werkzeug | [33mPress CTRL+C to quit[0m
-2026-01-25 18:59:11,246 | INFO    | backend.app.routes.api | → group_tasks()
-2026-01-25 18:59:11,337 | INFO    | backend.app.routes.api | ← group_tasks() 90.8ms
-2026-01-25 18:59:11,339 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 18:59:11] "GET /api/groups/1/tasks HTTP/1.1" 200 -
-2026-01-25 18:59:15,051 | INFO    | backend.app.routes.api | → bot_start()
-2026-01-25 18:59:15,064 | INFO    | backend.app.routes.api | ← bot_start() 13.1ms
-2026-01-25 18:59:15,064 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 18:59:15] "POST /api/bot/start HTTP/1.1" 200 -
-2026-01-25 18:59:15,384 | INFO    | backend.app.routes.api | → bot_invites_pending()
-2026-01-25 18:59:15,388 | INFO    | backend.app.routes.api | ← bot_invites_pending() 3.6ms
-2026-01-25 18:59:15,389 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 18:59:15] "POST /api/bot/invites/pending HTTP/1.1" 200 -
-2026-01-25 18:59:17,177 | INFO    | backend.app.routes.web | → index()
-2026-01-25 18:59:17,204 | INFO    | backend.app.routes.web | ← index() 26.9ms
-2026-01-25 18:59:17,205 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 18:59:17] "GET /?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTc2OTM1Njc1NSwianRpIjoiZWVjYmMyZWQtY2Y3NC00Y2E0LWFlZDEtZDQzMGE3YjRiZmY4IiwidHlwZSI6ImFjY2VzcyIsInN1YiI6IjEiLCJuYmYiOjE3NjkzNTY3NTUsImNzcmYiOiIwMmMzOTUyYy1kZmNjLTQ5ZmYtYTQzYi03OWM4NTU0NThhZTAiLCJleHAiOjE3NjkzNjAzNTV9.9hOCJZaGzkUIjWqa5tLj5H0z1nk-0QnDkfduNcbtauw HTTP/1.1" 200 -
-2026-01-25 18:59:17,654 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 18:59:17] "GET /static/js/app.js HTTP/1.1" 200 -
-2026-01-25 18:59:17,655 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 18:59:17] "GET /static/css/style.css HTTP/1.1" 200 -
-2026-01-25 18:59:17,864 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 18:59:17] "GET /static/js/features/bootstrap.js HTTP/1.1" 200 -
-2026-01-25 18:59:17,865 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 18:59:17] "GET /static/js/ui/actions.js HTTP/1.1" 200 -
-2026-01-25 18:59:18,052 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 18:59:18] "GET /static/js/features/navigation.js HTTP/1.1" 200 -
-2026-01-25 18:59:18,052 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 18:59:18] "GET /static/js/features/datebar.js HTTP/1.1" 200 -
-2026-01-25 18:59:18,073 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 18:59:18] "GET /static/js/ui/dom.js HTTP/1.1" 200 -
-2026-01-25 18:59:18,073 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 18:59:18] "GET /static/js/integrations/telegram_back.js HTTP/1.1" 200 -
-2026-01-25 18:59:18,074 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 18:59:18] "GET /static/js/features/auth.js HTTP/1.1" 200 -
-2026-01-25 18:59:18,109 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 18:59:18] "GET /static/js/features/actions_registry.js HTTP/1.1" 200 -
-2026-01-25 18:59:18,282 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 18:59:18] "GET /static/js/features/home.js HTTP/1.1" 200 -
-2026-01-25 18:59:18,309 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 18:59:18] "GET /static/js/features/tasks.js HTTP/1.1" 200 -
-2026-01-25 18:59:18,310 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 18:59:18] "GET /static/js/features/groups.js HTTP/1.1" 200 -
-2026-01-25 18:59:18,311 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 18:59:18] "GET /static/js/features/settings.js HTTP/1.1" 200 -
-2026-01-25 18:59:18,312 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 18:59:18] "GET /static/js/core/state.js HTTP/1.1" 200 -
-2026-01-25 18:59:18,314 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 18:59:18] "GET /static/js/features/personal_finance.js HTTP/1.1" 200 -
-2026-01-25 18:59:18,315 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 18:59:18] "GET /static/js/core/utils.js HTTP/1.1" 200 -
-2026-01-25 18:59:18,345 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 18:59:18] "GET /static/js/core/storage.js HTTP/1.1" 200 -
-2026-01-25 18:59:18,346 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 18:59:18] "GET /static/js/core/api.js HTTP/1.1" 200 -
-2026-01-25 18:59:18,346 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 18:59:18] "GET /static/js/ui/modals.js HTTP/1.1" 200 -
-2026-01-25 18:59:18,347 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 18:59:18] "GET /static/js/features/add.js HTTP/1.1" 200 -
-2026-01-25 18:59:18,347 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 18:59:18] "GET /static/js/features/manage.js HTTP/1.1" 200 -
-2026-01-25 18:59:18,473 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 18:59:18] "GET /static/js/features/users.js HTTP/1.1" 200 -
-2026-01-25 18:59:38,528 | INFO    | backend.app.routes.web | → index()
-2026-01-25 18:59:38,529 | INFO    | backend.app.routes.web | ← index() 0.8ms
-2026-01-25 18:59:38,529 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 18:59:38] "GET /?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTc2OTM1Njc1NSwianRpIjoiZWVjYmMyZWQtY2Y3NC00Y2E0LWFlZDEtZDQzMGE3YjRiZmY4IiwidHlwZSI6ImFjY2VzcyIsInN1YiI6IjEiLCJuYmYiOjE3NjkzNTY3NTUsImNzcmYiOiIwMmMzOTUyYy1kZmNjLTQ5ZmYtYTQzYi03OWM4NTU0NThhZTAiLCJleHAiOjE3NjkzNjAzNTV9.9hOCJZaGzkUIjWqa5tLj5H0z1nk-0QnDkfduNcbtauw HTTP/1.1" 200 -
-2026-01-25 18:59:38,912 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 18:59:38] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
-2026-01-25 18:59:38,915 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 18:59:38] "[36mGET /static/js/app.js HTTP/1.1[0m" 304 -
-2026-01-25 18:59:39,165 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 18:59:39] "[36mGET /static/js/ui/actions.js HTTP/1.1[0m" 304 -
-2026-01-25 18:59:39,166 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 18:59:39] "[36mGET /static/js/features/bootstrap.js HTTP/1.1[0m" 304 -
-2026-01-25 18:59:39,387 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 18:59:39] "[36mGET /static/js/ui/dom.js HTTP/1.1[0m" 304 -
-2026-01-25 18:59:39,388 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 18:59:39] "[36mGET /static/js/features/navigation.js HTTP/1.1[0m" 304 -
-2026-01-25 18:59:39,390 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 18:59:39] "[36mGET /static/js/features/actions_registry.js HTTP/1.1[0m" 304 -
-2026-01-25 18:59:39,393 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 18:59:39] "[36mGET /static/js/features/auth.js HTTP/1.1[0m" 304 -
-2026-01-25 18:59:39,394 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 18:59:39] "[36mGET /static/js/features/datebar.js HTTP/1.1[0m" 304 -
-2026-01-25 18:59:39,394 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 18:59:39] "[36mGET /static/js/integrations/telegram_back.js HTTP/1.1[0m" 304 -
-2026-01-25 18:59:39,635 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 18:59:39] "[36mGET /static/js/features/tasks.js HTTP/1.1[0m" 304 -
-2026-01-25 18:59:39,636 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 18:59:39] "[36mGET /static/js/features/personal_finance.js HTTP/1.1[0m" 304 -
-2026-01-25 18:59:39,639 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 18:59:39] "[36mGET /static/js/features/home.js HTTP/1.1[0m" 304 -
-2026-01-25 18:59:39,654 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 18:59:39] "[36mGET /static/js/features/groups.js HTTP/1.1[0m" 304 -
-2026-01-25 18:59:39,656 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 18:59:39] "[36mGET /static/js/core/state.js HTTP/1.1[0m" 304 -
-2026-01-25 18:59:39,660 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 18:59:39] "[36mGET /static/js/features/settings.js HTTP/1.1[0m" 304 -
-2026-01-25 18:59:39,734 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 18:59:39] "[36mGET /static/js/features/manage.js HTTP/1.1[0m" 304 -
-2026-01-25 18:59:39,737 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 18:59:39] "[36mGET /static/js/core/storage.js HTTP/1.1[0m" 304 -
-2026-01-25 18:59:39,738 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 18:59:39] "[36mGET /static/js/features/add.js HTTP/1.1[0m" 304 -
-2026-01-25 18:59:39,742 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 18:59:39] "[36mGET /static/js/core/utils.js HTTP/1.1[0m" 304 -
-2026-01-25 18:59:39,745 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 18:59:39] "[36mGET /static/js/ui/modals.js HTTP/1.1[0m" 304 -
-2026-01-25 18:59:39,748 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 18:59:39] "[36mGET /static/js/core/api.js HTTP/1.1[0m" 304 -
-2026-01-25 18:59:39,824 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 18:59:39] "[36mGET /static/js/features/users.js HTTP/1.1[0m" 304 -
-2026-01-25 19:00:02,735 | INFO    | backend.app.routes.web | → index()
-2026-01-25 19:00:02,737 | INFO    | backend.app.routes.web | ← index() 2.7ms
-2026-01-25 19:00:02,738 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 19:00:02] "GET /?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTc2OTM1Njc1NSwianRpIjoiZWVjYmMyZWQtY2Y3NC00Y2E0LWFlZDEtZDQzMGE3YjRiZmY4IiwidHlwZSI6ImFjY2VzcyIsInN1YiI6IjEiLCJuYmYiOjE3NjkzNTY3NTUsImNzcmYiOiIwMmMzOTUyYy1kZmNjLTQ5ZmYtYTQzYi03OWM4NTU0NThhZTAiLCJleHAiOjE3NjkzNjAzNTV9.9hOCJZaGzkUIjWqa5tLj5H0z1nk-0QnDkfduNcbtauw HTTP/1.1" 200 -
-2026-01-25 19:00:02,999 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 19:00:02] "[36mGET /static/js/app.js HTTP/1.1[0m" 304 -
-2026-01-25 19:00:03,001 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 19:00:03] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
-2026-01-25 19:00:03,348 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 19:00:03] "[36mGET /static/js/ui/actions.js HTTP/1.1[0m" 304 -
-2026-01-25 19:00:03,349 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 19:00:03] "[36mGET /static/js/features/bootstrap.js HTTP/1.1[0m" 304 -
-2026-01-25 19:00:03,558 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 19:00:03] "[36mGET /static/js/integrations/telegram_back.js HTTP/1.1[0m" 304 -
-2026-01-25 19:00:03,560 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 19:00:03] "[36mGET /static/js/features/actions_registry.js HTTP/1.1[0m" 304 -
-2026-01-25 19:00:03,561 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 19:00:03] "[36mGET /static/js/ui/dom.js HTTP/1.1[0m" 304 -
-2026-01-25 19:00:03,564 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 19:00:03] "[36mGET /static/js/features/auth.js HTTP/1.1[0m" 304 -
-2026-01-25 19:00:03,566 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 19:00:03] "[36mGET /static/js/features/datebar.js HTTP/1.1[0m" 304 -
-2026-01-25 19:00:03,566 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 19:00:03] "[36mGET /static/js/features/navigation.js HTTP/1.1[0m" 304 -
-2026-01-25 19:00:03,716 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 19:00:03] "[36mGET /static/js/core/state.js HTTP/1.1[0m" 304 -
-2026-01-25 19:00:03,841 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 19:00:03] "[36mGET /static/js/features/manage.js HTTP/1.1[0m" 304 -
-2026-01-25 19:00:03,845 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 19:00:03] "[36mGET /static/js/features/tasks.js HTTP/1.1[0m" 304 -
-2026-01-25 19:00:03,850 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 19:00:03] "[36mGET /static/js/features/add.js HTTP/1.1[0m" 304 -
-2026-01-25 19:00:03,854 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 19:00:03] "[36mGET /static/js/features/home.js HTTP/1.1[0m" 304 -
-2026-01-25 19:00:03,859 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 19:00:03] "[36mGET /static/js/ui/modals.js HTTP/1.1[0m" 304 -
-2026-01-25 19:00:03,859 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 19:00:03] "[36mGET /static/js/features/settings.js HTTP/1.1[0m" 304 -
-2026-01-25 19:00:03,860 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 19:00:03] "[36mGET /static/js/features/groups.js HTTP/1.1[0m" 304 -
-2026-01-25 19:00:03,861 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 19:00:03] "[36mGET /static/js/core/storage.js HTTP/1.1[0m" 304 -
-2026-01-25 19:00:03,892 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 19:00:03] "[36mGET /static/js/core/utils.js HTTP/1.1[0m" 304 -
-2026-01-25 19:00:03,893 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 19:00:03] "[36mGET /static/js/core/api.js HTTP/1.1[0m" 304 -
-2026-01-25 19:00:03,894 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 19:00:03] "[36mGET /static/js/features/personal_finance.js HTTP/1.1[0m" 304 -
-2026-01-25 19:00:04,035 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 19:00:04] "[36mGET /static/js/features/users.js HTTP/1.1[0m" 304 -
-2026-01-25 19:00:11,306 | INFO    | werkzeug | [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
- * Running on all addresses (0.0.0.0)
- * Running on http://127.0.0.1:5000
- * Running on http://10.33.0.2:5000
-2026-01-25 19:00:11,307 | INFO    | werkzeug | [33mPress CTRL+C to quit[0m
-2026-01-25 19:00:14,279 | INFO    | backend.app.routes.web | → index()
-2026-01-25 19:00:14,302 | INFO    | backend.app.routes.web | ← index() 23.4ms
-2026-01-25 19:00:14,303 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 19:00:14] "GET /?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTc2OTM1Njc1NSwianRpIjoiZWVjYmMyZWQtY2Y3NC00Y2E0LWFlZDEtZDQzMGE3YjRiZmY4IiwidHlwZSI6ImFjY2VzcyIsInN1YiI6IjEiLCJuYmYiOjE3NjkzNTY3NTUsImNzcmYiOiIwMmMzOTUyYy1kZmNjLTQ5ZmYtYTQzYi03OWM4NTU0NThhZTAiLCJleHAiOjE3NjkzNjAzNTV9.9hOCJZaGzkUIjWqa5tLj5H0z1nk-0QnDkfduNcbtauw HTTP/1.1" 200 -
-2026-01-25 19:00:14,571 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 19:00:14] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
-2026-01-25 19:00:14,572 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 19:00:14] "[36mGET /static/js/app.js HTTP/1.1[0m" 304 -
-2026-01-25 19:00:14,759 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 19:00:14] "[36mGET /static/js/ui/actions.js HTTP/1.1[0m" 304 -
-2026-01-25 19:00:14,766 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 19:00:14] "[36mGET /static/js/features/bootstrap.js HTTP/1.1[0m" 304 -
-2026-01-25 19:00:14,918 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 19:00:14] "[36mGET /static/js/ui/dom.js HTTP/1.1[0m" 304 -
-2026-01-25 19:00:14,921 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 19:00:14] "[36mGET /static/js/features/actions_registry.js HTTP/1.1[0m" 304 -
-2026-01-25 19:00:14,987 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 19:00:14] "[36mGET /static/js/features/navigation.js HTTP/1.1[0m" 304 -
-2026-01-25 19:00:14,988 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 19:00:14] "[36mGET /static/js/integrations/telegram_back.js HTTP/1.1[0m" 304 -
-2026-01-25 19:00:14,992 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 19:00:14] "[36mGET /static/js/features/datebar.js HTTP/1.1[0m" 304 -
-2026-01-25 19:00:14,993 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 19:00:14] "[36mGET /static/js/features/auth.js HTTP/1.1[0m" 304 -
-2026-01-25 19:00:15,190 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 19:00:15] "[36mGET /static/js/features/tasks.js HTTP/1.1[0m" 304 -
-2026-01-25 19:00:15,192 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 19:00:15] "[36mGET /static/js/features/home.js HTTP/1.1[0m" 304 -
-2026-01-25 19:00:15,194 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 19:00:15] "[36mGET /static/js/features/add.js HTTP/1.1[0m" 304 -
-2026-01-25 19:00:15,196 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 19:00:15] "[36mGET /static/js/features/manage.js HTTP/1.1[0m" 304 -
-2026-01-25 19:00:15,197 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 19:00:15] "[36mGET /static/js/features/groups.js HTTP/1.1[0m" 304 -
-2026-01-25 19:00:15,200 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 19:00:15] "[36mGET /static/js/features/settings.js HTTP/1.1[0m" 304 -
-2026-01-25 19:00:15,202 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 19:00:15] "[36mGET /static/js/ui/modals.js HTTP/1.1[0m" 304 -
-2026-01-25 19:00:15,248 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 19:00:15] "[36mGET /static/js/core/state.js HTTP/1.1[0m" 304 -
-2026-01-25 19:00:15,249 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 19:00:15] "[36mGET /static/js/features/personal_finance.js HTTP/1.1[0m" 304 -
-2026-01-25 19:00:15,250 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 19:00:15] "[36mGET /static/js/core/api.js HTTP/1.1[0m" 304 -
-2026-01-25 19:00:15,252 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 19:00:15] "[36mGET /static/js/core/storage.js HTTP/1.1[0m" 304 -
-2026-01-25 19:00:15,253 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 19:00:15] "[36mGET /static/js/core/utils.js HTTP/1.1[0m" 304 -
-2026-01-25 19:00:15,359 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 19:00:15] "[36mGET /static/js/features/users.js HTTP/1.1[0m" 304 -
-2026-01-25 19:00:24,822 | INFO    | backend.app.routes.web | → index()
-2026-01-25 19:00:24,823 | INFO    | backend.app.routes.web | ← index() 1.0ms
-2026-01-25 19:00:24,824 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 19:00:24] "GET /?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTc2OTM1Njc1NSwianRpIjoiZWVjYmMyZWQtY2Y3NC00Y2E0LWFlZDEtZDQzMGE3YjRiZmY4IiwidHlwZSI6ImFjY2VzcyIsInN1YiI6IjEiLCJuYmYiOjE3NjkzNTY3NTUsImNzcmYiOiIwMmMzOTUyYy1kZmNjLTQ5ZmYtYTQzYi03OWM4NTU0NThhZTAiLCJleHAiOjE3NjkzNjAzNTV9.9hOCJZaGzkUIjWqa5tLj5H0z1nk-0QnDkfduNcbtauw HTTP/1.1" 200 -
-2026-01-25 19:00:25,076 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 19:00:25] "[36mGET /static/js/app.js HTTP/1.1[0m" 304 -
-2026-01-25 19:00:25,079 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 19:00:25] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
-2026-01-25 19:00:25,357 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 19:00:25] "[36mGET /static/js/ui/actions.js HTTP/1.1[0m" 304 -
-2026-01-25 19:00:25,364 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 19:00:25] "[36mGET /static/js/features/bootstrap.js HTTP/1.1[0m" 304 -
-2026-01-25 19:00:25,547 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 19:00:25] "[36mGET /static/js/features/actions_registry.js HTTP/1.1[0m" 304 -
-2026-01-25 19:00:25,548 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 19:00:25] "[36mGET /static/js/ui/dom.js HTTP/1.1[0m" 304 -
-2026-01-25 19:00:25,601 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 19:00:25] "[36mGET /static/js/features/navigation.js HTTP/1.1[0m" 304 -
-2026-01-25 19:00:25,602 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 19:00:25] "[36mGET /static/js/integrations/telegram_back.js HTTP/1.1[0m" 304 -
-2026-01-25 19:00:25,603 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 19:00:25] "[36mGET /static/js/features/auth.js HTTP/1.1[0m" 304 -
-2026-01-25 19:00:25,605 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 19:00:25] "[36mGET /static/js/features/datebar.js HTTP/1.1[0m" 304 -
-2026-01-25 19:00:25,803 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 19:00:25] "[36mGET /static/js/features/home.js HTTP/1.1[0m" 304 -
-2026-01-25 19:00:25,803 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 19:00:25] "[36mGET /static/js/features/add.js HTTP/1.1[0m" 304 -
-2026-01-25 19:00:25,807 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 19:00:25] "[36mGET /static/js/ui/modals.js HTTP/1.1[0m" 304 -
-2026-01-25 19:00:25,808 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 19:00:25] "[36mGET /static/js/features/settings.js HTTP/1.1[0m" 304 -
-2026-01-25 19:00:25,810 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 19:00:25] "[36mGET /static/js/features/manage.js HTTP/1.1[0m" 304 -
-2026-01-25 19:00:25,814 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 19:00:25] "[36mGET /static/js/features/tasks.js HTTP/1.1[0m" 304 -
-2026-01-25 19:00:25,814 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 19:00:25] "[36mGET /static/js/features/groups.js HTTP/1.1[0m" 304 -
-2026-01-25 19:00:25,868 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 19:00:25] "[36mGET /static/js/core/state.js HTTP/1.1[0m" 304 -
-2026-01-25 19:00:25,870 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 19:00:25] "[36mGET /static/js/core/utils.js HTTP/1.1[0m" 304 -
-2026-01-25 19:00:25,872 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 19:00:25] "[36mGET /static/js/core/storage.js HTTP/1.1[0m" 304 -
-2026-01-25 19:00:25,873 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 19:00:25] "[36mGET /static/js/features/personal_finance.js HTTP/1.1[0m" 304 -
-2026-01-25 19:00:25,873 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 19:00:25] "[36mGET /static/js/core/api.js HTTP/1.1[0m" 304 -
-2026-01-25 19:00:25,993 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 19:00:25] "[36mGET /static/js/features/users.js HTTP/1.1[0m" 304 -
-2026-01-25 19:00:55,021 | INFO    | backend.app.routes.web | → index()
-2026-01-25 19:00:55,023 | INFO    | backend.app.routes.web | ← index() 1.5ms
-2026-01-25 19:00:55,024 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 19:00:55] "GET /?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTc2OTM1Njc1NSwianRpIjoiZWVjYmMyZWQtY2Y3NC00Y2E0LWFlZDEtZDQzMGE3YjRiZmY4IiwidHlwZSI6ImFjY2VzcyIsInN1YiI6IjEiLCJuYmYiOjE3NjkzNTY3NTUsImNzcmYiOiIwMmMzOTUyYy1kZmNjLTQ5ZmYtYTQzYi03OWM4NTU0NThhZTAiLCJleHAiOjE3NjkzNjAzNTV9.9hOCJZaGzkUIjWqa5tLj5H0z1nk-0QnDkfduNcbtauw HTTP/1.1" 200 -
-2026-01-25 19:00:55,228 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 19:00:55] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
-2026-01-25 19:00:55,253 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 19:00:55] "[36mGET /static/js/app.js HTTP/1.1[0m" 304 -
-2026-01-25 19:00:55,519 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 19:00:55] "[36mGET /static/js/features/bootstrap.js HTTP/1.1[0m" 304 -
-2026-01-25 19:00:55,521 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 19:00:55] "[36mGET /static/js/ui/actions.js HTTP/1.1[0m" 304 -
-2026-01-25 19:00:55,769 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 19:00:55] "[36mGET /static/js/features/auth.js HTTP/1.1[0m" 304 -
-2026-01-25 19:00:55,770 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 19:00:55] "[36mGET /static/js/ui/dom.js HTTP/1.1[0m" 304 -
-2026-01-25 19:00:55,773 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 19:00:55] "[36mGET /static/js/features/datebar.js HTTP/1.1[0m" 304 -
-2026-01-25 19:00:55,836 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 19:00:55] "[36mGET /static/js/features/actions_registry.js HTTP/1.1[0m" 304 -
-2026-01-25 19:00:55,838 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 19:00:55] "[36mGET /static/js/integrations/telegram_back.js HTTP/1.1[0m" 304 -
-2026-01-25 19:00:55,839 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 19:00:55] "[36mGET /static/js/features/navigation.js HTTP/1.1[0m" 304 -
-2026-01-25 19:00:55,962 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 19:00:55] "[36mGET /static/js/core/utils.js HTTP/1.1[0m" 304 -
-2026-01-25 19:00:55,962 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 19:00:55] "[36mGET /static/js/core/storage.js HTTP/1.1[0m" 304 -
-2026-01-25 19:00:55,963 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 19:00:55] "[36mGET /static/js/core/api.js HTTP/1.1[0m" 304 -
-2026-01-25 19:00:55,972 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 19:00:55] "[36mGET /static/js/features/groups.js HTTP/1.1[0m" 304 -
-2026-01-25 19:00:55,993 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 19:00:55] "[36mGET /static/js/core/state.js HTTP/1.1[0m" 304 -
-2026-01-25 19:00:55,994 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 19:00:55] "[36mGET /static/js/features/personal_finance.js HTTP/1.1[0m" 304 -
-2026-01-25 19:00:56,073 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 19:00:56] "[36mGET /static/js/features/home.js HTTP/1.1[0m" 304 -
-2026-01-25 19:00:56,097 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 19:00:56] "[36mGET /static/js/features/tasks.js HTTP/1.1[0m" 304 -
-2026-01-25 19:00:56,101 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 19:00:56] "[36mGET /static/js/features/add.js HTTP/1.1[0m" 304 -
-2026-01-25 19:00:56,101 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 19:00:56] "[36mGET /static/js/features/manage.js HTTP/1.1[0m" 304 -
-2026-01-25 19:00:56,103 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 19:00:56] "[36mGET /static/js/ui/modals.js HTTP/1.1[0m" 304 -
-2026-01-25 19:00:56,104 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 19:00:56] "[36mGET /static/js/features/settings.js HTTP/1.1[0m" 304 -
-2026-01-25 19:00:56,265 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 19:00:56] "[36mGET /static/js/features/users.js HTTP/1.1[0m" 304 -
-2026-01-25 19:01:04,883 | INFO    | werkzeug | [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
- * Running on all addresses (0.0.0.0)
- * Running on http://127.0.0.1:5000
- * Running on http://10.33.0.2:5000
-2026-01-25 19:01:04,884 | INFO    | werkzeug | [33mPress CTRL+C to quit[0m
-2026-01-25 19:01:08,637 | INFO    | backend.app.routes.api | → bot_start()
-2026-01-25 19:01:08,671 | INFO    | backend.app.routes.api | ← bot_start() 34.0ms
-2026-01-25 19:01:08,672 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 19:01:08] "POST /api/bot/start HTTP/1.1" 200 -
-2026-01-25 19:01:09,126 | INFO    | backend.app.routes.api | → bot_invites_pending()
-2026-01-25 19:01:09,133 | INFO    | backend.app.routes.api | ← bot_invites_pending() 7.7ms
-2026-01-25 19:01:09,134 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 19:01:09] "POST /api/bot/invites/pending HTTP/1.1" 200 -
-2026-01-25 19:01:11,336 | INFO    | backend.app.routes.web | → index()
-2026-01-25 19:01:11,363 | INFO    | backend.app.routes.web | ← index() 27.3ms
-2026-01-25 19:01:11,364 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 19:01:11] "GET /?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTc2OTM1Njg2OCwianRpIjoiZDI5YzhmNjUtMjNkZC00OGRlLThjMWMtOTA3MmI4ZDZjMDdmIiwidHlwZSI6ImFjY2VzcyIsInN1YiI6IjEiLCJuYmYiOjE3NjkzNTY4NjgsImNzcmYiOiIxMzQyNTM1Zi04YjZlLTRmNzgtODI3Yi0zOTYzOTkzYzYxMDIiLCJleHAiOjE3NjkzNjA0Njh9.fDmV32Zf3XH5umMC2tUG_qyrklltDn9BpMJEXa4yPVQ HTTP/1.1" 200 -
-2026-01-25 19:01:11,580 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 19:01:11] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
-2026-01-25 19:01:11,632 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 19:01:11] "[36mGET /static/js/app.js HTTP/1.1[0m" 304 -
-2026-01-25 19:01:11,887 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 19:01:11] "[36mGET /static/js/ui/actions.js HTTP/1.1[0m" 304 -
-2026-01-25 19:01:11,890 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 19:01:11] "[36mGET /static/js/features/bootstrap.js HTTP/1.1[0m" 304 -
-2026-01-25 19:01:12,123 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 19:01:12] "[36mGET /static/js/features/actions_registry.js HTTP/1.1[0m" 304 -
-2026-01-25 19:01:12,127 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 19:01:12] "[36mGET /static/js/ui/dom.js HTTP/1.1[0m" 304 -
-2026-01-25 19:01:12,129 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 19:01:12] "[36mGET /static/js/features/navigation.js HTTP/1.1[0m" 304 -
-2026-01-25 19:01:12,129 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 19:01:12] "[36mGET /static/js/features/auth.js HTTP/1.1[0m" 304 -
-2026-01-25 19:01:12,131 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 19:01:12] "[36mGET /static/js/integrations/telegram_back.js HTTP/1.1[0m" 304 -
-2026-01-25 19:01:12,176 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 19:01:12] "[36mGET /static/js/features/datebar.js HTTP/1.1[0m" 304 -
-2026-01-25 19:01:12,347 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 19:01:12] "[36mGET /static/js/features/home.js HTTP/1.1[0m" 304 -
-2026-01-25 19:01:12,351 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 19:01:12] "[36mGET /static/js/ui/modals.js HTTP/1.1[0m" 304 -
-2026-01-25 19:01:12,354 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 19:01:12] "[36mGET /static/js/features/settings.js HTTP/1.1[0m" 304 -
-2026-01-25 19:01:12,355 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 19:01:12] "[36mGET /static/js/features/manage.js HTTP/1.1[0m" 304 -
-2026-01-25 19:01:12,359 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 19:01:12] "[36mGET /static/js/features/tasks.js HTTP/1.1[0m" 304 -
-2026-01-25 19:01:12,361 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 19:01:12] "[36mGET /static/js/features/add.js HTTP/1.1[0m" 304 -
-2026-01-25 19:01:12,362 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 19:01:12] "[36mGET /static/js/features/groups.js HTTP/1.1[0m" 304 -
-2026-01-25 19:01:12,417 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 19:01:12] "[36mGET /static/js/core/utils.js HTTP/1.1[0m" 304 -
-2026-01-25 19:01:12,419 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 19:01:12] "[36mGET /static/js/core/state.js HTTP/1.1[0m" 304 -
-2026-01-25 19:01:12,420 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 19:01:12] "[36mGET /static/js/core/storage.js HTTP/1.1[0m" 304 -
-2026-01-25 19:01:12,421 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 19:01:12] "[36mGET /static/js/features/personal_finance.js HTTP/1.1[0m" 304 -
-2026-01-25 19:01:12,422 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 19:01:12] "[36mGET /static/js/core/api.js HTTP/1.1[0m" 304 -
-2026-01-25 19:01:12,536 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 19:01:12] "[36mGET /static/js/features/users.js HTTP/1.1[0m" 304 -
-2026-01-25 19:03:27,882 | INFO    | werkzeug | [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
- * Running on all addresses (0.0.0.0)
- * Running on http://127.0.0.1:5000
- * Running on http://10.33.0.2:5000
-2026-01-25 19:03:27,883 | INFO    | werkzeug | [33mPress CTRL+C to quit[0m
-2026-01-25 19:03:32,657 | INFO    | backend.app.routes.web | → index()
-2026-01-25 19:03:32,669 | ERROR   | backend.app.routes.web | ✖ index() failed
-Traceback (most recent call last):
-  File "/Users/macintosh/Documents/GitHub/organization/backend/app/utils/decorators.py", line 21, in wrapper
-    result = fn(*args, **kwargs)
-  File "/Users/macintosh/Documents/GitHub/organization/backend/app/routes/web.py", line 13, in index
-    return render_template("index.html")
-  File "/Users/macintosh/Documents/GitHub/organization/.venv/lib/python3.10/site-packages/flask/templating.py", line 150, in render_template
-    return _render(app, template, context)
-  File "/Users/macintosh/Documents/GitHub/organization/.venv/lib/python3.10/site-packages/flask/templating.py", line 131, in _render
-    rv = template.render(context)
-  File "/Users/macintosh/Documents/GitHub/organization/.venv/lib/python3.10/site-packages/jinja2/environment.py", line 1295, in render
-    self.environment.handle_exception()
-  File "/Users/macintosh/Documents/GitHub/organization/.venv/lib/python3.10/site-packages/jinja2/environment.py", line 942, in handle_exception
-    raise rewrite_traceback_stack(source=source)
-  File "/Users/macintosh/Documents/GitHub/organization/templates/index.html", line 1, in top-level template code
-    {% extends 'layouts/base.html' %}
-  File "/Users/macintosh/Documents/GitHub/organization/templates/layouts/base.html", line 15, in top-level template code
-    {% block body %}{% endblock %}
-  File "/Users/macintosh/Documents/GitHub/organization/templates/index.html", line 5, in block 'body'
-    {% include 'partials/components/auth.html' %}
-  File "/Users/macintosh/Documents/GitHub/organization/.venv/lib/python3.10/site-packages/flask/templating.py", line 65, in get_source
-    return self._get_source_fast(environment, template)
-  File "/Users/macintosh/Documents/GitHub/organization/.venv/lib/python3.10/site-packages/flask/templating.py", line 99, in _get_source_fast
-    raise TemplateNotFound(template)
-jinja2.exceptions.TemplateNotFound: partials/components/auth.html
-2026-01-25 19:03:32,672 | INFO    | backend.app.routes.web | ← index() 14.7ms
-2026-01-25 19:03:32,672 | ERROR   | backend.app | Exception on / [GET]
-Traceback (most recent call last):
-  File "/Users/macintosh/Documents/GitHub/organization/.venv/lib/python3.10/site-packages/flask/app.py", line 1473, in wsgi_app
-    response = self.full_dispatch_request()
-  File "/Users/macintosh/Documents/GitHub/organization/.venv/lib/python3.10/site-packages/flask/app.py", line 882, in full_dispatch_request
-    rv = self.handle_user_exception(e)
-  File "/Users/macintosh/Documents/GitHub/organization/.venv/lib/python3.10/site-packages/flask/app.py", line 880, in full_dispatch_request
-    rv = self.dispatch_request()
-  File "/Users/macintosh/Documents/GitHub/organization/.venv/lib/python3.10/site-packages/flask/app.py", line 865, in dispatch_request
-    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
-  File "/Users/macintosh/Documents/GitHub/organization/backend/app/utils/decorators.py", line 21, in wrapper
-    result = fn(*args, **kwargs)
-  File "/Users/macintosh/Documents/GitHub/organization/backend/app/routes/web.py", line 13, in index
-    return render_template("index.html")
-  File "/Users/macintosh/Documents/GitHub/organization/.venv/lib/python3.10/site-packages/flask/templating.py", line 150, in render_template
-    return _render(app, template, context)
-  File "/Users/macintosh/Documents/GitHub/organization/.venv/lib/python3.10/site-packages/flask/templating.py", line 131, in _render
-    rv = template.render(context)
-  File "/Users/macintosh/Documents/GitHub/organization/.venv/lib/python3.10/site-packages/jinja2/environment.py", line 1295, in render
-    self.environment.handle_exception()
-  File "/Users/macintosh/Documents/GitHub/organization/.venv/lib/python3.10/site-packages/jinja2/environment.py", line 942, in handle_exception
-    raise rewrite_traceback_stack(source=source)
-  File "/Users/macintosh/Documents/GitHub/organization/templates/index.html", line 1, in top-level template code
-    {% extends 'layouts/base.html' %}
-  File "/Users/macintosh/Documents/GitHub/organization/templates/layouts/base.html", line 15, in top-level template code
-    {% block body %}{% endblock %}
-  File "/Users/macintosh/Documents/GitHub/organization/templates/index.html", line 5, in block 'body'
-    {% include 'partials/components/auth.html' %}
-  File "/Users/macintosh/Documents/GitHub/organization/.venv/lib/python3.10/site-packages/flask/templating.py", line 65, in get_source
-    return self._get_source_fast(environment, template)
-  File "/Users/macintosh/Documents/GitHub/organization/.venv/lib/python3.10/site-packages/flask/templating.py", line 99, in _get_source_fast
-    raise TemplateNotFound(template)
-jinja2.exceptions.TemplateNotFound: partials/components/auth.html
-2026-01-25 19:03:32,674 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 19:03:32] "[35m[1mGET /?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTc2OTM1Njg2OCwianRpIjoiZDI5YzhmNjUtMjNkZC00OGRlLThjMWMtOTA3MmI4ZDZjMDdmIiwidHlwZSI6ImFjY2VzcyIsInN1YiI6IjEiLCJuYmYiOjE3NjkzNTY4NjgsImNzcmYiOiIxMzQyNTM1Zi04YjZlLTRmNzgtODI3Yi0zOTYzOTkzYzYxMDIiLCJleHAiOjE3NjkzNjA0Njh9.fDmV32Zf3XH5umMC2tUG_qyrklltDn9BpMJEXa4yPVQ HTTP/1.1[0m" 500 -
-2026-01-25 19:03:44,134 | INFO    | werkzeug | [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
- * Running on all addresses (0.0.0.0)
- * Running on http://127.0.0.1:5000
- * Running on http://10.33.0.2:5000
-2026-01-25 19:03:44,136 | INFO    | werkzeug | [33mPress CTRL+C to quit[0m
-2026-01-25 19:04:10,268 | INFO    | backend.app.routes.web | → index()
-2026-01-25 19:04:10,305 | INFO    | backend.app.routes.web | ← index() 38.1ms
-2026-01-25 19:04:10,308 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 19:04:10] "GET /?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTc2OTM1Njg2OCwianRpIjoiZDI5YzhmNjUtMjNkZC00OGRlLThjMWMtOTA3MmI4ZDZjMDdmIiwidHlwZSI6ImFjY2VzcyIsInN1YiI6IjEiLCJuYmYiOjE3NjkzNTY4NjgsImNzcmYiOiIxMzQyNTM1Zi04YjZlLTRmNzgtODI3Yi0zOTYzOTkzYzYxMDIiLCJleHAiOjE3NjkzNjA0Njh9.fDmV32Zf3XH5umMC2tUG_qyrklltDn9BpMJEXa4yPVQ HTTP/1.1" 200 -
-2026-01-25 19:04:10,605 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 19:04:10] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
-2026-01-25 19:04:10,606 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 19:04:10] "[36mGET /static/js/app.js HTTP/1.1[0m" 304 -
-2026-01-25 19:04:10,840 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 19:04:10] "[36mGET /static/js/features/bootstrap.js HTTP/1.1[0m" 304 -
-2026-01-25 19:04:10,841 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 19:04:10] "[36mGET /static/js/ui/actions.js HTTP/1.1[0m" 304 -
-2026-01-25 19:04:11,046 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 19:04:11] "[36mGET /static/js/features/auth.js HTTP/1.1[0m" 304 -
-2026-01-25 19:04:11,046 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 19:04:11] "[36mGET /static/js/integrations/telegram_back.js HTTP/1.1[0m" 304 -
-2026-01-25 19:04:11,048 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 19:04:11] "[36mGET /static/js/features/datebar.js HTTP/1.1[0m" 304 -
-2026-01-25 19:04:11,053 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 19:04:11] "[36mGET /static/js/ui/dom.js HTTP/1.1[0m" 304 -
-2026-01-25 19:04:11,053 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 19:04:11] "[36mGET /static/js/features/navigation.js HTTP/1.1[0m" 304 -
-2026-01-25 19:04:11,055 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 19:04:11] "[36mGET /static/js/features/actions_registry.js HTTP/1.1[0m" 304 -
-2026-01-25 19:04:11,254 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 19:04:11] "[36mGET /static/js/core/utils.js HTTP/1.1[0m" 304 -
-2026-01-25 19:04:11,255 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 19:04:11] "[36mGET /static/js/core/state.js HTTP/1.1[0m" 304 -
-2026-01-25 19:04:11,259 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 19:04:11] "[36mGET /static/js/core/storage.js HTTP/1.1[0m" 304 -
-2026-01-25 19:04:11,261 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 19:04:11] "[36mGET /static/js/features/groups.js HTTP/1.1[0m" 304 -
-2026-01-25 19:04:11,262 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 19:04:11] "[36mGET /static/js/core/api.js HTTP/1.1[0m" 304 -
-2026-01-25 19:04:11,345 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 19:04:11] "[36mGET /static/js/features/add.js HTTP/1.1[0m" 304 -
-2026-01-25 19:04:11,347 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 19:04:11] "[36mGET /static/js/features/manage.js HTTP/1.1[0m" 304 -
-2026-01-25 19:04:11,353 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 19:04:11] "[36mGET /static/js/features/home.js HTTP/1.1[0m" 304 -
-2026-01-25 19:04:11,354 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 19:04:11] "[36mGET /static/js/features/personal_finance.js HTTP/1.1[0m" 304 -
-2026-01-25 19:04:11,357 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 19:04:11] "[36mGET /static/js/ui/modals.js HTTP/1.1[0m" 304 -
-2026-01-25 19:04:11,357 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 19:04:11] "[36mGET /static/js/features/tasks.js HTTP/1.1[0m" 304 -
-2026-01-25 19:04:11,358 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 19:04:11] "[36mGET /static/js/features/settings.js HTTP/1.1[0m" 304 -
-2026-01-25 19:04:11,518 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 19:04:11] "[36mGET /static/js/features/users.js HTTP/1.1[0m" 304 -
-2026-01-25 19:05:37,187 | INFO    | werkzeug | [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
- * Running on all addresses (0.0.0.0)
- * Running on http://127.0.0.1:5000
- * Running on http://10.33.0.2:5000
-2026-01-25 19:05:37,188 | INFO    | werkzeug | [33mPress CTRL+C to quit[0m
-2026-01-25 19:05:41,300 | INFO    | backend.app.routes.web | → index()
-2026-01-25 19:05:41,341 | INFO    | backend.app.routes.web | ← index() 41.8ms
-2026-01-25 19:05:41,344 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 19:05:41] "GET /?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTc2OTM1Njg2OCwianRpIjoiZDI5YzhmNjUtMjNkZC00OGRlLThjMWMtOTA3MmI4ZDZjMDdmIiwidHlwZSI6ImFjY2VzcyIsInN1YiI6IjEiLCJuYmYiOjE3NjkzNTY4NjgsImNzcmYiOiIxMzQyNTM1Zi04YjZlLTRmNzgtODI3Yi0zOTYzOTkzYzYxMDIiLCJleHAiOjE3NjkzNjA0Njh9.fDmV32Zf3XH5umMC2tUG_qyrklltDn9BpMJEXa4yPVQ HTTP/1.1" 200 -
-2026-01-25 19:05:41,627 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 19:05:41] "[36mGET /static/js/app.js HTTP/1.1[0m" 304 -
-2026-01-25 19:05:41,631 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 19:05:41] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
-2026-01-25 19:05:41,836 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 19:05:41] "[36mGET /static/js/ui/actions.js HTTP/1.1[0m" 304 -
-2026-01-25 19:05:41,838 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 19:05:41] "[36mGET /static/js/features/bootstrap.js HTTP/1.1[0m" 304 -
-2026-01-25 19:05:42,063 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 19:05:42] "[36mGET /static/js/integrations/telegram_back.js HTTP/1.1[0m" 304 -
-2026-01-25 19:05:42,063 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 19:05:42] "[36mGET /static/js/features/actions_registry.js HTTP/1.1[0m" 304 -
-2026-01-25 19:05:42,065 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 19:05:42] "[36mGET /static/js/features/navigation.js HTTP/1.1[0m" 304 -
-2026-01-25 19:05:42,065 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 19:05:42] "[36mGET /static/js/features/auth.js HTTP/1.1[0m" 304 -
-2026-01-25 19:05:42,068 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 19:05:42] "[36mGET /static/js/ui/dom.js HTTP/1.1[0m" 304 -
-2026-01-25 19:05:42,069 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 19:05:42] "[36mGET /static/js/features/datebar.js HTTP/1.1[0m" 304 -
-2026-01-25 19:05:42,359 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 19:05:42] "[36mGET /static/js/core/state.js HTTP/1.1[0m" 304 -
-2026-01-25 19:05:42,362 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 19:05:42] "[36mGET /static/js/ui/modals.js HTTP/1.1[0m" 304 -
-2026-01-25 19:05:42,363 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 19:05:42] "[36mGET /static/js/core/utils.js HTTP/1.1[0m" 304 -
-2026-01-25 19:05:42,366 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 19:05:42] "[36mGET /static/js/features/manage.js HTTP/1.1[0m" 304 -
-2026-01-25 19:05:42,368 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 19:05:42] "[36mGET /static/js/core/storage.js HTTP/1.1[0m" 304 -
-2026-01-25 19:05:42,372 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 19:05:42] "[36mGET /static/js/features/home.js HTTP/1.1[0m" 304 -
-2026-01-25 19:05:42,373 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 19:05:42] "[36mGET /static/js/features/personal_finance.js HTTP/1.1[0m" 304 -
-2026-01-25 19:05:42,374 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 19:05:42] "[36mGET /static/js/features/settings.js HTTP/1.1[0m" 304 -
-2026-01-25 19:05:42,408 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 19:05:42] "[36mGET /static/js/features/add.js HTTP/1.1[0m" 304 -
-2026-01-25 19:05:42,409 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 19:05:42] "[36mGET /static/js/features/tasks.js HTTP/1.1[0m" 304 -
-2026-01-25 19:05:42,411 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 19:05:42] "[36mGET /static/js/core/api.js HTTP/1.1[0m" 304 -
-2026-01-25 19:05:42,412 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 19:05:42] "[36mGET /static/js/features/groups.js HTTP/1.1[0m" 304 -
-2026-01-25 19:05:42,580 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 19:05:42] "[36mGET /static/js/features/users.js HTTP/1.1[0m" 304 -
-2026-01-25 19:06:16,568 | INFO    | werkzeug | [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
- * Running on all addresses (0.0.0.0)
- * Running on http://127.0.0.1:5000
- * Running on http://10.33.0.2:5000
-2026-01-25 19:06:16,569 | INFO    | werkzeug | [33mPress CTRL+C to quit[0m
-2026-01-25 19:06:18,789 | INFO    | backend.app.routes.web | → index()
-2026-01-25 19:06:18,819 | INFO    | backend.app.routes.web | ← index() 30.4ms
-2026-01-25 19:06:18,820 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 19:06:18] "GET /?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTc2OTM1Njg2OCwianRpIjoiZDI5YzhmNjUtMjNkZC00OGRlLThjMWMtOTA3MmI4ZDZjMDdmIiwidHlwZSI6ImFjY2VzcyIsInN1YiI6IjEiLCJuYmYiOjE3NjkzNTY4NjgsImNzcmYiOiIxMzQyNTM1Zi04YjZlLTRmNzgtODI3Yi0zOTYzOTkzYzYxMDIiLCJleHAiOjE3NjkzNjA0Njh9.fDmV32Zf3XH5umMC2tUG_qyrklltDn9BpMJEXa4yPVQ HTTP/1.1" 200 -
-2026-01-25 19:06:19,103 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 19:06:19] "[36mGET /static/js/app.js HTTP/1.1[0m" 304 -
-2026-01-25 19:06:19,108 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 19:06:19] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
-2026-01-25 19:06:19,383 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 19:06:19] "[36mGET /static/js/ui/actions.js HTTP/1.1[0m" 304 -
-2026-01-25 19:06:19,384 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 19:06:19] "[36mGET /static/js/features/bootstrap.js HTTP/1.1[0m" 304 -
-2026-01-25 19:06:19,615 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 19:06:19] "[36mGET /static/js/ui/dom.js HTTP/1.1[0m" 304 -
-2026-01-25 19:06:19,616 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 19:06:19] "[36mGET /static/js/features/actions_registry.js HTTP/1.1[0m" 304 -
-2026-01-25 19:06:19,623 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 19:06:19] "[36mGET /static/js/features/auth.js HTTP/1.1[0m" 304 -
-2026-01-25 19:06:19,623 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 19:06:19] "[36mGET /static/js/features/datebar.js HTTP/1.1[0m" 304 -
-2026-01-25 19:06:19,624 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 19:06:19] "[36mGET /static/js/integrations/telegram_back.js HTTP/1.1[0m" 304 -
-2026-01-25 19:06:19,664 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 19:06:19] "[36mGET /static/js/features/navigation.js HTTP/1.1[0m" 304 -
-2026-01-25 19:06:19,843 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 19:06:19] "[36mGET /static/js/features/tasks.js HTTP/1.1[0m" 304 -
-2026-01-25 19:06:19,845 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 19:06:19] "[36mGET /static/js/features/add.js HTTP/1.1[0m" 304 -
-2026-01-25 19:06:19,849 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 19:06:19] "[36mGET /static/js/features/home.js HTTP/1.1[0m" 304 -
-2026-01-25 19:06:19,850 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 19:06:19] "[36mGET /static/js/features/groups.js HTTP/1.1[0m" 304 -
-2026-01-25 19:06:19,854 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 19:06:19] "[36mGET /static/js/features/manage.js HTTP/1.1[0m" 304 -
-2026-01-25 19:06:19,856 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 19:06:19] "[36mGET /static/js/features/settings.js HTTP/1.1[0m" 304 -
-2026-01-25 19:06:19,857 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 19:06:19] "[36mGET /static/js/ui/modals.js HTTP/1.1[0m" 304 -
-2026-01-25 19:06:19,900 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 19:06:19] "[36mGET /static/js/core/state.js HTTP/1.1[0m" 304 -
-2026-01-25 19:06:19,901 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 19:06:19] "[36mGET /static/js/features/personal_finance.js HTTP/1.1[0m" 304 -
-2026-01-25 19:06:19,901 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 19:06:19] "[36mGET /static/js/core/storage.js HTTP/1.1[0m" 304 -
-2026-01-25 19:06:19,902 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 19:06:19] "[36mGET /static/js/core/utils.js HTTP/1.1[0m" 304 -
-2026-01-25 19:06:19,902 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 19:06:19] "[36mGET /static/js/core/api.js HTTP/1.1[0m" 304 -
-2026-01-25 19:06:20,007 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 19:06:20] "[36mGET /static/js/features/users.js HTTP/1.1[0m" 304 -
-2026-01-25 19:07:10,930 | INFO    | werkzeug | [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
- * Running on all addresses (0.0.0.0)
- * Running on http://127.0.0.1:5000
- * Running on http://10.33.0.2:5000
-2026-01-25 19:07:10,931 | INFO    | werkzeug | [33mPress CTRL+C to quit[0m
-2026-01-25 19:07:28,722 | INFO    | backend.app.routes.api | → bot_start()
-2026-01-25 19:07:28,776 | INFO    | backend.app.routes.api | ← bot_start() 53.9ms
-2026-01-25 19:07:28,776 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 19:07:28] "POST /api/bot/start HTTP/1.1" 200 -
-2026-01-25 19:07:29,229 | INFO    | backend.app.routes.api | → bot_invites_pending()
-2026-01-25 19:07:29,236 | INFO    | backend.app.routes.api | ← bot_invites_pending() 7.2ms
-2026-01-25 19:07:29,237 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 19:07:29] "POST /api/bot/invites/pending HTTP/1.1" 200 -
-2026-01-25 19:07:31,287 | INFO    | backend.app.routes.web | → index()
-2026-01-25 19:07:31,317 | INFO    | backend.app.routes.web | ← index() 29.5ms
-2026-01-25 19:07:31,318 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 19:07:31] "GET /?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTc2OTM1NzI0OCwianRpIjoiMmM2MTQ2Y2ItZTM3NS00MGI5LThmMDYtYTI2YmYzYTZmMzY4IiwidHlwZSI6ImFjY2VzcyIsInN1YiI6IjEiLCJuYmYiOjE3NjkzNTcyNDgsImNzcmYiOiI5YWFmOTFiYi02MTA0LTRmZTQtYmJkMC1kYTU5YTNkMDJjN2EiLCJleHAiOjE3NjkzNjA4NDh9.qU9QPdXJ-HKrKDNIa_Oe41HDMZqX2R74tsnuXb25MoQ HTTP/1.1" 200 -
-2026-01-25 19:07:31,635 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 19:07:31] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
-2026-01-25 19:07:31,658 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 19:07:31] "[36mGET /static/js/app.js HTTP/1.1[0m" 304 -
-2026-01-25 19:07:31,917 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 19:07:31] "[36mGET /static/js/features/bootstrap.js HTTP/1.1[0m" 304 -
-2026-01-25 19:07:31,918 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 19:07:31] "[36mGET /static/js/ui/actions.js HTTP/1.1[0m" 304 -
-2026-01-25 19:07:32,146 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 19:07:32] "[36mGET /static/js/features/navigation.js HTTP/1.1[0m" 304 -
-2026-01-25 19:07:32,147 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 19:07:32] "[36mGET /static/js/features/datebar.js HTTP/1.1[0m" 304 -
-2026-01-25 19:07:32,148 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 19:07:32] "[36mGET /static/js/features/auth.js HTTP/1.1[0m" 304 -
-2026-01-25 19:07:32,151 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 19:07:32] "[36mGET /static/js/integrations/telegram_back.js HTTP/1.1[0m" 304 -
-2026-01-25 19:07:32,151 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 19:07:32] "[36mGET /static/js/features/actions_registry.js HTTP/1.1[0m" 304 -
-2026-01-25 19:07:32,152 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 19:07:32] "[36mGET /static/js/ui/dom.js HTTP/1.1[0m" 304 -
-2026-01-25 19:07:32,460 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 19:07:32] "[36mGET /static/js/features/groups.js HTTP/1.1[0m" 304 -
-2026-01-25 19:07:32,460 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 19:07:32] "[36mGET /static/js/features/home.js HTTP/1.1[0m" 304 -
-2026-01-25 19:07:32,464 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 19:07:32] "[36mGET /static/js/core/api.js HTTP/1.1[0m" 304 -
-2026-01-25 19:07:32,465 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 19:07:32] "[36mGET /static/js/features/personal_finance.js HTTP/1.1[0m" 304 -
-2026-01-25 19:07:32,505 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 19:07:32] "[36mGET /static/js/core/utils.js HTTP/1.1[0m" 304 -
-2026-01-25 19:07:32,505 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 19:07:32] "[36mGET /static/js/features/settings.js HTTP/1.1[0m" 304 -
-2026-01-25 19:07:32,508 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 19:07:32] "[36mGET /static/js/features/tasks.js HTTP/1.1[0m" 304 -
-2026-01-25 19:07:32,518 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 19:07:32] "[36mGET /static/js/core/storage.js HTTP/1.1[0m" 304 -
-2026-01-25 19:07:32,522 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 19:07:32] "[36mGET /static/js/features/manage.js HTTP/1.1[0m" 304 -
-2026-01-25 19:07:32,523 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 19:07:32] "[36mGET /static/js/features/add.js HTTP/1.1[0m" 304 -
-2026-01-25 19:07:32,525 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 19:07:32] "[36mGET /static/js/core/state.js HTTP/1.1[0m" 304 -
-2026-01-25 19:07:32,527 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 19:07:32] "[36mGET /static/js/ui/modals.js HTTP/1.1[0m" 304 -
-2026-01-25 19:07:32,693 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 19:07:32] "[36mGET /static/js/features/users.js HTTP/1.1[0m" 304 -
-2026-01-25 19:08:52,236 | INFO    | werkzeug | [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
- * Running on all addresses (0.0.0.0)
- * Running on http://127.0.0.1:5000
- * Running on http://10.33.0.2:5000
-2026-01-25 19:08:52,236 | INFO    | werkzeug | [33mPress CTRL+C to quit[0m
-2026-01-25 19:09:06,498 | INFO    | backend.app.routes.api | → bot_start()
-2026-01-25 19:09:06,555 | INFO    | backend.app.routes.api | ← bot_start() 57.6ms
-2026-01-25 19:09:06,556 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 19:09:06] "POST /api/bot/start HTTP/1.1" 200 -
-2026-01-25 19:09:06,866 | INFO    | backend.app.routes.api | → bot_invites_pending()
-2026-01-25 19:09:06,873 | INFO    | backend.app.routes.api | ← bot_invites_pending() 6.8ms
-2026-01-25 19:09:06,874 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 19:09:06] "POST /api/bot/invites/pending HTTP/1.1" 200 -
-2026-01-25 19:09:08,931 | INFO    | backend.app.routes.web | → index()
-2026-01-25 19:09:08,963 | INFO    | backend.app.routes.web | ← index() 31.5ms
-2026-01-25 19:09:08,963 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 19:09:08] "GET /?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTc2OTM1NzM0NiwianRpIjoiZjhmNGY5M2EtNzZlNy00Mzg0LWJiZDgtNmIxMGJhNDkyNjQxIiwidHlwZSI6ImFjY2VzcyIsInN1YiI6IjEiLCJuYmYiOjE3NjkzNTczNDYsImNzcmYiOiI4NzViOWYzNS0zYjA1LTQ4MjgtYTc1Zi0zZWM2MmYzNTRmYjQiLCJleHAiOjE3NjkzNjA5NDZ9.jQc7GvwDEsbcgdr3-mfWjn3dD__Ytd_2Iw-6vJtHTOI HTTP/1.1" 200 -
-2026-01-25 19:09:09,281 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 19:09:09] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
-2026-01-25 19:09:09,282 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 19:09:09] "[36mGET /static/js/app.js HTTP/1.1[0m" 304 -
-2026-01-25 19:09:09,503 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 19:09:09] "[36mGET /static/js/features/bootstrap.js HTTP/1.1[0m" 304 -
-2026-01-25 19:09:09,504 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 19:09:09] "[36mGET /static/js/ui/actions.js HTTP/1.1[0m" 304 -
-2026-01-25 19:09:09,711 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 19:09:09] "[36mGET /static/js/features/auth.js HTTP/1.1[0m" 304 -
-2026-01-25 19:09:09,712 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 19:09:09] "[36mGET /static/js/features/navigation.js HTTP/1.1[0m" 304 -
-2026-01-25 19:09:09,716 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 19:09:09] "[36mGET /static/js/features/actions_registry.js HTTP/1.1[0m" 304 -
-2026-01-25 19:09:09,717 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 19:09:09] "[36mGET /static/js/integrations/telegram_back.js HTTP/1.1[0m" 304 -
-2026-01-25 19:09:09,723 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 19:09:09] "[36mGET /static/js/features/datebar.js HTTP/1.1[0m" 304 -
-2026-01-25 19:09:09,726 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 19:09:09] "[36mGET /static/js/ui/dom.js HTTP/1.1[0m" 304 -
-2026-01-25 19:09:10,042 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 19:09:10] "[36mGET /static/js/features/tasks.js HTTP/1.1[0m" 304 -
-2026-01-25 19:09:10,044 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 19:09:10] "[36mGET /static/js/core/storage.js HTTP/1.1[0m" 304 -
-2026-01-25 19:09:10,048 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 19:09:10] "[36mGET /static/js/features/manage.js HTTP/1.1[0m" 304 -
-2026-01-25 19:09:10,048 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 19:09:10] "[36mGET /static/js/features/add.js HTTP/1.1[0m" 304 -
-2026-01-25 19:09:10,052 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 19:09:10] "[36mGET /static/js/ui/modals.js HTTP/1.1[0m" 304 -
-2026-01-25 19:09:10,054 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 19:09:10] "[36mGET /static/js/features/home.js HTTP/1.1[0m" 304 -
-2026-01-25 19:09:10,056 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 19:09:10] "[36mGET /static/js/core/state.js HTTP/1.1[0m" 304 -
-2026-01-25 19:09:10,108 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 19:09:10] "[36mGET /static/js/features/settings.js HTTP/1.1[0m" 304 -
-2026-01-25 19:09:10,110 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 19:09:10] "[36mGET /static/js/features/personal_finance.js HTTP/1.1[0m" 304 -
-2026-01-25 19:09:10,112 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 19:09:10] "[36mGET /static/js/features/groups.js HTTP/1.1[0m" 304 -
-2026-01-25 19:09:10,113 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 19:09:10] "[36mGET /static/js/core/api.js HTTP/1.1[0m" 304 -
-2026-01-25 19:09:10,114 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 19:09:10] "[36mGET /static/js/core/utils.js HTTP/1.1[0m" 304 -
-2026-01-25 19:09:10,229 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 19:09:10] "[36mGET /static/js/features/users.js HTTP/1.1[0m" 304 -
+2026-01-25 20:51:42,260 | INFO    | werkzeug | [33mPress CTRL+C to quit[0m
+2026-01-25 20:51:49,134 | INFO    | backend.app.routes.api | → bot_start()
+2026-01-25 20:51:49,172 | INFO    | backend.app.routes.api | ← bot_start() 38.8ms
+2026-01-25 20:51:49,174 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 20:51:49] "POST /api/bot/start HTTP/1.1" 200 -
+2026-01-25 20:51:49,543 | INFO    | backend.app.routes.api | → bot_invites_pending()
+2026-01-25 20:51:49,550 | INFO    | backend.app.routes.api | ← bot_invites_pending() 7.3ms
+2026-01-25 20:51:49,551 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 20:51:49] "POST /api/bot/invites/pending HTTP/1.1" 200 -
+2026-01-25 20:51:51,155 | INFO    | backend.app.routes.web | → index()
+2026-01-25 20:51:51,173 | INFO    | backend.app.routes.web | ← index() 18.5ms
+2026-01-25 20:51:51,175 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 20:51:51] "GET /?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTc2OTM2MzUwOSwianRpIjoiMGNmYzY3YzEtMjA5OS00MjNkLTkzMWMtZjgyNTdlMTFlYTYxIiwidHlwZSI6ImFjY2VzcyIsInN1YiI6IjEiLCJuYmYiOjE3NjkzNjM1MDksImNzcmYiOiJkNGYxNGYyZC1iZGU4LTQ4MWUtYWI3NC00YjExMGYzOWFjNjUiLCJleHAiOjE3NjkzNjcxMDl9.3iTsBau7ORuj-dgeT7LebrWdp27Hf-Ek9v9y1kr0pLo HTTP/1.1" 200 -
+2026-01-25 20:51:51,679 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 20:51:51] "GET /static/css/style.css HTTP/1.1" 200 -
+2026-01-25 20:51:51,679 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 20:51:51] "GET /static/js/app.js HTTP/1.1" 200 -
+2026-01-25 20:51:52,012 | INFO    | backend.app.routes.api | → auth_telegram()
+2026-01-25 20:51:52,013 | INFO    | backend.app.routes.api | → auth_telegram()
+2026-01-25 20:51:52,023 | INFO    | backend.app.routes.api | ← auth_telegram() 11.1ms
+2026-01-25 20:51:52,026 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 20:51:52] "POST /api/auth/telegram HTTP/1.1" 200 -
+2026-01-25 20:51:52,030 | INFO    | backend.app.routes.api | ← auth_telegram() 16.6ms
+2026-01-25 20:51:52,030 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 20:51:52] "POST /api/auth/telegram HTTP/1.1" 200 -
+2026-01-25 20:51:52,232 | INFO    | backend.app.routes.api | → list_groups()
+2026-01-25 20:51:52,240 | INFO    | backend.app.routes.api | ← list_groups() 8.1ms
+2026-01-25 20:51:52,241 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 20:51:52] "GET /api/groups HTTP/1.1" 200 -
+2026-01-25 20:51:52,410 | INFO    | backend.app.routes.api | → list_groups()
+2026-01-25 20:51:52,414 | INFO    | backend.app.routes.api | ← list_groups() 3.6ms
+2026-01-25 20:51:52,415 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 20:51:52] "GET /api/groups HTTP/1.1" 200 -
+2026-01-25 20:51:52,427 | INFO    | backend.app.routes.api | → group_tasks()
+2026-01-25 20:51:52,447 | INFO    | backend.app.routes.api | ← group_tasks() 20.1ms
+2026-01-25 20:51:52,447 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 20:51:52] "GET /api/groups/1/tasks HTTP/1.1" 200 -
+2026-01-25 20:51:52,596 | INFO    | backend.app.routes.api | → group_tasks()
+2026-01-25 20:51:52,609 | INFO    | backend.app.routes.api | ← group_tasks() 12.4ms
+2026-01-25 20:51:52,609 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 20:51:52] "GET /api/groups/1/tasks HTTP/1.1" 200 -
+2026-01-25 20:51:52,693 | INFO    | backend.app.routes.api | → balance()
+2026-01-25 20:51:52,696 | INFO    | backend.app.routes.api | ← balance() 3.4ms
+2026-01-25 20:51:52,697 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 20:51:52] "GET /api/balance HTTP/1.1" 200 -
+2026-01-25 20:51:52,848 | INFO    | backend.app.routes.api | → balance()
+2026-01-25 20:51:52,851 | INFO    | backend.app.routes.api | ← balance() 2.7ms
+2026-01-25 20:51:52,852 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 20:51:52] "GET /api/balance HTTP/1.1" 200 -
+2026-01-25 20:51:57,512 | INFO    | backend.app.routes.api | → group_tasks()
+2026-01-25 20:51:57,525 | INFO    | backend.app.routes.api | ← group_tasks() 13.5ms
+2026-01-25 20:51:57,526 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 20:51:57] "GET /api/groups/1/tasks HTTP/1.1" 200 -
+2026-01-25 20:51:57,691 | INFO    | backend.app.routes.api | → balance()
+2026-01-25 20:51:57,694 | INFO    | backend.app.routes.api | ← balance() 2.9ms
+2026-01-25 20:51:57,695 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 20:51:57] "GET /api/balance HTTP/1.1" 200 -
+2026-01-25 20:51:58,296 | INFO    | backend.app.routes.api | → list_groups()
+2026-01-25 20:51:58,302 | INFO    | backend.app.routes.api | ← list_groups() 6.2ms
+2026-01-25 20:51:58,303 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 20:51:58] "GET /api/groups HTTP/1.1" 200 -
+2026-01-25 20:51:58,460 | INFO    | backend.app.routes.api | → group_tasks()
+2026-01-25 20:51:58,466 | INFO    | backend.app.routes.api | ← group_tasks() 6.0ms
+2026-01-25 20:51:58,467 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 20:51:58] "GET /api/groups/2/tasks HTTP/1.1" 200 -
+2026-01-25 20:51:59,622 | INFO    | backend.app.routes.api | → finance()
+2026-01-25 20:51:59,626 | INFO    | backend.app.routes.api | ← finance() 3.5ms
+2026-01-25 20:51:59,626 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 20:51:59] "GET /api/finance HTTP/1.1" 200 -
+2026-01-25 20:52:00,192 | INFO    | backend.app.routes.api | → list_groups()
+2026-01-25 20:52:00,198 | INFO    | backend.app.routes.api | ← list_groups() 5.9ms
+2026-01-25 20:52:00,199 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 20:52:00] "GET /api/groups HTTP/1.1" 200 -
+2026-01-25 20:52:00,376 | INFO    | backend.app.routes.api | → group_tasks()
+2026-01-25 20:52:00,382 | INFO    | backend.app.routes.api | ← group_tasks() 6.2ms
+2026-01-25 20:52:00,383 | INFO    | werkzeug | 127.0.0.1 - - [25/Jan/2026 20:52:00] "GET /api/groups/2/tasks HTTP/1.1" 200 -
